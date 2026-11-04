@@ -1,2 +1,2 @@
 # MimoPolar
-Site de natal
+Site de natal onde é possivel comprar seus ursos de pelucia
