@@ -3,32 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loja Natalina | Produtos</title>
+    <meta name="description" content="Explore 50 ideias de decoração natalina na Mimo Polar." />
+    <meta name="theme-color" content="#153d32" />
+    <title>Produtos | Mimo Polar</title>
     <link rel="icon" href="img/logo.png" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsivo.css" />
+    <script src="js/produtos.js" defer></script>
+    <script src="js/script.js" defer></script>
   </head>
   <body>
-    <header>
-      <img src="img/logo.png" alt="Logotipo da Loja Natalina" />
-      <nav class="menu">
-        <a href="index.html">Home</a>
-        <a href="produtos.html" class="ativo">Produtos</a>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+    <header class="cabecalho">
+      <a class="marca" href="index.html" aria-label="Mimo Polar, página inicial">
+        <span class="marca-icone" aria-hidden="true">✳</span>
+        <span>Mimo <strong>Polar</strong></span>
+      </a>
+      <nav class="menu" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a class="ativo" href="produtos.html" aria-current="page">Produtos</a>
+        <a href="galeria.html">Inspirações</a>
         <a href="sobre.html">Sobre nós</a>
         <a href="contato.html">Contato</a>
       </nav>
+      <button class="botao-musica" id="btn-musica" type="button">Ativar música</button>
+      <a class="atalho-carrinho" href="#catalogo">
+        Sacola <span class="contador-carrinho" data-qtd-carrinho>0</span>
+      </a>
     </header>
-    <main>
-      <h1>Nossos produtos</h1>
-      <input type="text" id="busca" placeholder="Buscar produto..." />
-      <section id="lista-produtos" class="grade-produtos">
-        <!-- os cards serão criados pelo JavaScript -->
+
+    <main id="conteudo" class="container">
+      <section class="titulo-pagina">
+        <p class="sobretitulo">Escolhas feitas para celebrar</p>
+        <h1>Encontre seu mimo de Natal</h1>
+        <p>São 50 ideias para decorar a casa, a árvore e os momentos especiais.</p>
+      </section>
+
+      <section class="catalogo" id="catalogo" aria-labelledby="titulo-catalogo">
+        <div class="catalogo-topo">
+          <div>
+            <h2 id="titulo-catalogo">Nosso catálogo</h2>
+            <p id="contador" class="texto-suave" aria-live="polite"></p>
+          </div>
+          <div class="filtros">
+            <label>
+              <span>Buscar</span>
+              <input id="busca" type="search" placeholder="Ex.: luzes, estrela..." />
+            </label>
+            <label>
+              <span>Categoria</span>
+              <select id="categoria">
+                <option value="todas">Todas as categorias</option>
+                <option value="Enfeites de árvore">Enfeites de árvore</option>
+                <option value="Luzes">Luzes</option>
+                <option value="Brinquedos">Brinquedos</option>
+                <option value="Embalagens e cartões">Embalagens e cartões</option>
+                <option value="Decoração da casa">Decoração da casa</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <aside class="resumo-carrinho" aria-live="polite">
+          <span>Sua sacola: <strong data-qtd-carrinho>0</strong> item(ns)</span>
+          <span>Total: <strong id="total-carrinho">R$ 0,00</strong></span>
+          <button class="botao-limpar" id="limpar-carrinho" type="button">Esvaziar sacola</button>
+        </aside>
+        <div id="lista-produtos" class="grade-produtos" aria-live="polite"></div>
       </section>
     </main>
-    <footer>
-      <p>&copy; 2026 Loja Natalina. Imagens: Unsplash.</p>
+
+    <footer class="rodape">
+      <div class="container rodape-conteudo">
+        <a class="marca marca-rodape" href="index.html">Mimo <strong>Polar</strong></a>
+        <p>Decoração natalina para celebrar junto.</p>
+        <nav aria-label="Links do rodapé">
+          <a href="sobre.html">Nossa história</a>
+          <a href="contato.html">Fale com a gente</a>
+        </nav>
+        <small>&copy; 2026 Mimo Polar. Projeto acadêmico.</small>
+      </div>
     </footer>
-    <script src="js/produtos.js"></script>
-    <script src="js/script.js"></script>
   </body>
 </html>
