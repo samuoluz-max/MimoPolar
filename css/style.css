@@ -1,0 +1,31 @@
+:root {
+  --vermelho: #b3202a;
+  --verde: #1f5d3a;
+  --dourado: #c9a227;
+  --neve: #ffffff;
+  --creme: #fbf6ea;
+  --noite: #12263f;
+}
+
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: var(--neve);
+  border-radius: 16px;
+  overflow: hidden;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
