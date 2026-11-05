@@ -45,3 +45,13 @@
     opacity: 1;
   }
 }
+
+
+body{
+  background-color: var(--noite);
+}
+.ini{
+  background-color: var(--creme);
+  margin: 25px;
+  padding: 55px;
+}
