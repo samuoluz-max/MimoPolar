@@ -47,13 +47,13 @@
 }
 
 /* ====== Index.HTML ====== */
-body{
+body {
   background-color: var(--noite);
 }
-.ini h1{
+.ini h1 {
   font-size: 40px;
 }
-.ini{
+.ini {
   background-color: var(--creme);
   margin: 2px;
   padding: 55px;
@@ -64,4 +64,181 @@ body{
   display: flex;
   list-style: none;
   gap: 20px; /* Espaço entre os itens do menu */
+}
+
+.header {
+  background-color: var(--creme);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* ====== Cabeçalhos ====== */
+.ini {
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--creme), #fffdf7);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+.ini h1 {
+  margin: 0 0 0.5rem;
+  color: var(--verde);
+  letter-spacing: 0.04em;
+}
+.ini .titulo p {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--noite);
+  line-height: 1.6;
+}
+.direita nav ul {
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+.direita nav li p {
+  margin: 0;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(31, 93, 58, 0.2);
+  border-radius: 999px;
+  color: var(--verde);
+  font-weight: 700;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+.direita nav li p:hover {
+  transform: translateY(-2px);
+  background-color: var(--verde);
+  color: var(--neve);
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  border-bottom: 3px solid var(--dourado);
+  background: linear-gradient(120deg, var(--creme), #fffdf7);
+  box-shadow: 0 8px 24px rgba(18, 38, 63, 0.16);
+}
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--verde);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.marca strong {
+  color: var(--vermelho);
+}
+.marca-icone {
+  color: var(--dourado);
+  font-size: 1.6rem;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.menu a {
+  padding: 0.65rem 0.85rem;
+  border-radius: 999px;
+  color: var(--noite);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+.menu a:hover,
+.menu a:focus-visible,
+.menu a.ativo {
+  background-color: var(--verde);
+  color: var(--neve);
+}
+.menu a:focus-visible,
+.marca:focus-visible,
+.botao-musica:focus-visible,
+.atalho-carrinho:focus-visible {
+  outline: 3px solid var(--dourado);
+  outline-offset: 3px;
+}
+.botao-musica,
+.atalho-carrinho {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 42px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--verde);
+  border-radius: 999px;
+  background-color: transparent;
+  color: var(--verde);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+.botao-musica {
+  cursor: pointer;
+}
+.botao-musica:hover,
+.atalho-carrinho:hover {
+  transform: translateY(-2px);
+  background-color: var(--verde);
+  color: var(--neve);
+}
+.contador-carrinho {
+  display: inline-grid;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  place-items: center;
+  border-radius: 50%;
+  background-color: var(--vermelho);
+  color: var(--neve);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 760px) {
+  .ini {
+    justify-content: center;
+    padding: 2rem 1.25rem;
+    text-align: center;
+  }
+  .direita nav ul {
+    justify-content: center;
+  }
+  .cabecalho {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .menu {
+    order: 1;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .direita nav li p,
+  .menu a,
+  .botao-musica,
+  .atalho-carrinho {
+    transition: none;
+  }
 }
