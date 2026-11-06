@@ -46,12 +46,22 @@
   }
 }
 
-
+/* ====== Index.HTML ====== */
 body{
   background-color: var(--noite);
 }
+.ini h1{
+  font-size: 40px;
+}
 .ini{
   background-color: var(--creme);
-  margin: 25px;
+  margin: 2px;
   padding: 55px;
+  justify-content: space-between;
+  display: flex;
+}
+.direita nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px; /* Espaço entre os itens do menu */
 }
