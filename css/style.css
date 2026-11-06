@@ -322,36 +322,40 @@ body > main {
   position: absolute;
   display: block;
   width: 100%;
-  height: 340px;
-  object-fit: fill;
+  height: auto;
+  max-height: 260px;
+  object-fit: contain;
   pointer-events: none;
   user-select: none;
 }
 .parallax-floresta-distante {
-  bottom: 95px;
+  bottom: 0;
+  z-index: 2;
   opacity: 0.8;
 }
 .parallax-floresta-proxima {
-  bottom: 35px;
+  z-index: 3;
+  bottom: 0;
+}
+.parallax-chao {
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 240px;
+  max-height: none;
+  object-fit: cover;
+  object-position: center bottom;
 }
 .parallax-papai-noel {
   top: 110px;
   left: 20px;
+  z-index: 3;
   width: 350px;
   height: auto;
   max-width: 42%;
   filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.25));
   will-change: transform;
-}
-.parallax-neve {
-  position: absolute;
-  right: -5%;
-  bottom: -180px;
-  left: -5%;
-  height: 280px;
-  border-radius: 50% 50% 0 0;
-  background: #f7fbf8;
-  box-shadow: 0 -12px 35px rgba(255, 255, 255, 0.25);
 }
 .legenda-cenario {
   position: absolute;
@@ -607,11 +611,9 @@ body > main {
   .parallax-palco {
     height: 580px;
   }
-  .parallax-imagem {
-    height: 280px;
-  }
   .parallax-papai-noel {
     top: 130px;
+    left: 12px;
     max-width: 58%;
   }
   .legenda-cenario {

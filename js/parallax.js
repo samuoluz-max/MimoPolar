@@ -17,9 +17,16 @@ if (cena && palco && !movimentoReduzido.matches) {
       const velocidade = Number(camada.dataset.velocidade);
 
       if (camada.dataset.eixo === "x") {
-        const largura = camada.getBoundingClientRect().width;
-        const percurso = Math.max(0, palco.clientWidth - largura - 40);
-        camada.style.transform = `translate3d(${progresso * percurso * velocidade}px, ${-progresso * 70}px, 0)`;
+        const deslocamento = Number(camada.dataset.deslocamento);
+        const temDeslocamento = Number.isFinite(deslocamento);
+        const percurso = temDeslocamento
+          ? deslocamento
+          : Math.max(0, palco.clientWidth - camada.getBoundingClientRect().width - 40);
+        const movimentoHorizontal = temDeslocamento
+          ? progresso * percurso
+          : progresso * percurso * velocidade;
+        const movimentoVertical = temDeslocamento ? 0 : -70;
+        camada.style.transform = `translate3d(${movimentoHorizontal}px, ${progresso * movimentoVertical}px, 0)`;
       } else {
         camada.style.transform = `translate3d(0, ${-progresso * distancia * velocidade}px, 0)`;
       }
