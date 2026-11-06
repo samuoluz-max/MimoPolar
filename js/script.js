@@ -1,3 +1,4 @@
+// ===== Música de fundo =====
 const musica = new Audio("audio/musica-natal.mp3");
 musica.loop = true;
 musica.volume = 0.3;
@@ -27,12 +28,11 @@ function tocarSino() {
   });
 }
 
-
-
-
+// ===== Busca e filtro de produtos =====
 const campoBusca = document.getElementById("busca");
 const seletorCategoria = document.getElementById("categoria");
-const contador = document.getElementById("contador");
+const contadorProdutos = document.getElementById("contador");
+
 function filtrar() {
   const texto = campoBusca.value.toLowerCase();
   const categoria = seletorCategoria.value;
@@ -42,13 +42,13 @@ function filtrar() {
     return combinaNome && combinaCategoria;
   });
   mostrarProdutos(resultado);
-  contador.textContent = `Mostrando ${resultado.length} de ${produtos.length} produtos`;
+  contadorProdutos.textContent = `Mostrando ${resultado.length} de ${produtos.length} produtos`;
 }
+
 campoBusca.addEventListener("input", filtrar);
 seletorCategoria.addEventListener("change", filtrar);
 
-
-
+// ===== Carrinho =====
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 function adicionarAoCarrinho(id) {
@@ -65,8 +65,8 @@ function adicionarAoCarrinho(id) {
 
 function atualizarCarrinho() {
   const total = carrinho.reduce((soma, p) => soma + p.preco, 0);
-  document.querySelectorAll("[data-qtd-carrinho]").forEach((contador) => {
-    contador.textContent = carrinho.length;
+  document.querySelectorAll("[data-qtd-carrinho]").forEach((el) => {
+    el.textContent = carrinho.length;
   });
   document.getElementById("total-carrinho").textContent = formatarPreco(total);
 }
@@ -91,9 +91,7 @@ document.getElementById("limpar-carrinho").addEventListener("click", () => {
 
 atualizarCarrinho();
 
-
-
-
+// ===== Parallax =====
 const florestaLonge = document.querySelector(".parallax-floresta-distante");
 const florestaProxima = document.querySelector(".parallax-floresta-proxima");
 const papaiNoelTreno = document.querySelector(".parallax-papai-noel");
@@ -102,7 +100,9 @@ const camadasParallax = [florestaLonge, florestaProxima, papaiNoelTreno].filter(
 );
 const secaoParallax = document.querySelector(".parallax-natal");
 const palcoParallax = document.querySelector(".parallax-palco");
-const movimentoReduzido = window.matchMedia("(prefers-reduced-motion: reduce)");
+const parallaxSemMovimento = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+);
 let atualizacaoAgendada = false;
 
 function atualizarParallax() {
@@ -151,7 +151,7 @@ if (
   camadasParallax.length > 0 &&
   secaoParallax &&
   palcoParallax &&
-  !movimentoReduzido.matches
+  !parallaxSemMovimento.matches
 ) {
   window.addEventListener("scroll", agendarAtualizacaoParallax, {
     passive: true,
@@ -160,18 +160,22 @@ if (
   atualizarParallax();
 }
 
-
-
-
+// ===== Slideshow da galeria =====
 const slides = document.querySelectorAll(".slide");
 const slideshow = document.querySelector(".galeria-slideshow");
-const contador = document.querySelector(".slides-contador");
+const contadorSlides = document.querySelector(".slides-contador");
 const botaoAnterior = document.getElementById("anterior");
 const botaoProximo = document.getElementById("proximo");
 let atual = 0;
 
-if (slides.length && slideshow && contador && botaoAnterior && botaoProximo) {
-  const movimentoReduzido = window.matchMedia(
+if (
+  slides.length &&
+  slideshow &&
+  contadorSlides &&
+  botaoAnterior &&
+  botaoProximo
+) {
+  const slideshowSemMovimento = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
   let intervalo;
@@ -182,7 +186,7 @@ if (slides.length && slideshow && contador && botaoAnterior && botaoProximo) {
     atual = (indice + slides.length) % slides.length;
     slides[atual].classList.add("ativo");
     slides[atual].setAttribute("aria-hidden", "false");
-    contador.textContent = `${atual + 1} de ${slides.length}`;
+    contadorSlides.textContent = `${atual + 1} de ${slides.length}`;
   }
 
   function pararIntervalo() {
@@ -191,7 +195,7 @@ if (slides.length && slideshow && contador && botaoAnterior && botaoProximo) {
 
   function iniciarIntervalo() {
     pararIntervalo();
-    if (!movimentoReduzido) {
+    if (!slideshowSemMovimento) {
       intervalo = window.setInterval(() => mostrarSlide(atual + 1), 5000);
     }
   }
