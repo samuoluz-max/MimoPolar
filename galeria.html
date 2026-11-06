@@ -45,53 +45,65 @@
         </p>
       </header>
 
-      <section class="galeria-grade" aria-label="Imagens natalinas">
-        <figure class="galeria-item">
-          <div class="galeria-imagem">
-            <img
-              src="img/banners/papai-noel-treno.webp"
-              alt="Papai Noel voando em seu trenó puxado por renas"
-              loading="lazy"
-            />
-          </div>
-          <figcaption>Papai Noel e seu trenó</figcaption>
-        </figure>
+      <section
+        class="galeria-slideshow"
+        aria-label="Galeria de imagens natalinas"
+        aria-roledescription="slideshow"
+      >
+        <div class="galeria-grade">
+          <figure class="galeria-item slide ativo" aria-hidden="false">
+            <div class="galeria-imagem">
+              <img
+                src="img/banners/papai-noel-treno.webp"
+                alt="Papai Noel voando em seu trenó puxado por renas"
+              />
+            </div>
+            <figcaption>Papai Noel e seu trenó</figcaption>
+          </figure>
 
-        <figure class="galeria-item">
-          <div class="galeria-imagem">
-            <img
-              src="img/banners/floresta-longe.webp"
-              alt="Pinheiros nevados ao longe em uma noite de inverno"
-              loading="lazy"
-            />
-          </div>
-          <figcaption>Floresta de inverno</figcaption>
-        </figure>
+          <figure class="galeria-item slide" aria-hidden="true">
+            <div class="galeria-imagem">
+              <img
+                src="img/banners/floresta-longe.webp"
+                alt="Pinheiros nevados ao longe em uma noite de inverno"
+              />
+            </div>
+            <figcaption>Floresta de inverno</figcaption>
+          </figure>
 
-        <figure class="galeria-item">
-          <div class="galeria-imagem">
-            <img
-              src="img/banners/floresta-proxima.webp"
-              alt="Pinheiros cobertos de neve em uma floresta"
-              loading="lazy"
-            />
-          </div>
-          <figcaption>Pinheiros cobertos de neve</figcaption>
-        </figure>
+          <figure class="galeria-item slide" aria-hidden="true">
+            <div class="galeria-imagem">
+              <img
+                src="img/banners/floresta-proxima.webp"
+                alt="Pinheiros cobertos de neve em uma floresta"
+              />
+            </div>
+            <figcaption>Pinheiros cobertos de neve</figcaption>
+          </figure>
 
-        <figure class="galeria-item">
-          <div class="galeria-imagem">
-            <img
-              src="img/banners/neve.webp"
-              alt="Colinas brancas cobertas por neve"
-              loading="lazy"
-            />
-          </div>
-          <figcaption>Paisagem nevada</figcaption>
-        </figure>
+          <figure class="galeria-item slide" aria-hidden="true">
+            <div class="galeria-imagem">
+              <img
+                src="img/banners/neve.webp"
+                alt="Colinas brancas cobertas por neve"
+              />
+            </div>
+            <figcaption>Paisagem nevada</figcaption>
+          </figure>
+        </div>
+        <div class="slides-controles">
+          <button id="anterior" type="button" aria-label="Ver imagem anterior">
+            Anterior
+          </button>
+          <span class="slides-contador" aria-hidden="true">1 de 4</span>
+          <button id="proximo" type="button" aria-label="Ver próxima imagem">
+            Próxima
+          </button>
+        </div>
       </section>
     </main>
 
+    <script src="js/slides.js" defer></script>
     <script src="js/audio.js" defer></script>
     <footer class="rodape">
       <div class="container rodape-conteudo">
