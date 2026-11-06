@@ -16,6 +16,10 @@ h6 {
   font-family: "Mountains of Christmas", cursive;
 }
 
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
 /* ====== Produtos ====== */
 .container {
   width: min(1200px, calc(100% - 48px));
