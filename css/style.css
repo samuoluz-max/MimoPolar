@@ -52,19 +52,102 @@ body {
   background-color: var(--noite);
 }
 .ini h1 {
-  font-size: 40px;
+  font-size: 80px;
 }
 .ini {
   background-color: var(--creme);
   margin: 2px;
   padding: 55px;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   display: flex;
+  text-align: center;
 }
 .direita nav ul {
   display: flex;
   list-style: none;
   gap: 20px; /* Espaço entre os itens do menu */
+}
+
+.ini p {
+  font-size: 30px;
+  color: var(--noite);
+}
+
+.parallax-natal {
+  position: relative;
+  height: 1500px;
+  overflow: clip;
+  background: #102b3c;
+}
+.parallax-palco {
+  position: sticky;
+  top: 0;
+  height: 680px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #102b3c 0%, #244b5a 65%, #d2e5df 100%);
+}
+.ceu-estrelado {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, #fff 1px, transparent 2px),
+    radial-gradient(circle, #f3c969 1px, transparent 2px);
+  background-position:
+    20px 30px,
+    80px 110px;
+  background-size:
+    130px 115px,
+    190px 170px;
+  opacity: 0.75;
+}
+.parallax-imagem {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+}
+.parallax-floresta-distante {
+  bottom: 95px;
+  opacity: 0.8;
+}
+.parallax-floresta-proxima {
+  bottom: 35px;
+}
+.parallax-papai-noel {
+  top: 110px;
+  left: 20px;
+  width: 350px;
+  height: auto;
+  max-width: 42%;
+  filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.25));
+  will-change: transform;
+}
+.parallax-neve {
+  position: absolute;
+  right: -5%;
+  bottom: -180px;
+  left: -5%;
+  height: 280px;
+  border-radius: 50% 50% 0 0;
+  background: #f7fbf8;
+  box-shadow: 0 -12px 35px rgba(255, 255, 255, 0.25);
+}
+.legenda-cenario {
+  position: absolute;
+  right: 20px;
+  bottom: 24px;
+  left: 20px;
+  margin: 0;
+  color: var(--noite);
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
 }
 
 /* ====== Cabeçalhos ====== */
@@ -216,6 +299,19 @@ body {
     padding: 32px 20px;
     text-align: center;
   }
+  .parallax-palco {
+    height: 580px;
+  }
+  .parallax-imagem {
+    height: 280px;
+  }
+  .parallax-papai-noel {
+    top: 130px;
+    max-width: 58%;
+  }
+  .legenda-cenario {
+    font-size: 18px;
+  }
   .direita nav ul {
     justify-content: center;
   }
@@ -235,5 +331,8 @@ body {
   .botao-musica,
   .atalho-carrinho {
     transition: none;
+  }
+  .parallax-papai-noel {
+    will-change: auto;
   }
 }
