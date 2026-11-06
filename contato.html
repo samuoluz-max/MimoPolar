@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsavidade.css" />
     <title>Contato-MimoPolar</title>
@@ -28,6 +34,85 @@
         Ativar música
       </button>
     </header>
+    <main class="contato-pagina container">
+      <header class="titulo-pagina">
+        <p class="sobretitulo">Estamos aqui para ajudar</p>
+        <h1>Fale com a gente</h1>
+        <p>Envie sua dúvida ou mensagem. Será um prazer conversar com você!</p>
+      </header>
+
+      <section
+        class="contato-cartao"
+        aria-label="Formulário e informações de contato"
+      >
+        <form
+          class="contato-formulario"
+          action="mailto:contato@exemplo.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <label for="nome">Nome</label>
+          <input
+            id="nome"
+            name="Nome"
+            type="text"
+            autocomplete="name"
+            placeholder="Seu nome"
+            required
+          />
+
+          <label for="email">E-mail</label>
+          <input
+            id="email"
+            name="E-mail"
+            type="email"
+            autocomplete="email"
+            placeholder="voce@exemplo.com"
+            required
+          />
+
+          <label for="assunto">Assunto</label>
+          <input
+            id="assunto"
+            name="Assunto"
+            type="text"
+            placeholder="Como podemos ajudar?"
+            required
+          />
+
+          <label for="mensagem">Mensagem</label>
+          <textarea
+            id="mensagem"
+            name="Mensagem"
+            rows="6"
+            placeholder="Escreva sua mensagem..."
+            required
+          ></textarea>
+
+          <button class="contato-enviar" type="submit">Enviar mensagem</button>
+          <p class="contato-aviso">
+            Ao enviar, seu aplicativo de e-mail será aberto com a mensagem
+            preenchida. Este site é uma demonstração e não envia mensagens por
+            conta própria.
+          </p>
+        </form>
+
+        <aside class="contato-informacoes">
+          <h2>Outras formas de contato</h2>
+          <p>
+            <strong>E-mail</strong>
+            <a href="mailto:contato@exemplo.com">contato@exemplo.com</a>
+          </p>
+          <p>
+            <strong>Telefone</strong>
+            <a href="tel:+551155550100">(11) 5555-0100</a>
+          </p>
+          <p class="contato-aviso">
+            E-mail e telefone fictícios, incluídos apenas para demonstração.
+          </p>
+        </aside>
+      </section>
+    </main>
     <script src="js/audio.js" defer></script>
     <footer class="rodape">
       <div class="container rodape-conteudo">
