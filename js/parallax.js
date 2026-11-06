@@ -1,48 +1,65 @@
-const cena = document.querySelector(".parallax-natal");
-const palco = document.querySelector(".parallax-palco");
-const camadas = document.querySelectorAll(".parallax-natal [data-velocidade]");
+const florestaLonge = document.querySelector(".parallax-floresta-distante");
+const florestaProxima = document.querySelector(".parallax-floresta-proxima");
+const papaiNoelTreno = document.querySelector(".parallax-papai-noel");
+const camadasParallax = [florestaLonge, florestaProxima, papaiNoelTreno].filter(
+  Boolean,
+);
+const secaoParallax = document.querySelector(".parallax-natal");
+const palcoParallax = document.querySelector(".parallax-palco");
 const movimentoReduzido = window.matchMedia("(prefers-reduced-motion: reduce)");
+let atualizacaoAgendada = false;
 
-if (cena && palco && !movimentoReduzido.matches) {
-  let quadroAgendado = false;
+function atualizarParallax() {
+  const inicioDaCena =
+    secaoParallax.getBoundingClientRect().top + window.scrollY;
+  const distanciaDaCena = Math.max(
+    0,
+    secaoParallax.offsetHeight - palcoParallax.offsetHeight,
+  );
+  const rolagemNaCena = Math.min(
+    distanciaDaCena,
+    Math.max(0, window.scrollY - inicioDaCena),
+  );
 
-  const atualizarParallax = () => {
-    const distancia = Math.max(1, cena.offsetHeight - palco.offsetHeight);
-    const progresso = Math.max(
-      0,
-      Math.min(1, -cena.getBoundingClientRect().top / distancia),
-    );
+  camadasParallax.forEach((camadaParallax) => {
+    const velocidadeParallax = Number(camadaParallax.dataset.velocidade);
 
-    camadas.forEach((camada) => {
-      const velocidade = Number(camada.dataset.velocidade);
-
-      if (camada.dataset.eixo === "x") {
-        const deslocamento = Number(camada.dataset.deslocamento);
-        const temDeslocamento = Number.isFinite(deslocamento);
-        const percurso = temDeslocamento
-          ? deslocamento
-          : Math.max(0, palco.clientWidth - camada.getBoundingClientRect().width - 40);
-        const movimentoHorizontal = temDeslocamento
-          ? progresso * percurso
-          : progresso * percurso * velocidade;
-        const movimentoVertical = temDeslocamento ? 0 : -70;
-        camada.style.transform = `translate3d(${movimentoHorizontal}px, ${progresso * movimentoVertical}px, 0)`;
+    if (Number.isFinite(velocidadeParallax)) {
+      if (camadaParallax.dataset.eixo === "x") {
+        const larguraDisponivel = Math.max(
+          0,
+          palcoParallax.clientWidth - camadaParallax.offsetWidth - 40,
+        );
+        const deslocamentoHorizontal = Math.min(
+          larguraDisponivel,
+          rolagemNaCena * velocidadeParallax,
+        );
+        camadaParallax.style.transform = `translateX(${deslocamentoHorizontal}px)`;
       } else {
-        camada.style.transform = `translate3d(0, ${-progresso * distancia * velocidade}px, 0)`;
+        camadaParallax.style.transform = `translateY(${-rolagemNaCena * velocidadeParallax}px)`;
       }
-    });
-
-    quadroAgendado = false;
-  };
-
-  const agendarAtualizacao = () => {
-    if (!quadroAgendado) {
-      window.requestAnimationFrame(atualizarParallax);
-      quadroAgendado = true;
     }
-  };
+  });
 
-  window.addEventListener("scroll", agendarAtualizacao, { passive: true });
-  window.addEventListener("resize", agendarAtualizacao);
+  atualizacaoAgendada = false;
+}
+
+function agendarAtualizacaoParallax() {
+  if (!atualizacaoAgendada) {
+    window.requestAnimationFrame(atualizarParallax);
+    atualizacaoAgendada = true;
+  }
+}
+
+if (
+  camadasParallax.length > 0 &&
+  secaoParallax &&
+  palcoParallax &&
+  !movimentoReduzido.matches
+) {
+  window.addEventListener("scroll", agendarAtualizacaoParallax, {
+    passive: true,
+  });
+  window.addEventListener("resize", agendarAtualizacaoParallax);
   atualizarParallax();
 }
