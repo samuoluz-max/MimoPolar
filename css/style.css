@@ -385,7 +385,7 @@ body.home {
 #papai {
   position: absolute;
   bottom: 0;
-  right: 78%;
+  right: 72%;
   z-index: 1;
   transform: translateX(-50%);
   width: 28%;
@@ -395,7 +395,7 @@ body.home {
 
 #logos {
   position: absolute;
-  top: 200px;
+  top: 24%;
   right: 13%;
   z-index: 10;
   width: 30%;

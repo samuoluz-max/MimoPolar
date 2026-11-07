@@ -99,25 +99,27 @@ const neve = document.getElementById("neve");
 
 let ticking = false;
 
-function updateParallax() {
-  const value = window.scrollY;
+if (logos && papai && pelucia && neve) {
+  function updateParallax() {
+    const value = window.scrollY;
 
-  logos.style.transform = `translateX(${value * -2}px)`;  // corre para a esquerda
-  papai.style.transform = `translateY(${value * 0.5}px)`; // desce devagar
-  pelucia.style.transform = `translateY(${value * 0.7}px)`;
-  neve.style.transform = `translateY(${value * 1}px)`;    // fica "parada" na tela
+    logos.style.transform = `translateX(${value * -2}px)`;  // corre para a esquerda
+    papai.style.transform = `translateY(${value * 0.5}px)`; // desce devagar
+    pelucia.style.transform = `translateY(${value * 0.7}px)`;
+    neve.style.transform = `translateY(${value * 1}px)`;    // fica "parada" na tela
 
-  ticking = false;
-}
-
-window.addEventListener("scroll", () => {
-  if (!ticking) {
-    window.requestAnimationFrame(updateParallax);
-    ticking = true;
+    ticking = false;
   }
-});
 
-updateParallax();
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  });
+
+  updateParallax();
+}
 
 // =====================================================
 // 3. PRODUTOS.HTML — cards, busca/filtro e sacola
