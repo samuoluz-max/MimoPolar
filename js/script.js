@@ -1,3 +1,9 @@
+// =====================================================
+// script.js único do site Mimo Polar
+// Cada bloco só roda se os elementos dele existirem na página,
+// então o mesmo arquivo funciona em index, produtos, galeria, etc.
+// =====================================================
+
 // ===== Música de fundo =====
 const musica = new Audio("audio/musica-natal.mp3");
 musica.loop = true;
@@ -5,20 +11,22 @@ musica.volume = 0.3;
 
 const botaoMusica = document.getElementById("btn-musica");
 
-botaoMusica.addEventListener("click", async () => {
-  if (musica.paused) {
-    try {
-      await musica.play();
-      botaoMusica.textContent = "Pausar música";
-    } catch (erro) {
-      console.error("Não foi possível reproduzir a música natalina.", erro);
-      botaoMusica.textContent = "Áudio indisponível";
+if (botaoMusica) {
+  botaoMusica.addEventListener("click", async () => {
+    if (musica.paused) {
+      try {
+        await musica.play();
+        botaoMusica.textContent = "Pausar música";
+      } catch (erro) {
+        console.error("Não foi possível reproduzir a música natalina.", erro);
+        botaoMusica.textContent = "Áudio indisponível";
+      }
+    } else {
+      musica.pause();
+      botaoMusica.textContent = "Tocar música";
     }
-  } else {
-    musica.pause();
-    botaoMusica.textContent = "Tocar música";
-  }
-});
+  });
+}
 
 function tocarSino() {
   const som = new Audio("audio/sino.mp3");
@@ -28,7 +36,7 @@ function tocarSino() {
   });
 }
 
-// ===== Busca e filtro de produtos =====
+// ===== Busca e filtro de produtos (só na página de produtos) =====
 const campoBusca = document.getElementById("busca");
 const seletorCategoria = document.getElementById("categoria");
 const contadorProdutos = document.getElementById("contador");
@@ -42,11 +50,15 @@ function filtrar() {
     return combinaNome && combinaCategoria;
   });
   mostrarProdutos(resultado);
-  contadorProdutos.textContent = `Mostrando ${resultado.length} de ${produtos.length} produtos`;
+  if (contadorProdutos) {
+    contadorProdutos.textContent = `Mostrando ${resultado.length} de ${produtos.length} produtos`;
+  }
 }
 
-campoBusca.addEventListener("input", filtrar);
-seletorCategoria.addEventListener("change", filtrar);
+if (campoBusca && seletorCategoria) {
+  campoBusca.addEventListener("input", filtrar);
+  seletorCategoria.addEventListener("change", filtrar);
+}
 
 // ===== Carrinho =====
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
@@ -68,12 +80,16 @@ function atualizarCarrinho() {
   document.querySelectorAll("[data-qtd-carrinho]").forEach((el) => {
     el.textContent = carrinho.length;
   });
-  document.getElementById("total-carrinho").textContent = formatarPreco(total);
+
+  const totalCarrinho = document.getElementById("total-carrinho");
+  if (totalCarrinho && typeof formatarPreco === "function") {
+    totalCarrinho.textContent = formatarPreco(total);
+  }
 }
 
-document
-  .getElementById("lista-produtos")
-  .addEventListener("click", (evento) => {
+const listaProdutos = document.getElementById("lista-produtos");
+if (listaProdutos) {
+  listaProdutos.addEventListener("click", (evento) => {
     if (evento.target instanceof Element) {
       const botao = evento.target.closest(".btn-comprar");
       if (botao) {
@@ -82,16 +98,20 @@ document
       }
     }
   });
+}
 
-document.getElementById("limpar-carrinho").addEventListener("click", () => {
-  carrinho = [];
-  localStorage.setItem("carrinho", JSON.stringify(carrinho));
-  atualizarCarrinho();
-});
+const botaoLimparCarrinho = document.getElementById("limpar-carrinho");
+if (botaoLimparCarrinho) {
+  botaoLimparCarrinho.addEventListener("click", () => {
+    carrinho = [];
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    atualizarCarrinho();
+  });
+}
 
 atualizarCarrinho();
 
-// ===== Parallax =====
+// ===== Parallax antigo (cena .parallax-natal, se ainda existir em alguma página) =====
 const florestaLonge = document.querySelector(".parallax-floresta-distante");
 const florestaProxima = document.querySelector(".parallax-floresta-proxima");
 const papaiNoelTreno = document.querySelector(".parallax-papai-noel");
@@ -218,27 +238,34 @@ if (
   iniciarIntervalo();
 }
 
-const logo = document.getElementById('logos');
-const papai = document.getElementById('papai');
-const pelucia = document.getElementById('pelucia');
+// ===== Parallax da home (logo, pelúcia e Papai Noel) =====
+const logoHome = document.getElementById("logos");
+const papaiHome = document.getElementById("papai");
+const peluciaHome = document.getElementById("pelucia");
 
-let ticking = false; 
+if (logoHome && papaiHome && peluciaHome) {
+  let homeAgendado = false;
 
-function updateParallax() {
-    const value = window.scrollY; 
+  function atualizarParallaxHome() {
+    const rolagem = window.scrollY;
 
-    logo.style.transform = `translatex(${value * -1}px)`;
-    papai.style.transform = `translateX(-50%) translateY(${value * 0.5}px)`;
-    pelucia.style.transform = `translateY(${value * 1}px)`;
-    neve.style.transform = `translateY(${value * 1}px)`;
+    logoHome.style.transform = `translateX(${rolagem * -1}px)`;
+    papaiHome.style.transform = `translateX(-50%) translateY(${rolagem * 0.5}px)`;
+    peluciaHome.style.transform = `translateY(${rolagem * 0.7}px)`;
 
-    ticking = false;
+    homeAgendado = false;
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!homeAgendado) {
+        window.requestAnimationFrame(atualizarParallaxHome);
+        homeAgendado = true;
+      }
+    },
+    { passive: true },
+  );
+
+  atualizarParallaxHome();
 }
-
-window.addEventListener('scroll', () => {
-    if (!ticking) {
-
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
-    }
-});

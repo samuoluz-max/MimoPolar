@@ -15,9 +15,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsavidade.css" />
   </head>
-  <body>
+  <body class="home">
     <header class="cabecalho">
       <a
         class="marca"
@@ -40,48 +39,20 @@
     </header>
 
     <main>
-      <section
-        class="parallax-natal"
-        aria-label="Bem-vindo à Mimo Polar, Papai Noel voando sobre uma floresta nevada"
-      >
-        <div class="parallax-palco">
-          <div class="ceu-estrelado" aria-hidden="true"></div>
-          <div class="parallax-intro">
-            <h1>Bem-vindo à Mimo Polar!</h1>
-            <p>Descubra a magia do Natal com nossas pelúcias natalinas!</p>
-          </div>
-          <img
-            class="parallax-imagem parallax-floresta-distante"
-            src="img/banners/floresta-longe.webp"
-            alt=""
-            aria-hidden="true"
-            data-velocidade="0.05"
-          />
-          <img
-            class="parallax-imagem parallax-floresta-proxima"
-            src="img/banners/floresta-proxima.webp"
-            alt=""
-            aria-hidden="true"
-            data-velocidade="0.13"
-          />
-          <img
-            class="parallax-imagem parallax-chao"
-            src="img/banners/neve.webp"
-            alt=""
-            aria-hidden="true"
-          />
-          <img
-            class="parallax-imagem parallax-papai-noel"
-            src="img/banners/papai-noel-treno.webp"
-            alt="Papai Noel voando em seu trenó"
-            data-velocidade="1.1"
-            data-eixo="x"
-          />
-        </div>
+        <section class="parallax">
+          <img src="img/banners/pelucia.png" id="pelucia" alt="" />
+          <div id="neve"></div>
+          <img src="img/banners/papainoel.png" id="papai" alt="" />
+          <img src="img/banners/logo.png" id="logos" alt="" />
+        </section>
+
+
+      <section class="sec">
+        <h1>Bem-vindo à Mimo Polar!</h1>
+        <p>Descubra a magia do Natal com nossas pelúcias natalinas!</p>
       </section>
     </main>
-    <script src="js/parallax.js" defer></script>
-    <script src="js/audio.js" defer></script>
+
     <footer class="rodape">
       <div class="container rodape-conteudo">
         <a class="marca marca-rodape" href="index.html"
@@ -93,7 +64,13 @@
           <a href="contato.html">Fale com a gente</a>
         </nav>
         <small>&copy; 2026 Mimo Polar. Projeto acadêmico.</small>
+        <small
+          >feito por: Murilo Andrade Perine, Samuel Luz e Rafael Yamakishi
+          Klava</small
+        >
       </div>
     </footer>
+
+    <script src="js/script.js"></script>
   </body>
 </html>

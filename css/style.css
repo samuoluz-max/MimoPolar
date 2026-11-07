@@ -521,6 +521,16 @@ body > main {
     80px 120px;
   animation: neve-caindo 9s linear infinite;
 }
+
+#neve {
+  z-index: 0;
+}
+#logos,
+#pelucia,
+#papai {
+  z-index: 1;
+}
+
 .parallax-palco::after {
   background-image:
     radial-gradient(
@@ -903,7 +913,7 @@ html {
 }
 
 body {
-  background: linear-gradient(var(--verde) 0%, #d7fcd1 80%);
+background: linear-gradient(#173447 0%, #3d7686 65%, #cfe8e2 100%);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -1022,9 +1032,9 @@ header {
 #papai {
   position: absolute;
   bottom: 0;
-  right: 58%;
+  right: 62%;
   transform: translateX(-50%);
-  width: 32%;
+  width: 28%;
   pointer-events: none;
   user-select: none;
 }
@@ -1041,7 +1051,7 @@ header {
 .sec {
   position: relative;
   padding: 100px;
-  background: var(--creme);
+  background: var(--vermelho);
 }
 
 .sec h1 {
