@@ -317,7 +317,6 @@ body.home {
   overflow: hidden;
 }
 
-/* Neve caindo (duas camadas, uma mais lenta) */
 #neve {
   position: absolute;
   inset: 0;
