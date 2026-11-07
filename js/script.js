@@ -13,7 +13,7 @@
 // =====================================================
 
 const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)");
- 
+
 // =====================================================
 // 1. TODAS AS PÁGINAS — música de fundo
 // =====================================================
@@ -92,36 +92,32 @@ if (botaoMusica) {
 // =====================================================
 // 2. INDEX.HTML — parallax da home (logo, pelúcia e Papai Noel)
 // =====================================================
-const logoHome = document.getElementById("logos");
-const papaiHome = document.getElementById("papai");
-const peluciaHome = document.getElementById("pelucia");
+const logos = document.getElementById("logos");
+const papai = document.getElementById("papai");
+const pelucia = document.getElementById("pelucia");
+const neve = document.getElementById("neve");
 
-if (logoHome && papaiHome && peluciaHome && !semMovimento.matches) {
-  let homeAgendado = false;
+let ticking = false;
 
-  function atualizarParallaxHome() {
-    const rolagem = window.scrollY;
+function updateParallax() {
+  const value = window.scrollY;
 
-    logoHome.style.transform = `translateX(${rolagem * -1}px)`;
-    papaiHome.style.transform = `translateX(-50%) translateY(${rolagem * 0.5}px)`;
-    peluciaHome.style.transform = `translateY(${rolagem * 0.7}px)`;
+  logos.style.transform = `translateX(${value * -2}px)`;  // corre para a esquerda
+  papai.style.transform = `translateY(${value * 0.5}px)`; // desce devagar
+  pelucia.style.transform = `translateY(${value * 0.7}px)`;
+  neve.style.transform = `translateY(${value * 1}px)`;    // fica "parada" na tela
 
-    homeAgendado = false;
-  }
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!homeAgendado) {
-        window.requestAnimationFrame(atualizarParallaxHome);
-        homeAgendado = true;
-      }
-    },
-    { passive: true },
-  );
-
-  atualizarParallaxHome();
+  ticking = false;
 }
+
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    window.requestAnimationFrame(updateParallax);
+    ticking = true;
+  }
+});
+
+updateParallax();
 
 // =====================================================
 // 3. PRODUTOS.HTML — cards, busca/filtro e sacola
