@@ -1,0 +1,142 @@
+/* =====================================================
+   responsivo.css — Mimo Polar
+   Regras para telas pequenas e preferências de acessibilidade.
+   Usa as variáveis definidas em style.css (carregue style.css antes).
+   ===================================================== */
+
+/* =====================================================
+   Telas até 768px (tablets e celulares)
+   ===================================================== */
+@media (max-width: 768px) {
+  /* ----- Todas as páginas ----- */
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .cabecalho {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 30px;
+  }
+
+  .menu {
+    order: 1;
+    width: 100%;
+  }
+
+  .titulo-pagina {
+    padding: 36px 0 24px;
+  }
+
+  .titulo-pagina h1 {
+    font-size: 34px;
+  }
+
+  .rodape-conteudo {
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .rodape nav {
+    justify-content: center;
+  }
+
+  /* ----- index.html ----- */
+  .sec {
+    padding: 50px 30px;
+  }
+
+  .sec h1,
+  .sec h2 {
+    font-size: 1.8em;
+  }
+
+  .sec p {
+    font-size: 0.95em;
+  }
+
+  /* ----- produtos.html ----- */
+  .catalogo {
+    padding: 20px;
+  }
+
+  .catalogo-topo {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .filtros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .resumo-carrinho {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .botao-limpar {
+    margin-left: 0;
+  }
+
+  .grade-produtos {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
+
+  /* ----- galeria.html ----- */
+  .slides-controles {
+    gap: 12px;
+  }
+
+  /* ----- sobre.html ----- */
+  .sobre-caixa {
+    padding: 24px;
+  }
+
+  .sobre-titulo-principal {
+    font-size: 28px;
+  }
+
+  /* ----- contato.html ----- */
+  .contato-cartao {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 20px;
+  }
+}
+
+/* =====================================================
+   Telas até 480px (celulares pequenos)
+   ===================================================== */
+@media (max-width: 480px) {
+  /* ----- index.html ----- */
+  .sec h1,
+  .sec h2 {
+    font-size: 1.4em;
+  }
+}
+
+/* =====================================================
+   Quem prefere menos movimento (acessibilidade)
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  /* Todas as páginas */
+  .menu a,
+  .botao-musica,
+  .atalho-carrinho {
+    transition: none;
+  }
+
+  /* index.html */
+  #neve::before,
+  #neve::after {
+    animation: none;
+  }
+
+  /* galeria.html */
+  .galeria-item.ativo {
+    animation: none;
+  }
+}

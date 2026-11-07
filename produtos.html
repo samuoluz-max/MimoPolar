@@ -13,15 +13,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsivo.css" />
+    <!-- produtos.js precisa vir antes de script.js -->
     <script src="js/produtos.js" defer></script>
-    <script src="js/busca.js" defer></script>
-    <script src="js/audio.js" defer></script>
-    <script src="js/carrinho.js" defer></script>
+    <script src="js/script.js" defer></script>
   </head>
   <body>
     <header class="cabecalho">
@@ -53,7 +52,8 @@
         <p class="sobretitulo">Escolhas feitas para celebrar</p>
         <h1>Encontre seu mimo de Natal</h1>
         <p>
-          Encontre pelúcias natalinas para presentear e celebrar momentos especiais.
+          Encontre pelúcias natalinas para presentear e celebrar momentos
+          especiais.
         </p>
       </section>
 
@@ -93,11 +93,8 @@
             Esvaziar sacola
           </button>
         </aside>
-        <div
-          id="lista-produtos"
-          class="grade-produtos"
-          aria-live="polite"
-        ></div>
+
+        <div id="lista-produtos" class="grade-produtos" aria-live="polite"></div>
       </section>
     </main>
 
