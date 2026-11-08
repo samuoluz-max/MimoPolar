@@ -16,6 +16,39 @@
 const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 // =====================================================
+// SINO AO ENTRAR NO SITE (toca uma vez por visita)
+// =====================================================
+(function sinoDeEntrada() {
+  const CHAVE = "sinoTocou";
+
+  // se já tocou nesta visita, não toca de novo
+  try {
+    if (sessionStorage.getItem(CHAVE)) return;
+  } catch (erro) {}
+
+  const sino = new Audio("audio/sino.mp3");
+  sino.volume = 0.5;
+
+  function marcarComoTocado() {
+    try {
+      sessionStorage.setItem(CHAVE, "1");
+    } catch (erro) {}
+  }
+
+  const eventos = ["pointerdown", "keydown", "touchstart"];
+
+  function tocarNoPrimeiroToque() {
+    eventos.forEach((e) => document.removeEventListener(e, tocarNoPrimeiroToque));
+    sino.play().then(marcarComoTocado).catch(() => {});
+  }
+
+  sino.play().then(marcarComoTocado).catch(() => {
+    eventos.forEach((e) => document.addEventListener(e, tocarNoPrimeiroToque));
+  });
+})();
+
+
+// =====================================================
 // 1. TODAS AS PÁGINAS — música de fundo
 // =====================================================
 const CHAVE_MUSICA = "musicaNatal";
@@ -363,4 +396,72 @@ if (elementoDias && elementoHoras && elementoMinutos && elementoSegundos) {
 
   atualizarContagem();
   window.setInterval(atualizarContagem, 1000);
+}
+
+
+// =====================================================
+// 6. INDEX.HTML — slideshow da home
+// =====================================================
+const promoSlides = document.querySelectorAll(".promo-slide");
+const promoSlideshow = document.getElementById("promo-slideshow");
+const promoAnterior = document.getElementById("promo-anterior");
+const promoProximo = document.getElementById("promo-proximo");
+const promoIndicadores = document.getElementById("promo-indicadores");
+
+if (
+  promoSlides.length &&
+  promoSlideshow &&
+  promoAnterior &&
+  promoProximo &&
+  promoIndicadores
+) {
+  let promoAtual = 0;
+  let promoTimer;
+
+  // cria uma bolinha para cada slide
+  promoSlides.forEach((slide, i) => {
+    const ponto = document.createElement("button");
+    ponto.className = "promo-indicador";
+    ponto.type = "button";
+    ponto.setAttribute("aria-label", `Ir para o slide ${i + 1}`);
+    ponto.addEventListener("click", () => {
+      promoMostrar(i);
+      promoIniciar();
+    });
+    promoIndicadores.appendChild(ponto);
+  });
+  const promoPontos = promoIndicadores.querySelectorAll(".promo-indicador");
+
+  function promoMostrar(indice) {
+    promoSlides[promoAtual].classList.remove("ativo");
+    promoPontos[promoAtual].classList.remove("ativo");
+    promoAtual = (indice + promoSlides.length) % promoSlides.length;
+    promoSlides[promoAtual].classList.add("ativo");
+    promoPontos[promoAtual].classList.add("ativo");
+  }
+
+  function promoParar() {
+    window.clearInterval(promoTimer);
+  }
+
+  function promoIniciar() {
+    promoParar();
+    if (!semMovimento.matches) {
+      promoTimer = window.setInterval(() => promoMostrar(promoAtual + 1), 5000);
+    }
+  }
+
+  promoProximo.addEventListener("click", () => {
+    promoMostrar(promoAtual + 1);
+    promoIniciar();
+  });
+  promoAnterior.addEventListener("click", () => {
+    promoMostrar(promoAtual - 1);
+    promoIniciar();
+  });
+  promoSlideshow.addEventListener("mouseenter", promoParar);
+  promoSlideshow.addEventListener("mouseleave", promoIniciar);
+
+  promoMostrar(0);
+  promoIniciar();
 }
