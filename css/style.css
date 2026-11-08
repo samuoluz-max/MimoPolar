@@ -13,10 +13,9 @@
    ===================================================== */
 
 /* =====================================================
-   1. VARIÁVEIS
-   Toda cor do site tem um nome aqui. No código, use var(--nome).
-   Cores com transparência usam a versão "-rgb":
-   rgba(var(--neve-rgb), 0.8)
+    pela mor de deus, deixa esse css organizado, principalmente as cores
+    usando o var e o nome dela. se a cor não tiver um nome, cria um nome pra ela.
+    principalmente vc Rafael
    ===================================================== */
 :root {
   /* Cores principais */
