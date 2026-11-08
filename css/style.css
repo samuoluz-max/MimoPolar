@@ -187,6 +187,15 @@ h6 {
     transform 0.2s ease;
 }
 
+.atalho-carrinho {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 20;
+  background-color: var(--creme-claro);
+  box-shadow: 0 4px 14px rgba(var(--preto-rgb), 0.25);
+}
+
 .botao-musica {
   cursor: pointer;
 }
@@ -477,6 +486,36 @@ body.home {
   font-size: 1em;
   font-weight: 300;
   line-height: 1.7;
+}
+
+.botao-comprar-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 24px;
+  padding: 12px 24px;
+  border: 2px solid var(--creme-claro);
+  border-radius: 999px;
+  background-color: var(--creme-claro);
+  color: var(--verde);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.botao-comprar-home:hover {
+  transform: translateY(-2px);
+  background-color: var(--verde);
+  color: var(--neve);
+}
+
+.botao-comprar-home:focus-visible {
+  outline: 3px solid var(--dourado-claro);
+  outline-offset: 3px;
 }
 
 /* =====================================================
