@@ -614,8 +614,6 @@ body.home {
   transform: scale(1.25);
 }
 
-
-
 /* =====================================================
    5. PRODUTOS.HTML
    ===================================================== */
@@ -675,7 +673,9 @@ body.home {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .voltar:hover,
@@ -808,7 +808,9 @@ body.home {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .botao-limpar:hover {
@@ -840,7 +842,9 @@ body.home {
   background: var(--neve);
   color: var(--noite);
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -888,7 +892,9 @@ body.home {
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .card button:hover,
@@ -907,7 +913,9 @@ body.home {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.22s ease, visibility 0.22s ease;
+  transition:
+    opacity 0.22s ease,
+    visibility 0.22s ease;
 }
 
 .modal-produto.aberto {
@@ -1044,7 +1052,9 @@ body.home {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 .modal-botao-adicionar:hover {
@@ -1078,7 +1088,10 @@ body.home {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-12px);
-  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
 }
 
 .notificacao-carrinho.visivel {
@@ -1315,7 +1328,7 @@ body.home {
     background-color 0.2s ease,
     transform 0.2s ease;
 }
- 
+
 .card button:hover,
 .card a:hover {
   transform: translateY(-2px);
@@ -1363,7 +1376,9 @@ body.home {
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .voltar:hover,
@@ -1424,7 +1439,6 @@ body.home {
   font-size: 14px;
   font-weight: 700;
 }
-
 
 /* =====================================================
    6. GALERIA.HTML

@@ -38,15 +38,24 @@ const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)");
   const eventos = ["pointerdown", "keydown", "touchstart"];
 
   function tocarNoPrimeiroToque() {
-    eventos.forEach((e) => document.removeEventListener(e, tocarNoPrimeiroToque));
-    sino.play().then(marcarComoTocado).catch(() => {});
+    eventos.forEach((e) =>
+      document.removeEventListener(e, tocarNoPrimeiroToque),
+    );
+    sino
+      .play()
+      .then(marcarComoTocado)
+      .catch(() => {});
   }
 
-  sino.play().then(marcarComoTocado).catch(() => {
-    eventos.forEach((e) => document.addEventListener(e, tocarNoPrimeiroToque));
-  });
+  sino
+    .play()
+    .then(marcarComoTocado)
+    .catch(() => {
+      eventos.forEach((e) =>
+        document.addEventListener(e, tocarNoPrimeiroToque),
+      );
+    });
 })();
-
 
 // =====================================================
 // 1. TODAS AS PÁGINAS — música de fundo
@@ -107,7 +116,10 @@ if (botaoMusica) {
       { once: true },
     );
     if (estadoSalvo.tocando) {
-      musica.play().then(atualizarBotaoMusica).catch(() => {});
+      musica
+        .play()
+        .then(atualizarBotaoMusica)
+        .catch(() => {});
     }
   }
 
@@ -368,7 +380,6 @@ if (
   iniciarIntervalo();
 }
 
-
 // =====================================================
 // 5. PÁGINAS COM CONTAGEM — tempo até o Natal de 2026
 // =====================================================
@@ -397,7 +408,6 @@ if (elementoDias && elementoHoras && elementoMinutos && elementoSegundos) {
   atualizarContagem();
   window.setInterval(atualizarContagem, 1000);
 }
-
 
 // =====================================================
 // 6. INDEX.HTML — slideshow da home
