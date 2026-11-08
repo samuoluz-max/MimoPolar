@@ -12,16 +12,34 @@
   .container {
     width: calc(100% - 32px);
   }
- 
+
   .cabecalho {
     justify-content: center;
     flex-wrap: wrap;
-    padding: 20px 30px;
+    gap: 12px;
+    padding: 18px 20px;
   }
 
   .menu {
     order: 1;
     width: 100%;
+    gap: 4px;
+  }
+
+  .menu a {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .contagem-header {
+    order: 2;
+  }
+
+  .botao-musica,
+  .atalho-carrinho {
+    min-height: 38px;
+    padding: 8px 11px;
+    font-size: 14px;
   }
 
   .titulo-pagina {
@@ -56,6 +74,33 @@
     font-size: 0.95em;
   }
 
+  .parallax {
+    height: min(78svh, 680px);
+    min-height: 360px;
+  }
+
+  #pelucia {
+    left: 50%;
+    width: auto;
+    height: 100%;
+    max-width: none;
+    transform: translateX(-50%);
+  }
+
+  #logos {
+    top: 28%;
+    right: 5%;
+    width: 42%;
+    transform: none;
+  }
+
+  #papai {
+    right: auto;
+    left: 4%;
+    width: min(38%, 200px);
+    transform: none;
+  }
+
   /* ----- produtos.html ----- */
   .catalogo {
     padding: 20px;
@@ -86,13 +131,25 @@
   }
 
   /* ----- galeria.html ----- */
+  .galeria-pagina {
+    padding-bottom: 40px;
+  }
+
   .slides-controles {
     gap: 12px;
+  }
+
+  .slides-controles button {
+    padding: 9px 14px;
   }
 
   /* ----- sobre.html ----- */
   .sobre-caixa {
     padding: 24px;
+  }
+
+  .sobre-texto {
+    font-size: 16px;
   }
 
   .sobre-titulo-principal {
@@ -105,16 +162,210 @@
     gap: 28px;
     padding: 20px;
   }
+
+  .contato-informacoes {
+    padding: 20px;
+  }
 }
 
 /* =====================================================
    Telas até 480px (celulares pequenos)
    ===================================================== */
 @media (max-width: 480px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .cabecalho {
+    padding: 16px 12px;
+  }
+
+  .marca {
+    font-size: 19px;
+  }
+
+  .marca-icone {
+    font-size: 22px;
+  }
+
+  .contagem-header {
+    gap: 5px;
+    padding: 5px 7px;
+  }
+
+  .contagem-titulo {
+    font-size: 11px;
+  }
+
+  .contador {
+    gap: 2px;
+  }
+
+  .contador > div {
+    min-width: 27px;
+  }
+
+  .contador span {
+    font-size: 14px;
+  }
+
+  .contador p {
+    font-size: 8px;
+  }
+
+  .menu {
+    gap: 2px;
+  }
+
+  .menu a {
+    padding: 7px 8px;
+    font-size: 13px;
+  }
+
+  .titulo-pagina h1 {
+    font-size: 30px;
+  }
+
+  .titulo-pagina > p:last-child {
+    font-size: 16px;
+  }
+
+  .parallax {
+    height: 65vh;
+    min-height: 360px;
+  }
+
+  #logos {
+    top: 30%;
+    right: 2%;
+    width: 50%;
+  }
+
+  #papai {
+    left: 3%;
+    width: min(43%, 180px);
+  }
+
   /* ----- index.html ----- */
   .sec h1,
   .sec h2 {
     font-size: 1.4em;
+  }
+
+  .sec {
+    padding: 40px 22px;
+  }
+
+  /* ----- produtos.html ----- */
+  .catalogo {
+    padding: 16px;
+  }
+
+  .catalogo-topo h2 {
+    font-size: 26px;
+  }
+
+  .filtros {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .filtros label {
+    min-width: 0;
+  }
+
+  .resumo-carrinho {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .grade-produtos {
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 12px;
+  }
+
+  .card h3 {
+    margin: 14px 14px 8px;
+    font-size: 18px;
+  }
+
+  .card p {
+    margin: 0 14px 12px;
+    font-size: 14px;
+  }
+
+  .card .preco {
+    margin-right: 14px;
+    margin-left: 14px;
+    font-size: 18px;
+  }
+
+  .card button,
+  .card a {
+    margin-right: 12px;
+    margin-left: 12px;
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+
+  /* ----- galeria.html ----- */
+  .galeria-imagem {
+    height: clamp(220px, 68vw, 340px);
+  }
+
+  .galeria-item figcaption {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+
+  .slides-controles {
+    gap: 8px;
+  }
+
+  .slides-controles button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  /* ----- sobre.html ----- */
+  .sobre-caixa {
+    padding: 20px 16px;
+  }
+
+  .sobre-titulo-principal {
+    font-size: 26px;
+  }
+
+  .sobre-subtitulo {
+    font-size: 19px;
+  }
+
+  .sobre-texto {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ----- contato.html ----- */
+  .contato-cartao {
+    gap: 22px;
+    padding: 16px;
+  }
+
+  .contato-formulario input,
+  .contato-formulario textarea {
+    font-size: 16px;
+  }
+
+  .contato-informacoes {
+    padding: 16px;
+  }
+
+  .contato-informacoes h2 {
+    font-size: 22px;
+  }
+
+  .rodape-conteudo {
+    gap: 16px;
+    padding-top: 24px;
   }
 }
 

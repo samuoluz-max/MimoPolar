@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsivo.css" />
+    <link rel="stylesheet" href="css/responsavidade.css" />
     <script src="js/script.js" defer></script>
   </head>
   <body>
@@ -44,81 +44,106 @@
         <p>Envie sua dúvida ou mensagem. Será um prazer conversar com você!</p>
       </section>
 
+      <!-- BOX 1: formulário + outras formas de contato -->
       <section
         class="contato-cartao"
-        aria-label="Formulário e informações de contato"
+        aria-label="Formulário e outras formas de contato"
       >
-        <form
-          class="contato-formulario"
-          action="mailto:contato@exemplo.com"
-          method="post"
-          enctype="text/plain"
-        >
+        <form class="contato-formulario" action="#" method="post">
           <label for="nome">Nome</label>
-          <input
-            id="nome"
-            name="Nome"
-            type="text"
-            autocomplete="name"
-            placeholder="Seu nome"
-            required
-          />
+          <input id="nome" name="nome" type="text" placeholder="Seu nome" required />
 
           <label for="email">E-mail</label>
-          <input
-            id="email"
-            name="E-mail"
-            type="email"
-            autocomplete="email"
-            placeholder="voce@exemplo.com"
-            required
-          />
+          <input id="email" name="email" type="email" placeholder="voce@exemplo.com" required />
 
           <label for="assunto">Assunto</label>
-          <input
-            id="assunto"
-            name="Assunto"
-            type="text"
-            placeholder="Como podemos ajudar?"
-            required
-          />
+          <input id="assunto" name="assunto" type="text" placeholder="Como podemos ajudar?" required />
 
           <label for="mensagem">Mensagem</label>
-          <textarea
-            id="mensagem"
-            name="Mensagem"
-            rows="6"
-            placeholder="Escreva sua mensagem..."
-            required
-          ></textarea>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..." required></textarea>
 
           <button class="contato-enviar" type="submit">Enviar mensagem</button>
+
           <p class="contato-aviso">
-            Ao enviar, seu aplicativo de e-mail será aberto com a mensagem
-            preenchida. Este site é uma demonstração e não envia mensagens por
-            conta própria.
+            Ao enviar, seus dados serão usados apenas para responder à sua mensagem.
           </p>
         </form>
 
         <aside class="contato-informacoes">
           <h2>Outras formas de contato</h2>
+
+          <h3>E-mail</h3>
           <p>
-            <strong>E-mail</strong>
-            <a>Murilo: perine1705@gmail.com</a>
-            <a>Samuel: samu.oluz@gmail.com</a>
-            <a>Rafael: rklava@outlook.com</a>
+            <span>Murilo:</span>
+            <a href="mailto:perine1705@gmail.com">perine1705@gmail.com</a>
           </p>
           <p>
-            <strong>Telefone</strong>
-            <a>Murilo: +55 19 989292772</a>
-            <a>Samuel: +55 19 996693961</a>
-            <a>Rafael: +55 11 958363912</a>
+            <span>Samuel:</span>
+            <a href="mailto:samu.oluz@gmail.com">samu.oluz@gmail.com</a>
           </p>
-          <p class="contato-aviso">
-            E-mail e telefone fictícios (menos para o Rafael), incluídos apenas
-            para demonstração.
+          <p>
+            <span>Rafael:</span>
+            <a href="mailto:rklava@outlook.com">rklava@outlook.com</a>
+          </p>
+
+          <h3>Telefone</h3>
+          <p>
+            <span>Murilo:</span>
+            <a href="tel:+5519989292772">+55 19 989292772</a>
+          </p>
+          <p>
+            <span>Samuel:</span>
+            <a href="tel:+5519996693961">+55 19 996693961</a>
+          </p>
+          <p>
+            <span>Rafael:</span>
+            <a href="tel:+5511958363912">+55 11 958363912</a>
           </p>
         </aside>
+      </section>
+      
+      <section
+        class="contato-cartao contato-mapa-cartao"
+        aria-label="Localização da loja"
+      >
+        <aside class="contato-informacoes">
+          <h2>Desde 1950 espalhando magia e aconchego.</h2>
+
+          <h3>Endereço</h3>
+          <p>
+            <span>Rua dos Flocos de Neve, 195</span>
+            <span>Vila Natalina – Gramado, RS</span>
+            <span>CEP: 95670-000</span>
+          </p>
+
+          <h3>Telefone</h3>
+          <p><a href="tel:+555434561950">(54) 3456-1950</a></p>
+
+          <h3>E-mail</h3>
+          <p>
+            <a href="mailto:contato@mimopolar.com.br">contato@mimopolar.com.br</a>
+          </p>
+
+          <h3>Redes sociais</h3>
+          <p>
+            <span>Instagram: @mimopolar</span>
+            <span>Facebook: /mimopolar</span>
+            <span>TikTok: @mimopolar</span>
+          </p>
+        </aside>
+
+        <div class="contato-mapa">
+          <iframe
+            src="https://www.google.com/maps?q=Gramado,+RS,+Brasil&output=embed"
+            title="Mapa mostrando Gramado, RS"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </section>
     </main>
 

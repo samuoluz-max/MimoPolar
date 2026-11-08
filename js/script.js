@@ -6,6 +6,7 @@
 //   2. index.html         -> parallax da home
 //   3. produtos.html      -> cards, busca/filtro e sacola
 //   4. galeria.html       -> slideshow
+//   5. páginas com .contagem -> contagem regressiva até o Natal de 2026
 //
 // Cada bloco só roda se os elementos dele existirem na página,
 // então o mesmo arquivo pode ser carregado em todos os HTML.
@@ -96,28 +97,43 @@ const logos = document.getElementById("logos");
 const papai = document.getElementById("papai");
 const pelucia = document.getElementById("pelucia");
 const neve = document.getElementById("neve");
+const parallaxMobile = window.matchMedia("(max-width: 768px)");
 
 let ticking = false;
 
 if (logos && papai && pelucia && neve) {
   function updateParallax() {
+    if (parallaxMobile.matches) {
+      logos.style.removeProperty("transform");
+      papai.style.removeProperty("transform");
+      pelucia.style.removeProperty("transform");
+      neve.style.removeProperty("transform");
+      ticking = false;
+      return;
+    }
+
     const value = window.scrollY;
 
-    logos.style.transform = `translateX(${value * -2}px)`;  // corre para a esquerda
-    papai.style.transform = `translateY(${value * 0.5}px)`; // desce devagar
+    logos.style.transform = `translateX(${value * -2}px)`;
+    papai.style.transform = `translateY(${value * 0.5}px)`;
     pelucia.style.transform = `translateY(${value * 0.7}px)`;
-    neve.style.transform = `translateY(${value * 1}px)`;    // fica "parada" na tela
+    neve.style.transform = `translateY(${value}px)`;
 
     ticking = false;
   }
 
   window.addEventListener("scroll", () => {
+    if (parallaxMobile.matches) {
+      return;
+    }
+
     if (!ticking) {
       window.requestAnimationFrame(updateParallax);
       ticking = true;
     }
   });
 
+  window.addEventListener("resize", updateParallax);
   updateParallax();
 }
 
@@ -317,4 +333,34 @@ if (
   });
 
   iniciarIntervalo();
+}
+
+
+// =====================================================
+// 5. PÁGINAS COM CONTAGEM — tempo até o Natal de 2026
+// =====================================================
+const elementoDias = document.getElementById("dias");
+const elementoHoras = document.getElementById("horas");
+const elementoMinutos = document.getElementById("minutos");
+const elementoSegundos = document.getElementById("segundos");
+
+if (elementoDias && elementoHoras && elementoMinutos && elementoSegundos) {
+  function atualizarContagem() {
+    const agora = new Date();
+    const natal2026 = new Date(2026, 11, 25);
+    const diferenca = Math.max(0, natal2026.getTime() - agora.getTime());
+    const segundosRestantes = Math.floor(diferenca / 1000);
+    const dias = Math.floor(segundosRestantes / 86400);
+    const horas = Math.floor((segundosRestantes % 86400) / 3600);
+    const minutos = Math.floor((segundosRestantes % 3600) / 60);
+    const segundos = segundosRestantes % 60;
+
+    elementoDias.textContent = String(dias);
+    elementoHoras.textContent = String(horas).padStart(2, "0");
+    elementoMinutos.textContent = String(minutos).padStart(2, "0");
+    elementoSegundos.textContent = String(segundos).padStart(2, "0");
+  }
+
+  atualizarContagem();
+  window.setInterval(atualizarContagem, 1000);
 }
