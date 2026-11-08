@@ -6,6 +6,7 @@
 //   2. index.html         -> parallax da home
 //   3. produtos.html      -> cards, busca/filtro e sacola
 //   4. galeria.html       -> slideshow
+//   5. sobre.html        -> contagem regresiva
 //
 // Cada bloco só roda se os elementos dele existirem na página,
 // então o mesmo arquivo pode ser carregado em todos os HTML.
@@ -318,3 +319,30 @@ if (
 
   iniciarIntervalo();
 }
+
+
+// =====================================================
+// 5. sobre.HTML — contagem regresiva
+// =====================================================
+
+
+
+function atualizarContagem() {
+    const natal = new Date("2026-12-25T00:00:00");
+    const agora = new Date();
+
+    const diferenca = natal - agora;
+
+    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferenca / 1000) % 60);
+
+    document.getElementById("dias").textContent = dias;
+    document.getElementById("horas").textContent = horas;
+    document.getElementById("minutos").textContent = minutos;
+    document.getElementById("segundos").textContent = segundos;
+}
+
+setInterval(atualizarContagem, 1000);
+atualizarContagem();
