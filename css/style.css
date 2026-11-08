@@ -778,10 +778,12 @@ body.home {
   padding-top: 40px;
 }
 
+/* Box (cartão): duas colunas lado a lado */
 .contato-cartao {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(240px, 0.8fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 40px;
+  align-items: start;
   padding: 32px;
   border: 1px solid rgba(var(--dourado-rgb), 0.35);
   border-radius: 20px;
@@ -789,9 +791,16 @@ body.home {
   box-shadow: 0 16px 40px rgba(var(--preto-rgb), 0.2);
 }
 
+/* Espaço entre o box 1 e o box 2 */
+.contato-cartao + .contato-cartao {
+  margin-top: 32px;
+}
+
+/* Formulário */
 .contato-formulario {
   display: grid;
   gap: 10px;
+  min-width: 0;
 }
 
 .contato-formulario label {
@@ -849,8 +858,16 @@ body.home {
   outline-offset: 3px;
 }
 
+.contato-aviso {
+  margin: 0;
+  color: var(--cinza-texto);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Caixa verde de informações */
 .contato-informacoes {
-  align-self: start;
+  min-width: 0;
   padding: 24px;
   border-radius: 14px;
   background: var(--verde-palido);
@@ -858,15 +875,20 @@ body.home {
 }
 
 .contato-informacoes h2 {
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   color: var(--verde);
   font-size: 24px;
 }
 
+.contato-informacoes h3 {
+  margin: 16px 0 8px;
+  font-size: 16px;
+}
+
 .contato-informacoes p {
   display: grid;
-  gap: 6px;
-  margin: 0 0 20px;
+  gap: 4px;
+  margin: 0 0 12px;
 }
 
 .contato-informacoes a {
@@ -875,8 +897,38 @@ body.home {
   overflow-wrap: anywhere;
 }
 
-.contato-aviso {
-  color: var(--cinza-texto);
-  font-size: 14px;
-  line-height: 1.5;
+/* Box 2: informações à esquerda, mapa à direita */
+.contato-mapa-cartao {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  align-items: stretch;
+}
+
+.contato-mapa {
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--bege-borda);
+  border-radius: 14px;
+  background: var(--verde-palido);
+}
+
+.contato-mapa iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+}
+
+/* Celular / tela estreita: tudo em uma coluna */
+@media (max-width: 800px) {
+  .contato-cartao,
+  .contato-mapa-cartao {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 28px;
+  }
+
+  .contato-mapa,
+  .contato-mapa iframe {
+    min-height: 320px;
+  }
 }
