@@ -610,6 +610,133 @@ body.home {
   background: var(--verde-escuro);
 }
 
+/* Vitrine de produtos mais vendidos */
+.mais-vendidos {
+  margin: 32px 0;
+  padding: 28px;
+  border: 1px solid rgba(var(--dourado-rgb), 0.35);
+  border-radius: 18px;
+  background: var(--creme-claro);
+}
+
+.mais-vendidos-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.mais-vendidos-topo h2 {
+  margin-bottom: 6px;
+  color: var(--verde);
+  font-size: 30px;
+}
+
+.container-botoes {
+  display: flex;
+  gap: 12px;
+}
+
+.voltar,
+.avançar {
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--noite-escura);
+  color: var(--creme-claro);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.voltar:hover,
+.avançar:hover {
+  transform: translateY(-2px);
+  background: var(--verde);
+}
+
+.voltar:focus-visible,
+.avançar:focus-visible {
+  outline: 3px solid var(--dourado);
+  outline-offset: 3px;
+}
+
+.produto-destaque {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  min-width: 0;
+}
+
+.produto-destaque > img {
+  display: block;
+  flex: 0 1 52%;
+  width: 52%;
+  min-width: 0;
+  height: 340px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.texto-produto-destaque {
+  flex: 1;
+  min-width: 0;
+  color: var(--noite);
+}
+
+.texto-produto-destaque .sobretitulo {
+  margin-bottom: 10px;
+  color: var(--vermelho);
+}
+
+.texto-produto-destaque h3 {
+  margin-bottom: 14px;
+  color: var(--verde);
+  font-size: 32px;
+}
+
+.texto-produto-destaque > p:not(.sobretitulo):not(.contador-mais-vendidos) {
+  color: var(--cinza-texto);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.contador-mais-vendidos {
+  margin-top: 22px;
+  color: var(--verde);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =====================================================
    6. GALERIA.HTML
    ===================================================== */
