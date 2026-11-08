@@ -198,6 +198,17 @@ h6 {
   color: var(--neve);
 }
 
+.icone-sacola {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
 .contador-carrinho {
   display: inline-grid;
   min-width: 24px;
