@@ -29,20 +29,6 @@
         <span class="marca-icone" aria-hidden="true">✳</span>
         <span>Mimo <strong>Polar</strong></span>
       </a>
-      <div class="contagem-header">
-        <span class="contagem-titulo">Natal 2026</span>
-        <div
-          class="contador"
-          role="timer"
-          aria-label="Tempo restante até o Natal de 2026"
-          aria-live="off"
-        >
-          <div><span id="dias">0</span><p>Dias</p></div>
-          <div><span id="horas">0</span><p>Horas</p></div>
-          <div><span id="minutos">0</span><p>Min</p></div>
-          <div><span id="segundos">0</span><p>Seg</p></div>
-        </div>
-      </div>
       <nav class="menu" aria-label="Navegação principal">
         <a class="ativo" href="index.html" aria-current="page">Início</a>
         <a href="produtos.html">Produtos</a>
@@ -77,7 +63,63 @@
         <a class="botao-comprar-home" href="produtos.html#catalogo">Comprar agora</a>
       </section>
 
+      <!-- Slideshow da home -->
+      <section class="promo-secao" aria-labelledby="promo-titulo">
+        <div class="container1">
+          <div class="promo-cartao">
+            <h2 id="promo-titulo">Destaques da temporada</h2>
+
+            <div class="promo-slideshow" id="promo-slideshow">
+              <div class="promo-slide ativo">
+                <img src="img/banners/pelucias vovo.jpg" alt="Pelúcias de vovós" />
+                <div class="promo-legenda">
+                  <h3>Pelúcias de vovós</h3>
+                  <p>Carinho e ternura para presentear quem você ama.</p>
+                </div>
+              </div>
+
+              <div class="promo-slide">
+                <img src="img/banners/kit de pelucias.jpg" alt="Kit de pelúcias para árvore de Natal" />
+                <div class="promo-legenda">
+                  <h3>Kit de pelúcias para a árvore</h3>
+                  <p>Decore sua árvore de Natal com fofura e alegria.</p>
+                </div>
+              </div>
+
+              <div class="promo-slide">
+                <img src="img/banners/mini pelucias.jpg" alt="Mini pelúcias" />
+                <div class="promo-legenda">
+                  <h3>Dupla de mini pelúcias</h3>
+                  <p>Pequenas, fofas e perfeitas para enfeitar a árvore.</p>
+                </div>
+              </div>
+
+              <div class="promo-slide">
+                <img src="img/banners/urso classico de natal.jpg" alt="Urso clássico de Natal" />
+                <div class="promo-legenda">
+                  <h3>Urso marrom clássico de Natal</h3>
+                  <p>Aconchego para a temporada festiva.</p>
+                </div>
+              </div>
+
+              <div class="promo-slide">
+                <img src="img/banners/urso inflavel grande.jpg" alt="Urso inflável grande de Natal" />
+                <div class="promo-legenda">
+                  <h3>Urso inflável grande</h3>
+                  <p>Ideal para decorar a casa e criar um clima festivo.</p>
+                </div>
+              </div>
+                <button class="promo-botao promo-anterior" id="promo-anterior" type="button" aria-label="Slide anterior">&#8249;</button>
+                <button class="promo-botao promo-proximo" id="promo-proximo" type="button" aria-label="Próximo slide">&#8250;</button>
+              </div>
+
+            <div class="promo-indicadores" id="promo-indicadores"></div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    
 
     <footer class="rodape">
       <div class="container rodape-conteudo">
