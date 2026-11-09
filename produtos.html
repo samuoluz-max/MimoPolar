@@ -83,13 +83,13 @@
       <a
         class="atalho-carrinho"
         href="#catalogo"
-        aria-label="Abrir sacola de compras"
+        aria-label="Abrir carrinho de compras"
       >
         <svg class="icone-sacola" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 8h14l1 13H4L5 8Z" />
           <path d="M9 8V6a3 3 0 0 1 6 0v2" />
         </svg>
-        <span>Sacola</span>
+        <span>Carrinho</span>
         <span class="contador-carrinho" data-qtd-carrinho>0</span>
       </a>
     </header>
@@ -187,11 +187,11 @@
 
           <aside class="resumo-carrinho" aria-live="polite">
             <span
-              >Sua sacola: <strong data-qtd-carrinho>0</strong> item(ns)</span
+              >Seu carrinho: <strong data-qtd-carrinho>0</strong> item(ns)</span
             >
             <span>Total: <strong id="total-carrinho">R$ 0,00</strong></span>
             <button class="botao-limpar" id="limpar-carrinho" type="button">
-              Esvaziar sacola
+              Esvaziar carrinho
             </button>
           </aside>
 
@@ -250,7 +250,7 @@
               type="button"
               class="modal-botao-adicionar"
             >
-              Adicionar à sacola <span aria-hidden="true">🛒</span>
+              Adicionar ao carrinho <span aria-hidden="true">🛒</span>
             </button>
           </div>
         </div>
@@ -266,7 +266,7 @@
       <span class="notificacao-icone" aria-hidden="true">✓</span>
       <div>
         <strong>Produto adicionado!</strong>
-        <p>Confira sua sacola no canto superior direito.</p>
+        <p>Confira seu carrinho no canto superior direito.</p>
       </div>
       <button
         type="button"
@@ -285,18 +285,18 @@
   aria-hidden="true"
 >
   <div class="painel-sacola-topo">
-    <h2 id="titulo-sacola">Sua sacola</h2>
+    <h2 id="titulo-sacola">Seu carrinho</h2>
     <button
       type="button"
       id="fechar-sacola"
       class="fechar-sacola"
-      aria-label="Fechar sacola"
+      aria-label="Fechar carrinho"
     >
       &times;
     </button>
   </div>
 
-  <p id="sacola-vazia" class="sacola-vazia">Sua sacola está vazia.</p>
+  <p id="sacola-vazia" class="sacola-vazia">Seu carrinho está vazio.</p>
   <ul id="lista-sacola" class="lista-sacola"></ul>
 
   <div class="painel-sacola-rodape">

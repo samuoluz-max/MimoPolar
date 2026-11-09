@@ -683,7 +683,7 @@ if (botaoAvancar && botaoVoltar) {
     const texto = notificacao.querySelector("p");
     if (titulo) titulo.textContent = "Produto adicionado!";
     if (texto)
-      texto.textContent = `${nomeProduto} foi adicionado. Confira sua sacola no canto superior direito.`;
+      texto.textContent = `${nomeProduto} foi adicionado. Confira seu carrinho no canto superior direito.`;
 
     notificacao.classList.add("visivel");
     window.clearTimeout(temporizadorNotificacao);
@@ -856,7 +856,7 @@ if (botaoFinalizarCompra && feedbackCompra) {
   botaoFinalizarCompra.addEventListener("click", () => {
     if (carrinho.length === 0) {
       feedbackCompra.textContent =
-        "Sua sacola está vazia. Adicione um mimo antes de finalizar.";
+        "Seu carrinho está vazio. Adicione um mimo antes de finalizar.";
       feedbackCompra.className = "feedback-compra erro";
       feedbackCompra.hidden = false;
       return;
