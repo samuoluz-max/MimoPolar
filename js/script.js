@@ -373,23 +373,6 @@ function atualizarCarrinho() {
     }, 0);
     totalCarrinho.textContent = formatarPreco(total);
   }
-
-  // Atualiza a barra lateral agrupando os ids repetidos em itens com quantidade.
-  if (temProdutos && window.atualizarSacolaLateral) {
-    const agrupados = new Map();
-    carrinho.forEach((id) => {
-      const produto = produtos.find((p) => p.id === id);
-      if (!produto) return;
-      const item = agrupados.get(id) || {
-        nome: produto.nome,
-        preco: produto.preco,
-        quantidade: 0,
-      };
-      item.quantidade++;
-      agrupados.set(id, item);
-    });
-    window.atualizarSacolaLateral([...agrupados.values()]);
-  }
 }
 
 function adicionarAoCarrinho(id) {
