@@ -83,13 +83,13 @@
       <a
         class="atalho-carrinho"
         href="#catalogo"
-        aria-label="Abrir sacola de compras"
+        aria-label="Abrir Carrinho de compras"
       >
-        <svg class="icone-sacola" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="icone-Carrinho" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 8h14l1 13H4L5 8Z" />
           <path d="M9 8V6a3 3 0 0 1 6 0v2" />
         </svg>
-        <span>Sacola</span>
+        <span>Carrinho</span>
         <span class="contador-carrinho" data-qtd-carrinho>0</span>
       </a>
     </header>
@@ -187,11 +187,11 @@
 
           <aside class="resumo-carrinho" aria-live="polite">
             <span
-              >Sua sacola: <strong data-qtd-carrinho>0</strong> item(ns)</span
+              >Sua Carrinho: <strong data-qtd-carrinho>0</strong> item(ns)</span
             >
             <span>Total: <strong id="total-carrinho">R$ 0,00</strong></span>
             <button class="botao-limpar" id="limpar-carrinho" type="button">
-              Esvaziar sacola
+              Esvaziar Carrinho
             </button>
           </aside>
 
@@ -250,7 +250,7 @@
               type="button"
               class="modal-botao-adicionar"
             >
-              Adicionar à sacola <span aria-hidden="true">🛒</span>
+              Adicionar à Carrinho <span aria-hidden="true">🛒</span>
             </button>
           </div>
         </div>
@@ -266,7 +266,7 @@
       <span class="notificacao-icone" aria-hidden="true">✓</span>
       <div>
         <strong>Produto adicionado!</strong>
-        <p>Confira sua sacola no canto superior direito.</p>
+        <p>Confira sua Carrinho no canto superior direito.</p>
       </div>
       <button
         type="button"
@@ -276,31 +276,31 @@
         &times;
       </button>
     </div>
-    <div id="fundo-sacola" class="fundo-sacola"></div>
+    <div id="fundo-Carrinho" class="fundo-Carrinho"></div>
 
 <aside
-  id="painel-sacola"
-  class="painel-sacola"
-  aria-labelledby="titulo-sacola"
+  id="painel-Carrinho"
+  class="painel-Carrinho"
+  aria-labelledby="titulo-Carrinho"
   aria-hidden="true"
 >
-  <div class="painel-sacola-topo">
-    <h2 id="titulo-sacola">Sua sacola</h2>
+  <div class="painel-Carrinho-topo">
+    <h2 id="titulo-Carrinho">Sua Carrinho</h2>
     <button
       type="button"
-      id="fechar-sacola"
-      class="fechar-sacola"
-      aria-label="Fechar sacola"
+      id="fechar-Carrinho"
+      class="fechar-Carrinho"
+      aria-label="Fechar Carrinho"
     >
       &times;
     </button>
   </div>
 
-  <p id="sacola-vazia" class="sacola-vazia">Sua sacola está vazia.</p>
-  <ul id="lista-sacola" class="lista-sacola"></ul>
+  <p id="Carrinho-vazia" class="Carrinho-vazia">Sua Carrinho está vazia.</p>
+  <ul id="lista-Carrinho" class="lista-Carrinho"></ul>
 
-  <div class="painel-sacola-rodape">
-    <p>Total: <strong id="total-sacola">R$ 0,00</strong></p>
+  <div class="painel-Carrinho-rodape">
+    <p>Total: <strong id="total-Carrinho">R$ 0,00</strong></p>
     <button type="button" id="finalizar-compra" class="botao-finalizar">
   Finalizar compra
 </button>

@@ -848,27 +848,3 @@ if (botaoAvancar && botaoVoltar) {
     totalPainel.textContent = formatarMoeda(total);
   };
 })();
-// ----- Finalizar compra (demonstrativo) -----
-const botaoFinalizarCompra = document.getElementById("finalizar-compra");
-const feedbackCompra = document.getElementById("feedback-compra");
-
-if (botaoFinalizarCompra && feedbackCompra) {
-  botaoFinalizarCompra.addEventListener("click", () => {
-    if (carrinho.length === 0) {
-      feedbackCompra.textContent =
-        "Sua sacola está vazia. Adicione um mimo antes de finalizar.";
-      feedbackCompra.className = "feedback-compra erro";
-      feedbackCompra.hidden = false;
-      return;
-    }
-
-    carrinho = [];
-    salvarCarrinho();
-    atualizarCarrinho();
-
-    feedbackCompra.textContent =
-      "Compra finalizada com sucesso. Como este é um projeto demonstrativo, a compra não foi concluída.";
-    feedbackCompra.className = "feedback-compra sucesso";
-    feedbackCompra.hidden = false;
-  });
-}
