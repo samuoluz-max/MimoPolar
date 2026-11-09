@@ -366,6 +366,7 @@ el.textContent = carrinho.length;
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const totalCarrinho = document.getElementById("total-carrinho");
 if (totalCarrinho && temProdutos) {
 const total = carrinho.reduce((soma, id) => {
@@ -391,6 +392,8 @@ totalCarrinho.textContent = formatarPreco(total);
     });
     window.atualizarSacolaLateral([...agrupados.values()]);
 =======
+=======
+>>>>>>> parent of 23f185e (Melhorei o Produtos)
   const totalCarrinho = document.getElementById("total-carrinho");
   if (totalCarrinho && temProdutos) {
     const total = carrinho.reduce((soma, id) => {
@@ -398,6 +401,9 @@ totalCarrinho.textContent = formatarPreco(total);
       return soma + (produto ? produto.preco : 0);
     }, 0);
     totalCarrinho.textContent = formatarPreco(total);
+<<<<<<< HEAD
+>>>>>>> parent of 23f185e (Melhorei o Produtos)
+=======
 >>>>>>> parent of 23f185e (Melhorei o Produtos)
   }
 }

@@ -1382,6 +1382,7 @@ line-height: 1.7;
 }
 
 .contador-mais-vendidos {
+<<<<<<< HEAD
 margin-top: 22px;
 color: var(--verde);
 font-size: 14px;
@@ -1391,6 +1392,17 @@ font-weight: 700;
 /* =====================================================
   6. GALERIA.HTML
   ===================================================== */
+=======
+  margin-top: 22px;
+  color: var(--verde);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   6. GALERIA.HTML
+   ===================================================== */
+>>>>>>> parent of 23f185e (Melhorei o Produtos)
 .galeria-pagina {
 padding-bottom: 56px;
 }
