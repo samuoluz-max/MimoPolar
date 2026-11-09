@@ -115,7 +115,7 @@ if (botaoNeve) {
 // 1. TODAS AS PÁGINAS — música de fundo
 // =====================================================
 const CHAVE_MUSICA = "musicaNatal";
-const musica = new Audio("audio/musica-natal.mp3");
+const musica = new Audio("audio/musica-natal.m4a");
 musica.loop = true;
 musica.volume = 0.3;
 

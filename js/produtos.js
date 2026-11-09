@@ -484,16 +484,17 @@ const produtos = [
 
   {
     id: 51,
-    nome: "Pelucia Raposa Polar",
+    nome: "Raposa Polar",
     categoria: "Bonecos de neve e bichos do inverno",
-    descricao: "Foca bebê de pelúcia usando gorro natalino vermelho e branco.",
+    descricao:
+      "Raposa de pelúcia em tons claros, com aparência macia e detalhes delicados.",
     preco: 79.9,
     imagem: "img/produtos/raposapolar.png",
   },
 
   {
     id: 52,
-    nome: "Pelucia",
+    nome: "Raposa de Pelúcia",
     categoria: "Renas e bichos da floresta",
     descricao:
       "Raposa de pelúcia em tom branco-creme, com cauda volumosa e focinho delicado.",
