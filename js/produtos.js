@@ -678,21 +678,12 @@ if (ultimoFoco && typeof ultimoFoco.focus === "function")
 ultimoFoco.focus();
 }
 
-<<<<<<< HEAD
 function mostrarNotificacao(nomeProduto) {
 const titulo = notificacao.querySelector("strong");
 const texto = notificacao.querySelector("p");
 if (titulo) titulo.textContent = "Produto adicionado!";
 if (texto)
 texto.textContent = `${nomeProduto} foi adicionado. Confira sua sacola no canto superior direito.`;
-=======
-  function mostrarNotificacao(nomeProduto) {
-    const titulo = notificacao.querySelector("strong");
-    const texto = notificacao.querySelector("p");
-    if (titulo) titulo.textContent = "Produto adicionado!";
-    if (texto)
-      texto.textContent = `${nomeProduto} foi adicionado. Confira seu carrinho no canto superior direito.`;
->>>>>>> ajustes
 
 notificacao.classList.add("visivel");
 window.clearTimeout(temporizadorNotificacao);
@@ -788,8 +779,6 @@ notificacao.classList.remove("visivel");
 window.clearTimeout(temporizadorNotificacao);
 });
 })();
-<<<<<<< HEAD
-=======
 
 // =====================================================
 // Barra lateral da sacola: abre, fecha e recebe a lista de itens.
@@ -867,7 +856,7 @@ if (botaoFinalizarCompra && feedbackCompra) {
   botaoFinalizarCompra.addEventListener("click", () => {
     if (carrinho.length === 0) {
       feedbackCompra.textContent =
-        "Seu carrinho está vazio. Adicione um mimo antes de finalizar.";
+        "Sua sacola está vazia. Adicione um mimo antes de finalizar.";
       feedbackCompra.className = "feedback-compra erro";
       feedbackCompra.hidden = false;
       return;
@@ -883,4 +872,3 @@ if (botaoFinalizarCompra && feedbackCompra) {
     feedbackCompra.hidden = false;
   });
 }
->>>>>>> ajustes

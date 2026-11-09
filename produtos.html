@@ -69,7 +69,6 @@ aria-live="off"
 <a href="contato.html">Contato</a>
 </nav>
 
-<<<<<<< HEAD
 <button class="botao-musica" id="btn-musica" type="button">
 Ativar música
 </button>
@@ -94,32 +93,6 @@ aria-label="Abrir sacola de compras"
 <span class="contador-carrinho" data-qtd-carrinho>0</span>
 </a>
 </header>
-=======
-      <button class="botao-musica" id="btn-musica" type="button">
-        Ativar música
-      </button>
-      <button class="botao-neve" type="button" aria-pressed="true">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M12 2v20M4 7l16 10M4 17 20 7M8 3l4 3 4-3M8 21l4-3 4 3M3 11l4-1-1-4M21 13l-4 1 1 4M3 13l4 1-1 4M21 11l-4-1 1-4"
-          />
-        </svg>
-        <span data-texto-neve>Neve ligada</span>
-      </button>
-      <a
-        class="atalho-carrinho"
-        href="#catalogo"
-        aria-label="Abrir carrinho de compras"
-      >
-        <svg class="icone-sacola" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M5 8h14l1 13H4L5 8Z" />
-          <path d="M9 8V6a3 3 0 0 1 6 0v2" />
-        </svg>
-        <span>Carrinho</span>
-        <span class="contador-carrinho" data-qtd-carrinho>0</span>
-      </a>
-    </header>
->>>>>>> ajustes
 
 <main id="conteudo" class="container">
 <section class="titulo-pagina">
@@ -212,7 +185,6 @@ placeholder="Ex.: rena, Papai Noel..."
 </div>
 </div>
 
-<<<<<<< HEAD
 <aside class="resumo-carrinho" aria-live="polite">
 <span
 >Sua sacola: <strong data-qtd-carrinho>0</strong> item(ns)</span
@@ -222,17 +194,6 @@ placeholder="Ex.: rena, Papai Noel..."
 Esvaziar sacola
 </button>
 </aside>
-=======
-          <aside class="resumo-carrinho" aria-live="polite">
-            <span
-              >Seu carrinho: <strong data-qtd-carrinho>0</strong> item(ns)</span
-            >
-            <span>Total: <strong id="total-carrinho">R$ 0,00</strong></span>
-            <button class="botao-limpar" id="limpar-carrinho" type="button">
-              Esvaziar carrinho
-            </button>
-          </aside>
->>>>>>> ajustes
 
 <div
 id="lista-produtos"
@@ -257,7 +218,6 @@ aria-live="polite"
 </div>
 </footer>
 
-<<<<<<< HEAD
 <!-- Janela de detalhes criada pelo JavaScript quando alguém seleciona um produto. -->
 <div id="modal-produto" class="modal-produto" aria-hidden="true">
 <div class="modal-fundo" data-fechar-modal></div>
@@ -297,8 +257,6 @@ Adicionar à sacola <span aria-hidden="true">🛒</span>
 </section>
 </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 <div
 id="notificacao-carrinho"
 class="notificacao-carrinho"
@@ -318,66 +276,6 @@ id="fechar-notificacao"
 &times;
 </button>
 </div>
-=======
-    <!-- Janela de detalhes criada pelo JavaScript quando alguém seleciona um produto. -->
-    <div id="modal-produto" class="modal-produto" aria-hidden="true">
-      <div class="modal-fundo" data-fechar-modal></div>
-      <section
-        class="modal-conteudo"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-titulo"
-      >
-        <button
-          class="modal-fechar"
-          type="button"
-          aria-label="Fechar detalhes"
-          data-fechar-modal
-        >
-          &times;
-        </button>
-        <div class="modal-visual">
-          <img id="modal-imagem" src="" alt="" />
-          <p class="modal-frase">Que tal um abraço fofinho neste Natal?</p>
-        </div>
-        <div class="modal-informacoes">
-          <p class="modal-sobretitulo">Um mimo especial</p>
-          <h2 id="modal-titulo"></h2>
-          <p id="modal-descricao"></p>
-          <div class="modal-rodape">
-            <strong id="modal-preco"></strong>
-            <button
-              id="modal-adicionar"
-              type="button"
-              class="modal-botao-adicionar"
-            >
-              Adicionar ao carrinho <span aria-hidden="true">🛒</span>
-            </button>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div
-      id="notificacao-carrinho"
-      class="notificacao-carrinho"
-      role="status"
-      aria-live="polite"
-    >
-      <span class="notificacao-icone" aria-hidden="true">✓</span>
-      <div>
-        <strong>Produto adicionado!</strong>
-        <p>Confira seu carrinho no canto superior direito.</p>
-      </div>
-      <button
-        type="button"
-        aria-label="Fechar notificação"
-        id="fechar-notificacao"
-      >
-        &times;
-      </button>
-    </div>
->>>>>>> ajustes
     <div id="fundo-sacola" class="fundo-sacola"></div>
 
 <aside
@@ -387,18 +285,18 @@ id="fechar-notificacao"
   aria-hidden="true"
 >
   <div class="painel-sacola-topo">
-    <h2 id="titulo-sacola">Seu carrinho</h2>
+    <h2 id="titulo-sacola">Sua sacola</h2>
     <button
       type="button"
       id="fechar-sacola"
       class="fechar-sacola"
-      aria-label="Fechar carrinho"
+      aria-label="Fechar sacola"
     >
       &times;
     </button>
   </div>
 
-  <p id="sacola-vazia" class="sacola-vazia">Seu carrinho está vazio.</p>
+  <p id="sacola-vazia" class="sacola-vazia">Sua sacola está vazia.</p>
   <ul id="lista-sacola" class="lista-sacola"></ul>
 
   <div class="painel-sacola-rodape">
@@ -411,28 +309,3 @@ id="fechar-notificacao"
 </aside>
 </body>
 </html>
-=======
-=======
->>>>>>> parent of 23f185e (Melhorei o Produtos)
-    <div
-      id="notificacao-carrinho"
-      class="notificacao-carrinho"
-      role="status"
-      aria-live="polite"
-    >
-      <span class="notificacao-icone" aria-hidden="true">✓</span>
-      <div>
-        <strong>Produto adicionado!</strong>
-        <p>Confira sua sacola no canto superior direito.</p>
-      </div>
-      <button
-        type="button"
-        aria-label="Fechar notificação"
-        id="fechar-notificacao"
-      >
-        &times;
-      </button>
-    </div>
-  </body>
-</html>
->>>>>>> parent of 23f185e (Melhorei o Produtos)
