@@ -72,6 +72,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  isolation: isolate;
   background-color: var(--noite);
   font-family: var(--fonte-texto);
   overflow-x: hidden;
@@ -405,13 +406,12 @@ body.home {
 .camada-neve {
   position: fixed;
   inset: 0;
-  z-index: 15;
+  z-index: -1;
   overflow: hidden;
   pointer-events: none;
 }
 
-.camada-neve::before,
-.camada-neve::after {
+.camada-neve::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -442,24 +442,6 @@ body.home {
   animation: neve-caindo 9s linear infinite;
 }
 
-.camada-neve::after {
-  background-image:
-    radial-gradient(
-      2px 2px at 40px 50px,
-      rgba(var(--neve-rgb), 0.72) 99%,
-      transparent
-    ),
-    radial-gradient(
-      1px 1px at 90px 110px,
-      rgba(var(--neve-rgb), 0.8) 99%,
-      transparent
-    );
-  background-size:
-    150px 180px,
-    110px 140px;
-  animation: neve-caindo-lenta 15s linear infinite;
-}
-
 body.neve-desativada .camada-neve {
   display: none;
 }
@@ -470,14 +452,6 @@ body.neve-desativada .camada-neve {
       20px 150px,
       -15px 190px,
       30px 120px;
-  }
-}
-
-@keyframes neve-caindo-lenta {
-  to {
-    background-position:
-      -25px 180px,
-      20px 140px;
   }
 }
 

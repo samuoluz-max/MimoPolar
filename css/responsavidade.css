@@ -587,8 +587,7 @@
     transition: none;
   }
 
-  .camada-neve::before,
-  .camada-neve::after {
+  .camada-neve::before {
     animation: none;
   }
 
