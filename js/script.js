@@ -365,6 +365,7 @@ document.querySelectorAll("[data-qtd-carrinho]").forEach((el) => {
 el.textContent = carrinho.length;
 });
 
+<<<<<<< HEAD
 const totalCarrinho = document.getElementById("total-carrinho");
 if (totalCarrinho && temProdutos) {
 const total = carrinho.reduce((soma, id) => {
@@ -389,6 +390,15 @@ totalCarrinho.textContent = formatarPreco(total);
       agrupados.set(id, item);
     });
     window.atualizarSacolaLateral([...agrupados.values()]);
+=======
+  const totalCarrinho = document.getElementById("total-carrinho");
+  if (totalCarrinho && temProdutos) {
+    const total = carrinho.reduce((soma, id) => {
+      const produto = produtos.find((p) => p.id === id);
+      return soma + (produto ? produto.preco : 0);
+    }, 0);
+    totalCarrinho.textContent = formatarPreco(total);
+>>>>>>> parent of 23f185e (Melhorei o Produtos)
   }
 }
 
