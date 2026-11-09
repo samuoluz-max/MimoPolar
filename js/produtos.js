@@ -780,6 +780,7 @@ if (botaoAvancar && botaoVoltar) {
   });
 })();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // =====================================================
 // Barra lateral da sacola: abre, fecha e recebe a lista de itens.
@@ -874,3 +875,5 @@ if (botaoFinalizarCompra && feedbackCompra) {
   });
 }
 
+=======
+>>>>>>> parent of 23f185e (Melhorei o Produtos)
