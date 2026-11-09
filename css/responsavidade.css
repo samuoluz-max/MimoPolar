@@ -9,7 +9,16 @@
    ===================================================== */
 @media (max-width: 768px) {
   /* ----- Todas as páginas ----- */
+  html,
+  body {
+    min-width: 0;
+  }
+
   .container {
+    width: calc(100% - 32px);
+  }
+
+  .container1 {
     width: calc(100% - 32px);
   }
 
@@ -27,6 +36,10 @@
   }
 
   .menu a {
+    flex: 0 1 auto;
+  }
+
+  .menu a {
     padding: 8px 10px;
     font-size: 14px;
   }
@@ -36,10 +49,21 @@
   }
 
   .botao-musica,
+  .botao-neve,
   .atalho-carrinho {
     min-height: 38px;
     padding: 8px 11px;
     font-size: 14px;
+  }
+
+  .atalho-carrinho {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .botao-neve {
+    padding: 8px 10px;
+    font-size: 13px;
   }
 
   .titulo-pagina {
@@ -72,6 +96,24 @@
 
   .sec p {
     font-size: 0.95em;
+  }
+
+  .container1 {
+    width: calc(100% - 32px);
+  }
+
+  .promo-cartao {
+    padding: 20px;
+  }
+
+  .promo-slideshow {
+    --promo-altura: clamp(220px, 52vw, 400px);
+  }
+
+  .home-links-grade,
+  .sobre-valores-grade,
+  .sobre-equipe-grade {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   }
 
   .parallax {
@@ -114,7 +156,27 @@
 
   .filtros {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .filtros label {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .filtros input,
+  .filtros select {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .catalogo,
+  .catalogo-topo,
+  .catalogo-listagem,
+  .mais-vendidos {
+    min-width: 0;
   }
 
   .resumo-carrinho {
@@ -127,7 +189,22 @@
   }
 
   .grade-produtos {
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  }
+
+  .produto-destaque {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .produto-destaque > img {
+    width: 100%;
+    height: clamp(220px, 45vw, 340px);
+  }
+
+  .texto-produto-destaque h3 {
+    font-size: 28px;
   }
 
   /* ----- galeria.html ----- */
@@ -166,6 +243,56 @@
   .contato-informacoes {
     padding: 20px;
   }
+
+  /* ----- Modal de detalhes ----- */
+  .modal-produto {
+    padding: 12px;
+  }
+
+  .modal-conteudo {
+    width: 100%;
+    min-height: 0;
+    max-height: calc(100vh - 24px);
+    grid-template-columns: minmax(0, 1fr);
+    overflow-y: auto;
+    border-width: 4px;
+    border-radius: 20px;
+  }
+
+  .modal-visual {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    padding: 56px 18px 18px;
+    border-right: 0;
+    border-bottom: 2px solid #66813d;
+  }
+
+  .modal-visual img {
+    max-height: 220px;
+  }
+
+  .modal-frase {
+    font-size: 25px;
+  }
+
+  .modal-informacoes {
+    padding: 24px 20px;
+  }
+
+  .modal-informacoes h2 {
+    font-size: 36px;
+  }
+
+  .modal-rodape {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+  }
+
+  .modal-botao-adicionar {
+    width: 100%;
+  }
 }
 
 /* =====================================================
@@ -176,8 +303,25 @@
     width: calc(100% - 24px);
   }
 
+  .container1 {
+    width: calc(100% - 24px);
+  }
+
   .cabecalho {
     padding: 16px 12px;
+  }
+
+  .atalho-carrinho {
+    right: 12px;
+    bottom: 12px;
+    gap: 5px;
+    padding: 8px 10px;
+  }
+
+  .botao-neve {
+    gap: 5px;
+    padding: 8px;
+    font-size: 12px;
   }
 
   .marca {
@@ -256,6 +400,29 @@
     padding: 40px 22px;
   }
 
+  .promo-cartao {
+    padding: 14px;
+  }
+
+  .promo-cartao > h2,
+  .home-destaques h2,
+  .home-links h2,
+  .sobre-valores > h2,
+  .sobre-equipe > h2 {
+    font-size: 26px;
+  }
+
+  .promo-botao {
+    width: 38px;
+    height: 38px;
+  }
+
+  .home-links-grade,
+  .sobre-valores-grade,
+  .sobre-equipe-grade {
+    grid-template-columns: 1fr;
+  }
+
   /* ----- produtos.html ----- */
   .catalogo {
     padding: 16px;
@@ -279,8 +446,16 @@
   }
 
   .grade-produtos {
-    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 145px), 1fr));
     gap: 12px;
+  }
+
+  .mais-vendidos {
+    padding: 16px;
+  }
+
+  .produto-destaque > img {
+    height: clamp(200px, 70vw, 300px);
   }
 
   .card h3 {
@@ -326,6 +501,16 @@
     font-size: 14px;
   }
 
+  .galeria-lightbox {
+    width: calc(100% - 20px);
+    max-height: calc(100% - 20px);
+    padding: 14px;
+  }
+
+  .slides-controles {
+    flex-wrap: wrap;
+  }
+
   /* ----- sobre.html ----- */
   .sobre-caixa {
     padding: 20px 16px;
@@ -363,6 +548,14 @@
     font-size: 22px;
   }
 
+  .modal-produto {
+    padding: 10px;
+  }
+
+  .modal-conteudo {
+    max-height: calc(100vh - 20px);
+  }
+
   .rodape-conteudo {
     gap: 16px;
     padding-top: 24px;
@@ -376,13 +569,13 @@
   /* Todas as páginas */
   .menu a,
   .botao-musica,
+  .botao-neve,
   .atalho-carrinho {
     transition: none;
   }
 
-  /* index.html */
-  #neve::before,
-  #neve::after {
+  .camada-neve::before,
+  .camada-neve::after {
     animation: none;
   }
 

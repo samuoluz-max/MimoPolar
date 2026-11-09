@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galeria de Natal | Mimo Polar</title>
-    <link rel="icon" href="img/logo.png" />
+    <link rel="icon" href="img/banners/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,10 +33,22 @@
           aria-label="Tempo restante até o Natal de 2026"
           aria-live="off"
         >
-          <div><span id="dias">0</span><p>Dias</p></div>
-          <div><span id="horas">0</span><p>Horas</p></div>
-          <div><span id="minutos">0</span><p>Min</p></div>
-          <div><span id="segundos">0</span><p>Seg</p></div>
+          <div>
+            <span id="dias">0</span>
+            <p>Dias</p>
+          </div>
+          <div>
+            <span id="horas">0</span>
+            <p>Horas</p>
+          </div>
+          <div>
+            <span id="minutos">0</span>
+            <p>Min</p>
+          </div>
+          <div>
+            <span id="segundos">0</span>
+            <p>Seg</p>
+          </div>
         </div>
       </div>
       <nav class="menu" aria-label="Navegação principal">
@@ -49,7 +61,19 @@
       <button class="botao-musica" id="btn-musica" type="button">
         Ativar música
       </button>
-      <a class="atalho-carrinho" href="produtos.html#catalogo" aria-label="Abrir sacola de compras">
+      <button class="botao-neve" type="button" aria-pressed="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2v20M4 7l16 10M4 17 20 7M8 3l4 3 4-3M8 21l4-3 4 3M3 11l4-1-1-4M21 13l-4 1 1 4M3 13l4 1-1 4M21 11l-4-1 1-4"
+          />
+        </svg>
+        <span data-texto-neve>Neve ligada</span>
+      </button>
+      <a
+        class="atalho-carrinho"
+        href="produtos.html#catalogo"
+        aria-label="Abrir sacola de compras"
+      >
         <svg class="icone-sacola" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 8h14l1 13H4L5 8Z" />
           <path d="M9 8V6a3 3 0 0 1 6 0v2" />
@@ -79,10 +103,15 @@
             <div class="galeria-imagem">
               <img
                 src="img/banners/imagem auau.jpg"
-                alt="papai noel no celular"
+                alt="Cachorrinho em clima natalino"
               />
             </div>
-            <figcaption>Um cachorrinho fofo em clima natalino, usando uma tiara com chifres de rena e um nariz vermelho de Rodolfo. Com o fundo vermelho, ele transmite todo o charme, a alegria e a magia do Natal!</figcaption>
+            <figcaption>
+              Um cachorrinho fofo em clima natalino, usando uma tiara com
+              chifres de rena e um nariz vermelho de Rodolfo. Com o fundo
+              vermelho, ele transmite todo o charme, a alegria e a magia do
+              Natal!
+            </figcaption>
           </figure>
 
           <figure class="galeria-item slide" aria-hidden="true">
@@ -147,7 +176,23 @@
         </div>
       </section>
     </main>
- 
+
+    <dialog
+      id="galeria-lightbox"
+      class="galeria-lightbox"
+      aria-label="Imagem ampliada"
+    >
+      <button
+        class="lightbox-fechar"
+        type="button"
+        aria-label="Fechar imagem ampliada"
+      >
+        &times;
+      </button>
+      <img id="lightbox-imagem" src="" alt="" />
+      <p id="lightbox-legenda"></p>
+    </dialog>
+
     <footer class="rodape">
       <div class="container rodape-conteudo">
         <a class="marca marca-rodape" href="index.html"

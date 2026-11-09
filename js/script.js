@@ -16,6 +16,60 @@
 const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 // =====================================================
+// TODAS AS PÁGINAS — neve global com controle persistente
+// =====================================================
+const botaoNeve = document.querySelector(".botao-neve");
+
+if (botaoNeve) {
+  const CHAVE_NEVE = "efeitoNeveAtivo";
+  const camadaNeve = document.createElement("div");
+  camadaNeve.className = "camada-neve";
+  camadaNeve.setAttribute("aria-hidden", "true");
+  document.body.append(camadaNeve);
+
+  let neveAtiva = true;
+  try {
+    const preferenciaSalva = localStorage.getItem(CHAVE_NEVE);
+    if (preferenciaSalva !== null) neveAtiva = preferenciaSalva === "true";
+  } catch (erro) {
+    console.error(
+      "Não foi possível carregar a preferência do efeito de neve.",
+      erro,
+    );
+  }
+
+  const textoBotaoNeve = botaoNeve.querySelector("[data-texto-neve]");
+
+  function atualizarEfeitoNeve() {
+    document.body.classList.toggle("neve-desativada", !neveAtiva);
+    botaoNeve.setAttribute("aria-pressed", String(neveAtiva));
+    botaoNeve.setAttribute(
+      "aria-label",
+      neveAtiva ? "Desligar efeito de neve" : "Ligar efeito de neve",
+    );
+    if (textoBotaoNeve) {
+      textoBotaoNeve.textContent = neveAtiva ? "Neve ligada" : "Neve desligada";
+    }
+  }
+
+  atualizarEfeitoNeve();
+
+  botaoNeve.addEventListener("click", () => {
+    neveAtiva = !neveAtiva;
+    atualizarEfeitoNeve();
+
+    try {
+      localStorage.setItem(CHAVE_NEVE, String(neveAtiva));
+    } catch (erro) {
+      console.error(
+        "Não foi possível salvar a preferência do efeito de neve.",
+        erro,
+      );
+    }
+  });
+}
+
+// =====================================================
 // SINO AO ENTRAR NO SITE (toca uma vez por visita)
 // =====================================================
 (function sinoDeEntrada() {
@@ -38,15 +92,24 @@ const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)");
   const eventos = ["pointerdown", "keydown", "touchstart"];
 
   function tocarNoPrimeiroToque() {
-    eventos.forEach((e) => document.removeEventListener(e, tocarNoPrimeiroToque));
-    sino.play().then(marcarComoTocado).catch(() => {});
+    eventos.forEach((e) =>
+      document.removeEventListener(e, tocarNoPrimeiroToque),
+    );
+    sino
+      .play()
+      .then(marcarComoTocado)
+      .catch(() => {});
   }
 
-  sino.play().then(marcarComoTocado).catch(() => {
-    eventos.forEach((e) => document.addEventListener(e, tocarNoPrimeiroToque));
-  });
+  sino
+    .play()
+    .then(marcarComoTocado)
+    .catch(() => {
+      eventos.forEach((e) =>
+        document.addEventListener(e, tocarNoPrimeiroToque),
+      );
+    });
 })();
-
 
 // =====================================================
 // 1. TODAS AS PÁGINAS — música de fundo
@@ -107,7 +170,10 @@ if (botaoMusica) {
       { once: true },
     );
     if (estadoSalvo.tocando) {
-      musica.play().then(atualizarBotaoMusica).catch(() => {});
+      musica
+        .play()
+        .then(atualizarBotaoMusica)
+        .catch(() => {});
     }
   }
 
@@ -129,18 +195,16 @@ if (botaoMusica) {
 const logos = document.getElementById("logos");
 const papai = document.getElementById("papai");
 const pelucia = document.getElementById("pelucia");
-const neve = document.getElementById("neve");
 const parallaxMobile = window.matchMedia("(max-width: 768px)");
 
 let ticking = false;
 
-if (logos && papai && pelucia && neve) {
+if (logos && papai && pelucia) {
   function updateParallax() {
     if (parallaxMobile.matches) {
       logos.style.removeProperty("transform");
       papai.style.removeProperty("transform");
       pelucia.style.removeProperty("transform");
-      neve.style.removeProperty("transform");
       ticking = false;
       return;
     }
@@ -150,7 +214,6 @@ if (logos && papai && pelucia && neve) {
     logos.style.transform = `translateX(${value * -2}px)`;
     papai.style.transform = `translateY(${value * 0.5}px)`;
     pelucia.style.transform = `translateY(${value * 0.7}px)`;
-    neve.style.transform = `translateY(${value}px)`;
 
     ticking = false;
   }
@@ -168,6 +231,34 @@ if (logos && papai && pelucia && neve) {
 
   window.addEventListener("resize", updateParallax);
   updateParallax();
+}
+
+// =====================================================
+// ANIMAÇÕES DE ENTRADA AO ROLAR A PÁGINA
+// =====================================================
+const elementosAnimados = document.querySelectorAll(".animar-rolagem");
+
+if (
+  elementosAnimados.length &&
+  !semMovimento.matches &&
+  "IntersectionObserver" in window
+) {
+  document.body.classList.add("animacao-rolagem-ativa");
+  const observadorRolagem = new IntersectionObserver(
+    (entradas, observador) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add("visivel");
+          observador.unobserve(entrada.target);
+        }
+      });
+    },
+    { threshold: 0.12 },
+  );
+
+  elementosAnimados.forEach((elemento) => observadorRolagem.observe(elemento));
+} else {
+  elementosAnimados.forEach((elemento) => elemento.classList.add("visivel"));
 }
 
 // =====================================================
@@ -203,6 +294,23 @@ function mostrarProdutos(lista) {
   listaProdutos.innerHTML = lista.length
     ? lista.map(criarCard).join("")
     : '<p class="sem-resultados">Nenhum produto encontrado.</p>';
+}
+
+function preencherCategorias() {
+  if (!seletorCategoria || !temProdutos) return;
+
+  const quantidades = new Map();
+  produtos.forEach((produto) => {
+    quantidades.set(
+      produto.categoria,
+      (quantidades.get(produto.categoria) || 0) + 1,
+    );
+  });
+
+  seletorCategoria.replaceChildren(new Option("Todas as pelúcias", "todas"));
+  quantidades.forEach((quantidade, categoria) => {
+    seletorCategoria.add(new Option(`${categoria} (${quantidade})`, categoria));
+  });
 }
 
 // ----- Busca e filtro -----
@@ -286,6 +394,7 @@ if (listaProdutos && !temProdutos) {
 }
 
 if (listaProdutos && temProdutos) {
+  preencherCategorias();
   mostrarProdutos(produtos);
 
   if (campoBusca && seletorCategoria) {
@@ -314,6 +423,52 @@ if (botaoLimparCarrinho) {
 }
 
 atualizarCarrinho();
+
+// =====================================================
+// HOME — produtos marcados como destaque no catálogo
+// =====================================================
+const listaDestaquesHome = document.getElementById("produtos-destaque");
+
+if (listaDestaquesHome) {
+  const destaques = temProdutos
+    ? produtos.filter((produto) => produto.destaque)
+    : [];
+
+  if (!destaques.length) {
+    listaDestaquesHome.textContent = "Em breve, novos destaques da coleção.";
+  } else {
+    destaques.forEach((produto) => {
+      const card = document.createElement("article");
+      card.className = "card";
+
+      const imagem = document.createElement("img");
+      imagem.src = produto.imagem;
+      imagem.alt = produto.nome;
+      imagem.loading = "lazy";
+
+      const titulo = document.createElement("h3");
+      titulo.textContent = produto.nome;
+
+      const descricao = document.createElement("p");
+      descricao.textContent =
+        produto.descricao.length > 110
+          ? `${produto.descricao.slice(0, 107).trimEnd()}...`
+          : produto.descricao;
+
+      const preco = document.createElement("strong");
+      preco.className = "preco";
+      preco.textContent = formatarPreco(produto.preco);
+
+      const link = document.createElement("a");
+      link.href = "produtos.html#catalogo";
+      link.textContent = "Ver produto";
+      link.setAttribute("aria-label", `Ver ${produto.nome} no catálogo`);
+
+      card.append(imagem, titulo, descricao, preco, link);
+      listaDestaquesHome.append(card);
+    });
+  }
+}
 
 // =====================================================
 // 4. GALERIA.HTML — slideshow
@@ -368,6 +523,46 @@ if (
   iniciarIntervalo();
 }
 
+// =====================================================
+// GALERIA.HTML — lightbox para ampliar a imagem atual
+// =====================================================
+const lightbox = document.getElementById("galeria-lightbox");
+const lightboxImagem = document.getElementById("lightbox-imagem");
+const lightboxLegenda = document.getElementById("lightbox-legenda");
+const botaoFecharLightbox = document.querySelector(".lightbox-fechar");
+
+if (lightbox && lightboxImagem && lightboxLegenda && botaoFecharLightbox) {
+  document.querySelectorAll(".galeria-imagem img").forEach((imagem) => {
+    imagem.tabIndex = 0;
+    imagem.setAttribute("role", "button");
+    imagem.setAttribute("aria-label", `Ampliar imagem: ${imagem.alt}`);
+
+    function abrirLightbox() {
+      lightboxImagem.src = imagem.currentSrc || imagem.src;
+      lightboxImagem.alt = imagem.alt;
+      lightboxLegenda.textContent =
+        imagem
+          .closest("figure")
+          ?.querySelector("figcaption")
+          ?.textContent.trim() || imagem.alt;
+      lightbox.showModal();
+      botaoFecharLightbox.focus();
+    }
+
+    imagem.addEventListener("click", abrirLightbox);
+    imagem.addEventListener("keydown", (evento) => {
+      if (evento.key === "Enter" || evento.key === " ") {
+        evento.preventDefault();
+        abrirLightbox();
+      }
+    });
+  });
+
+  botaoFecharLightbox.addEventListener("click", () => lightbox.close());
+  lightbox.addEventListener("click", (evento) => {
+    if (evento.target === lightbox) lightbox.close();
+  });
+}
 
 // =====================================================
 // 5. PÁGINAS COM CONTAGEM — tempo até o Natal de 2026
@@ -398,7 +593,6 @@ if (elementoDias && elementoHoras && elementoMinutos && elementoSegundos) {
   window.setInterval(atualizarContagem, 1000);
 }
 
-
 // =====================================================
 // 6. INDEX.HTML — slideshow da home
 // =====================================================
@@ -420,10 +614,12 @@ if (
 
   // cria uma bolinha para cada slide
   promoSlides.forEach((slide, i) => {
+    slide.setAttribute("aria-hidden", "true");
     const ponto = document.createElement("button");
     ponto.className = "promo-indicador";
     ponto.type = "button";
     ponto.setAttribute("aria-label", `Ir para o slide ${i + 1}`);
+    ponto.setAttribute("aria-pressed", "false");
     ponto.addEventListener("click", () => {
       promoMostrar(i);
       promoIniciar();
@@ -434,10 +630,14 @@ if (
 
   function promoMostrar(indice) {
     promoSlides[promoAtual].classList.remove("ativo");
+    promoSlides[promoAtual].setAttribute("aria-hidden", "true");
     promoPontos[promoAtual].classList.remove("ativo");
+    promoPontos[promoAtual].setAttribute("aria-pressed", "false");
     promoAtual = (indice + promoSlides.length) % promoSlides.length;
     promoSlides[promoAtual].classList.add("ativo");
+    promoSlides[promoAtual].setAttribute("aria-hidden", "false");
     promoPontos[promoAtual].classList.add("ativo");
+    promoPontos[promoAtual].setAttribute("aria-pressed", "true");
   }
 
   function promoParar() {
@@ -464,4 +664,53 @@ if (
 
   promoMostrar(0);
   promoIniciar();
+}
+
+// =====================================================
+// CONTATO.HTML — validação do formulário demonstrativo
+// =====================================================
+const formularioContato = document.querySelector(".contato-formulario");
+const feedbackContato = document.getElementById("contato-feedback");
+
+if (formularioContato && feedbackContato) {
+  const camposObrigatorios = [
+    ...formularioContato.querySelectorAll("[required]"),
+  ];
+  const campoEmail = formularioContato.querySelector('input[type="email"]');
+
+  formularioContato.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    camposObrigatorios.forEach((campo) =>
+      campo.removeAttribute("aria-invalid"),
+    );
+
+    const campoVazio = camposObrigatorios.find((campo) => !campo.value.trim());
+    const emailInvalido =
+      !campoVazio &&
+      campoEmail &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(campoEmail.value.trim());
+    const campoInvalido = campoVazio || (emailInvalido ? campoEmail : null);
+
+    feedbackContato.hidden = false;
+    if (campoInvalido) {
+      campoInvalido.setAttribute("aria-invalid", "true");
+      feedbackContato.className = "contato-feedback erro";
+      feedbackContato.textContent = campoVazio
+        ? "Preencha todos os campos obrigatórios."
+        : "Digite um endereço de e-mail válido.";
+      campoInvalido.focus();
+      return;
+    }
+
+    feedbackContato.className = "contato-feedback sucesso";
+    feedbackContato.textContent =
+      "Formulário validado com sucesso. Como este é um projeto demonstrativo, a mensagem não foi enviada.";
+    formularioContato.reset();
+  });
+
+  camposObrigatorios.forEach((campo) => {
+    campo.addEventListener("input", () => {
+      if (campo.value.trim()) campo.removeAttribute("aria-invalid");
+    });
+  });
 }

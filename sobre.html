@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sobre nós | Mimo Polar</title>
-    <link rel="icon" href="img/logo.png" />
+    <link rel="icon" href="img/banners/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,10 +33,22 @@
           aria-label="Tempo restante até o Natal de 2026"
           aria-live="off"
         >
-          <div><span id="dias">0</span><p>Dias</p></div>
-          <div><span id="horas">0</span><p>Horas</p></div>
-          <div><span id="minutos">0</span><p>Min</p></div>
-          <div><span id="segundos">0</span><p>Seg</p></div>
+          <div>
+            <span id="dias">0</span>
+            <p>Dias</p>
+          </div>
+          <div>
+            <span id="horas">0</span>
+            <p>Horas</p>
+          </div>
+          <div>
+            <span id="minutos">0</span>
+            <p>Min</p>
+          </div>
+          <div>
+            <span id="segundos">0</span>
+            <p>Seg</p>
+          </div>
         </div>
       </div>
       <nav class="menu" aria-label="Navegação principal">
@@ -49,7 +61,19 @@
       <button class="botao-musica" id="btn-musica" type="button">
         Ativar música
       </button>
-      <a class="atalho-carrinho" href="produtos.html#catalogo" aria-label="Abrir sacola de compras">
+      <button class="botao-neve" type="button" aria-pressed="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2v20M4 7l16 10M4 17 20 7M8 3l4 3 4-3M8 21l4-3 4 3M3 11l4-1-1-4M21 13l-4 1 1 4M3 13l4 1-1 4M21 11l-4-1 1-4"
+          />
+        </svg>
+        <span data-texto-neve>Neve ligada</span>
+      </button>
+      <a
+        class="atalho-carrinho"
+        href="produtos.html#catalogo"
+        aria-label="Abrir sacola de compras"
+      >
         <svg class="icone-sacola" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 8h14l1 13H4L5 8Z" />
           <path d="M9 8V6a3 3 0 0 1 6 0v2" />
@@ -65,7 +89,7 @@
         <h1>Sobre nós</h1>
       </section>
 
-      <article class="sobre-caixa">
+      <article class="sobre-caixa animar-rolagem">
         <h2 class="sobre-titulo-principal">Nossa história</h2>
         <h3 class="sobre-subtitulo">Venha conhecer nosso passado!</h3>
         <p class="sobre-texto">
@@ -80,6 +104,59 @@
         </p>
       </article>
 
+      <section
+        class="sobre-valores animar-rolagem"
+        aria-labelledby="titulo-valores"
+      >
+        <h2 id="titulo-valores">O que nos inspira</h2>
+        <div class="sobre-valores-grade">
+          <article>
+            <h3>Missão</h3>
+            <p>
+              Espalhar carinho e alegria com pelúcias que tornam o Natal mais
+              acolhedor.
+            </p>
+          </article>
+          <article>
+            <h3>Visão</h3>
+            <p>
+              Ser lembrada como uma loja que transforma presentes em boas
+              memórias.
+            </p>
+          </article>
+          <article>
+            <h3>Valores</h3>
+            <p>
+              Afeto, criatividade, cuidado e respeito em cada escolha da nossa
+              coleção.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="sobre-equipe animar-rolagem"
+        aria-labelledby="titulo-equipe"
+      >
+        <h2 id="titulo-equipe">Nossa equipe</h2>
+        <div class="sobre-equipe-grade">
+          <article>
+            <span class="equipe-avatar" aria-hidden="true">MA</span>
+            <h3>Murilo Andrade Perine</h3>
+            <p>Conteúdo e catálogo</p>
+          </article>
+          <article>
+            <span class="equipe-avatar" aria-hidden="true">SL</span>
+            <h3>Samuel Luz</h3>
+            <p>Programação e interações</p>
+          </article>
+          <article>
+            <span class="equipe-avatar" aria-hidden="true">RY</span>
+            <h3>Rafael Yamakishi Klava</h3>
+            <p>Design e experiência visual</p>
+          </article>
+        </div>
+      </section>
     </main>
 
     <footer class="rodape">
