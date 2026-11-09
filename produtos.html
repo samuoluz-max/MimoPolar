@@ -276,5 +276,36 @@
         &times;
       </button>
     </div>
+    <div id="fundo-sacola" class="fundo-sacola"></div>
+
+<aside
+  id="painel-sacola"
+  class="painel-sacola"
+  aria-labelledby="titulo-sacola"
+  aria-hidden="true"
+>
+  <div class="painel-sacola-topo">
+    <h2 id="titulo-sacola">Sua sacola</h2>
+    <button
+      type="button"
+      id="fechar-sacola"
+      class="fechar-sacola"
+      aria-label="Fechar sacola"
+    >
+      &times;
+    </button>
+  </div>
+
+  <p id="sacola-vazia" class="sacola-vazia">Sua sacola está vazia.</p>
+  <ul id="lista-sacola" class="lista-sacola"></ul>
+
+  <div class="painel-sacola-rodape">
+    <p>Total: <strong id="total-sacola">R$ 0,00</strong></p>
+    <button type="button" id="finalizar-compra" class="botao-finalizar">
+  Finalizar compra
+</button>
+<p id="feedback-compra" class="feedback-compra" role="status" hidden></p>
+  </div>
+</aside>
   </body>
 </html>

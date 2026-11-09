@@ -779,3 +779,96 @@ if (botaoAvancar && botaoVoltar) {
     window.clearTimeout(temporizadorNotificacao);
   });
 })();
+
+// =====================================================
+// Barra lateral da sacola: abre, fecha e recebe a lista de itens.
+// =====================================================
+(function configurarSacolaLateral() {
+  const painel = document.getElementById("painel-sacola");
+  const fundo = document.getElementById("fundo-sacola");
+  const btnAbrir = document.querySelector(".atalho-carrinho");
+  const btnFechar = document.getElementById("fechar-sacola");
+  const lista = document.getElementById("lista-sacola");
+  const vazia = document.getElementById("sacola-vazia");
+  const totalPainel = document.getElementById("total-sacola");
+
+  if (!painel || !fundo || !btnAbrir) return;
+
+  const formatarMoeda = (valor) =>
+    valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+  function abrirSacola(evento) {
+    evento.preventDefault(); // impede o link de pular para #catalogo
+    painel.classList.add("aberto");
+    fundo.classList.add("ativo");
+    painel.setAttribute("aria-hidden", "false");
+    btnFechar.focus();
+  }
+
+  function fecharSacola() {
+    painel.classList.remove("aberto");
+    fundo.classList.remove("ativo");
+    painel.setAttribute("aria-hidden", "true");
+    btnAbrir.focus();
+  }
+
+  btnAbrir.addEventListener("click", abrirSacola);
+  btnFechar.addEventListener("click", fecharSacola);
+  fundo.addEventListener("click", fecharSacola);
+
+  document.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape" && painel.classList.contains("aberto"))
+      fecharSacola();
+  });
+
+  // Chame esta função sempre que a sacola mudar.
+  // itens: [{ nome, preco, quantidade }]
+  window.atualizarSacolaLateral = function (itens) {
+    lista.innerHTML = "";
+    let total = 0;
+
+    itens.forEach((item) => {
+      const subtotal = item.preco * item.quantidade;
+      total += subtotal;
+
+      const li = document.createElement("li");
+      li.className = "item-sacola";
+
+      const nome = document.createElement("span");
+      nome.textContent = `${item.nome} × ${item.quantidade}`;
+
+      const preco = document.createElement("strong");
+      preco.textContent = formatarMoeda(subtotal);
+
+      li.append(nome, preco);
+      lista.appendChild(li);
+    });
+
+    vazia.hidden = itens.length > 0;
+    totalPainel.textContent = formatarMoeda(total);
+  };
+})();
+// ----- Finalizar compra (demonstrativo) -----
+const botaoFinalizarCompra = document.getElementById("finalizar-compra");
+const feedbackCompra = document.getElementById("feedback-compra");
+
+if (botaoFinalizarCompra && feedbackCompra) {
+  botaoFinalizarCompra.addEventListener("click", () => {
+    if (carrinho.length === 0) {
+      feedbackCompra.textContent =
+        "Sua sacola está vazia. Adicione um mimo antes de finalizar.";
+      feedbackCompra.className = "feedback-compra erro";
+      feedbackCompra.hidden = false;
+      return;
+    }
+
+    carrinho = [];
+    salvarCarrinho();
+    atualizarCarrinho();
+
+    feedbackCompra.textContent =
+      "Compra finalizada com sucesso. Como este é um projeto demonstrativo, a compra não foi concluída.";
+    feedbackCompra.className = "feedback-compra sucesso";
+    feedbackCompra.hidden = false;
+  });
+}
