@@ -25,7 +25,13 @@ if (botaoNeve) {
   const camadaNeve = document.createElement("div");
   camadaNeve.className = "camada-neve";
   camadaNeve.setAttribute("aria-hidden", "true");
-  document.body.append(camadaNeve);
+
+  // Na home a neve entra dentro da seção do parallax, para ficar acima
+  // da foto e abaixo do Papai Noel e da pelúcia. Nas outras páginas
+  // (que não têm essa seção) ela vai para o body, atrás do conteúdo.
+  (document.getElementById("fundo-parallax") || document.body).append(
+    camadaNeve,
+  );
 
   let neveAtiva = true;
   try {
@@ -190,18 +196,26 @@ if (botaoMusica) {
 }
 
 // =====================================================
-// 2. INDEX.HTML — parallax da home (logo, pelúcia e Papai Noel)
+// 2. INDEX.HTML — parallax da home (fundo, logo, pelúcia e Papai Noel)
 // =====================================================
+const fundoParallax = document.getElementById("fundo-parallax");
 const logos = document.getElementById("logos");
 const papai = document.getElementById("papai");
 const pelucia = document.getElementById("pelucia");
 const parallaxMobile = window.matchMedia("(max-width: 768px)");
 
+// Velocidade do fundo (menor = mais lento = mais profundidade)
+const VELOCIDADE_FUNDO = 0.3;
+// Folga da imagem acima da section (precisa ser igual ao top negativo
+// da regra .parallax::before no CSS: 15% da altura da section)
+const FOLGA_FUNDO = 0.15;
+
 let ticking = false;
 
-if (logos && papai && pelucia) {
+if (fundoParallax && logos && papai && pelucia) {
   function updateParallax() {
     if (parallaxMobile.matches) {
+      fundoParallax.style.removeProperty("--fundo-y");
       logos.style.removeProperty("transform");
       papai.style.removeProperty("transform");
       pelucia.style.removeProperty("transform");
@@ -211,9 +225,15 @@ if (logos && papai && pelucia) {
 
     const value = window.scrollY;
 
-    logos.style.transform = `translateX(${value * -2}px)`;
+    // O fundo desce devagar, mas nunca além da folga da imagem.
+    // Assim não aparece faixa vazia nem repetição.
+    const limite = fundoParallax.offsetHeight * FOLGA_FUNDO;
+    const deslocamento = Math.min(value * VELOCIDADE_FUNDO, limite);
+
+    fundoParallax.style.setProperty("--fundo-y", `${deslocamento}px`);
+    logos.style.transform = `translateX(${value * -1}px)`;
     papai.style.transform = `translateY(${value * 0.5}px)`;
-    pelucia.style.transform = `translateY(${value * 0.7}px)`;
+    pelucia.style.transform = `translateY(${value * 0.3}px)`;
 
     ticking = false;
   }

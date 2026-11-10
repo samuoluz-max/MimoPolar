@@ -24,6 +24,37 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animacao-rolagem-ativa .animar-rolagem {
+    transform: none;
+    transition: none;
+  }
+
+  .card {
+    animation: none;
+  }
+
+  .promo-slide {
+    transition: none;
+  }
+}
+
+/* Celular / tela estreita: tudo em uma coluna */
+@media (max-width: 800px) {
+  .contato-cartao,
+  .contato-mapa-cartao {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 28px;
+  }
+
+  .contato-mapa,
+  .contato-mapa iframe {
+    min-height: 320px;
+  }
+}
+
+
 @media (max-width: 768px) {
   /* ----- Todas as páginas ----- */
   html,
@@ -591,7 +622,8 @@
     transition: none;
   }
 
-  .camada-neve::before {
+  .camada-neve::before,
+  .camada-neve::after {
     animation: none;
   }
 
