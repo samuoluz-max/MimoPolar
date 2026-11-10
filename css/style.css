@@ -650,8 +650,13 @@ body.neve-desativada .camada-neve {
 }
 
 .home-destaques .grade-produtos {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-bottom: 24px;
   text-align: left;
+}
+
+.home-destaques .grade-produtos > .card:nth-child(n + 5) {
+  display: none;
 }
 
 .home-destaques .botao-comprar-home {
@@ -1204,7 +1209,7 @@ body.neve-desativada .camada-neve {
 
 .grade-produtos {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
   align-items: stretch;
   gap: 20px;
 }
@@ -1639,7 +1644,7 @@ body.neve-desativada .camada-neve {
 /* Grade e cards de produto */
 .grade-produtos {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   align-items: stretch;
   gap: 20px;
 }
