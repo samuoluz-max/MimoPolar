@@ -1823,6 +1823,153 @@ body.neve-desativada .camada-neve {
   font-size: 14px;
   font-weight: 700;
 }
+/* =====================================================
+   Barra lateral da sacola
+   ===================================================== */
+.fundo-sacola {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(var(--preto-rgb), 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.fundo-sacola.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.painel-sacola {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  width: min(380px, 100%);
+  height: 100vh;
+  padding: 24px;
+  border-left: 3px solid var(--dourado);
+  background: var(--creme-claro);
+  color: var(--noite);
+  box-shadow: -8px 0 24px rgba(var(--preto-rgb), 0.25);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition:
+    transform 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.painel-sacola.aberto {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.painel-sacola-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--bege-borda);
+}
+
+.painel-sacola-topo h2 {
+  color: var(--verde);
+  font-size: 28px;
+}
+
+.fechar-sacola {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--verde);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--verde);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.fechar-sacola:hover {
+  background: var(--verde);
+  color: var(--neve);
+}
+
+.fechar-sacola:focus-visible {
+  outline: 3px solid var(--dourado);
+  outline-offset: 3px;
+}
+
+.sacola-vazia {
+  margin-top: 24px;
+  color: var(--cinza-texto);
+}
+
+.lista-sacola {
+  flex: 1;
+  margin-top: 16px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.item-sacola {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--bege-borda);
+}
+
+.painel-sacola-rodape {
+  padding-top: 16px;
+  border-top: 2px solid var(--dourado);
+  font-size: 18px;
+}
+
+.botao-finalizar {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--verde);
+  color: var(--neve);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botao-finalizar:hover {
+  background: var(--verde-escuro);
+}
+
+.botao-finalizar:focus-visible {
+  outline: 3px solid var(--dourado);
+  outline-offset: 3px;
+}
+
+.feedback-compra {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.feedback-compra.sucesso {
+  background: var(--verde-palido);
+  color: var(--verde);
+}
+
+.feedback-compra.erro {
+  background: #fbe9e9;
+  color: var(--vermelho);
+}
 
 /* =====================================================
    6. GALERIA.HTML

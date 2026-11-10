@@ -393,7 +393,49 @@ function atualizarCarrinho() {
     }, 0);
     totalCarrinho.textContent = formatarPreco(total);
   }
+
+  // Atualiza a barra lateral agrupando os ids repetidos em itens com quantidade.
+  if (temProdutos && window.atualizarSacolaLateral) {
+    const agrupados = new Map();
+    carrinho.forEach((id) => {
+      const produto = produtos.find((p) => p.id === id);
+      if (!produto) return;
+      const item = agrupados.get(id) || {
+        nome: produto.nome,
+        preco: produto.preco,
+        quantidade: 0,
+      };
+      item.quantidade++;
+      agrupados.set(id, item);
+    });
+    window.atualizarSacolaLateral([...agrupados.values()]);
+  }
 }
+// ----- Finalizar compra (demonstrativo) -----
+const botaoFinalizarCompra = document.getElementById("finalizar-compra");
+const feedbackCompra = document.getElementById("feedback-compra");
+
+if (botaoFinalizarCompra && feedbackCompra) {
+  botaoFinalizarCompra.addEventListener("click", () => {
+    if (carrinho.length === 0) {
+      feedbackCompra.textContent =
+        "Sua sacola está vazia. Adicione um mimo antes de finalizar.";
+      feedbackCompra.className = "feedback-compra erro";
+      feedbackCompra.hidden = false;
+      return;
+    }
+    
+    carrinho = [];
+    salvarCarrinho();
+    atualizarCarrinho();
+
+    feedbackCompra.textContent =
+      "Compra finalizada com sucesso. Como este é um projeto demonstrativo, a compra não foi concluída.";
+    feedbackCompra.className = "feedback-compra sucesso";
+    feedbackCompra.hidden = false;
+  });
+}
+      
 
 function adicionarAoCarrinho(id) {
   if (!temProdutos || !produtos.some((p) => p.id === id)) {
