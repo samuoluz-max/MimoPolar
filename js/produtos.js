@@ -848,4 +848,3 @@ window.clearTimeout(temporizadorNotificacao);
     totalPainel.textContent = formatarMoeda(total);
   };
 })();
-
