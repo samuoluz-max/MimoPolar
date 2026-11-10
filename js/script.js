@@ -13,7 +13,7 @@
 // (Em produtos.html, js/produtos.js precisa vir antes deste arquivo.)
 // =====================================================
 
-const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)");
+const semMovimento = { matches: false };
 
 // =====================================================
 // TODAS AS PÁGINAS — neve global com controle persistente
@@ -123,7 +123,7 @@ if (botaoNeve) {
 const CHAVE_MUSICA = "musicaNatal";
 const musica = new Audio("audio/musica-natal.m4a");
 musica.loop = true;
-musica.volume = 0.3;
+musica.volume = 0.05;
 
 const botaoMusica = document.getElementById("btn-musica");
 
@@ -255,15 +255,16 @@ if (fundoParallax && logos && papai && pelucia) {
 
 // =====================================================
 // ANIMAÇÕES DE ENTRADA AO ROLAR A PÁGINA
+// Anima só os elementos dentro das seções .animar-rolagem
 // =====================================================
-const elementosAnimados = document.querySelectorAll(".animar-rolagem");
+const elementosAnimados = document.querySelectorAll(
+  ".animar-rolagem .sobretitulo, .animar-rolagem h2, .animar-rolagem .grade-produtos, .animar-rolagem .home-links-grade, .animar-rolagem .botao-comprar-home",
+);
 
-if (
-  elementosAnimados.length &&
-  !semMovimento.matches &&
-  "IntersectionObserver" in window
-) {
+if (elementosAnimados.length && "IntersectionObserver" in window) {
   document.body.classList.add("animacao-rolagem-ativa");
+  elementosAnimados.forEach((elemento) => elemento.classList.add("revelar"));
+
   const observadorRolagem = new IntersectionObserver(
     (entradas, observador) => {
       entradas.forEach((entrada) => {
@@ -273,14 +274,11 @@ if (
         }
       });
     },
-    { threshold: 0.12 },
+    { threshold: 0.1 },
   );
 
   elementosAnimados.forEach((elemento) => observadorRolagem.observe(elemento));
-} else {
-  elementosAnimados.forEach((elemento) => elemento.classList.add("visivel"));
 }
-
 // =====================================================
 // 3. PRODUTOS.HTML — cards, busca/filtro e sacola
 // =====================================================
