@@ -432,12 +432,6 @@ body.home {
   );
 }
 
-/* Seção do parallax.
-   Camadas, de baixo para cima:
-     0  foto de fundo (::before)
-     1  neve
-     2  Papai Noel e pelúcia
-     10 logo */
 .parallax {
   --imagem-parallax: url("../img/banners/fundo parallax.png");
   --fundo-y: 0px;
@@ -565,10 +559,10 @@ body.neve-desativada .camada-neve {
 #papai {
   position: absolute;
   bottom: 0;
-  right: 73%;
+  right: 74%;
   z-index: 2;
   transform: translateX(-50%);
-  width: 33%;
+  width: 31%;
   pointer-events: none;
   user-select: none;
 }
