@@ -295,7 +295,7 @@ h6 {
 
 .titulo-pagina h1 {
   margin: 8px 0 12px;
-  color: var(--creme);
+  color: var(--dourado);
   font-size: 42px;
 }
 
@@ -838,18 +838,21 @@ body.neve-desativada .camada-neve {
   color: var(--verde);
 }
 
-/* Revelação progressiva sem esconder conteúdo caso o JavaScript não carregue */
-.animacao-rolagem-ativa .animar-rolagem {
+
+.animacao-rolagem-ativa .revelar {
   opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.55s ease,
-    transform 0.55s ease;
+  translate: 0 18px;
 }
 
-.animacao-rolagem-ativa .animar-rolagem.visivel {
-  opacity: 1;
-  transform: translateY(0);
+.animacao-rolagem-ativa .revelar.visivel {
+  animation: revelar 0.6s ease forwards;
+}
+
+@keyframes revelar {
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
 
 .card {
@@ -892,7 +895,7 @@ body.neve-desativada .camada-neve {
 .sobre-valores > h2,
 .sobre-equipe > h2 {
   margin: 0 0 22px;
-  color: var(--verde);
+  color: var(--dourado);
   font-size: 32px;
   text-align: center;
 }

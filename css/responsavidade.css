@@ -622,12 +622,6 @@
   .atalho-carrinho {
     transition: none;
   }
-
-  .camada-neve::before,
-  .camada-neve::after {
-    animation: none;
-  }
-
   /* galeria.html */
   .galeria-item.ativo {
     animation: none;
