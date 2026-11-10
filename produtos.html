@@ -299,12 +299,19 @@ id="fechar-notificacao"
   <p id="sacola-vazia" class="sacola-vazia">Sua sacola está vazia.</p>
   <ul id="lista-sacola" class="lista-sacola"></ul>
 
-  <div class="painel-sacola-rodape">
+    <div class="painel-sacola-rodape">
     <p>Total: <strong id="total-sacola">R$ 0,00</strong></p>
-    <button type="button" id="finalizar-compra" class="botao-finalizar">
-  Finalizar compra
-</button>
-<p id="feedback-compra" class="feedback-compra" role="status" hidden></p>
+
+    <div class="acoes-sacola">
+      <button type="button" id="finalizar-compra" class="botao-finalizar">
+        Finalizar compra
+      </button>
+      <button type="button" id="limpar-sacola" class="botao-limpar">
+        Esvaziar sacola
+      </button>
+    </div>
+
+    <p id="feedback-compra" class="feedback-compra" role="status" hidden></p>
   </div>
 </aside>
 </body>
