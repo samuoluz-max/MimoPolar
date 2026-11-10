@@ -838,7 +838,6 @@ body.neve-desativada .camada-neve {
   color: var(--verde);
 }
 
-
 .animacao-rolagem-ativa .revelar {
   opacity: 0;
   translate: 0 18px;
@@ -1004,7 +1003,6 @@ body.neve-desativada .camada-neve {
   transform: scale(1.25);
   background: var(--vermelho);
 }
-
 
 /* =====================================================
    5. PRODUTOS.HTML

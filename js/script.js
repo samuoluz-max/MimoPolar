@@ -422,7 +422,7 @@ if (botaoFinalizarCompra && feedbackCompra) {
       feedbackCompra.hidden = false;
       return;
     }
-    
+
     carrinho = [];
     salvarCarrinho();
     atualizarCarrinho();
@@ -443,7 +443,6 @@ if (botaoLimparSacola) {
     atualizarCarrinho();
   });
 }
-      
 
 function adicionarAoCarrinho(id) {
   if (!temProdutos || !produtos.some((p) => p.id === id)) {
