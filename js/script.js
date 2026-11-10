@@ -433,6 +433,16 @@ if (botaoFinalizarCompra && feedbackCompra) {
     feedbackCompra.hidden = false;
   });
 }
+// ----- Esvaziar sacola pelo painel lateral -----
+const botaoLimparSacola = document.getElementById("limpar-sacola");
+
+if (botaoLimparSacola) {
+  botaoLimparSacola.addEventListener("click", () => {
+    carrinho = [];
+    salvarCarrinho();
+    atualizarCarrinho();
+  });
+}
 
 function adicionarAoCarrinho(id) {
   if (!temProdutos || !produtos.some((p) => p.id === id)) {
