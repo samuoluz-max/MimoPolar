@@ -237,9 +237,9 @@ const papai = document.getElementById("papai");
 const pelucia = document.getElementById("pelucia");
 
 const parallaxCompacto = window.matchMedia("(max-width: 1100px)");
-const parallaxSemMovimento = window.matchMedia(
-  "(prefers-reduced-motion: reduce)",
-);
+const parallaxSemMovimento = {
+  matches: new URLSearchParams(location.search).has("semparallax"),
+};
 
 // Folga da imagem acima da section (precisa ser igual ao top negativo
 // da regra .parallax::before no CSS: 15% da altura da section)
