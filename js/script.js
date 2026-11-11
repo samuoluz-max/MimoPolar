@@ -359,7 +359,7 @@ function criarCard(produto) {
   <h3>${produto.nome}</h3>
   <p>${produto.descricao}</p>
   <strong class="preco">${formatarPreco(produto.preco)}</strong>
-  <button class="btn-comprar" type="button" data-id="${produto.id}">Adicionar ao carrinho</button>
+  <button class="btn-comprar" type="button" data-id="${produto.id}">Adicionar a Sacola</button>
 </article>`;
 }
 
