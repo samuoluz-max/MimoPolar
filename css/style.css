@@ -636,7 +636,7 @@ body.neve-desativada .camada-neve {
 #papai {
   position: absolute;
   bottom: 0;
-  right: 60%;
+  right: 76%;
   z-index: 2;
   transform: translateX(-50%);
   width: 30%;
@@ -2055,6 +2055,34 @@ body.neve-desativada .camada-neve {
   gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid var(--bege-borda);
+}
+
+.item-sacola-direita {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.remover-item-sacola {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--verde);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--verde);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.remover-item-sacola:hover {
+  background: var(--verde);
+  color: var(--neve);
+}
+
+.remover-item-sacola:focus-visible {
+  outline: 3px solid var(--dourado);
+  outline-offset: 3px;
 }
 
 .painel-sacola-rodape {

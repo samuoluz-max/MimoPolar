@@ -12,6 +12,7 @@ const produtos = [
       "Um Papai Noel tradicional de pelúcia, fofo e com detalhes natalinos, perfeito para presentear ou decorar.",
     preco: 89.9,
     imagem: "img/produtos/papaiclassico.webp",
+    alt: "Papai Noel Clássico",
     destaque: true,
   },
 
@@ -23,6 +24,7 @@ const produtos = [
       "Papai Noel segurando um saco de presentes colorido para entrar no clima natalino.",
     preco: 109.9,
     imagem: "img/produtos/papaisaco.webp",
+    alt: "Papai Noel com Saco de Presentes",
   },
 
   {
@@ -33,6 +35,7 @@ const produtos = [
       "Papai Noel sentado em um trenó decorativo, com acabamento de tecido felpudo.",
     preco: 59.9,
     imagem: "img/produtos/papaitreno.webp",
+    alt: "Papai Noel no Trenó",
   },
 
   {
@@ -43,6 +46,7 @@ const produtos = [
       "Mamãe Noel de pelúcia em tamanho grande, com vestido vermelho e detalhes festivos.",
     preco: 94.9,
     imagem: "img/produtos/mamaegrande.webp",
+    alt: "Mamãe Noel Grande",
   },
 
   {
@@ -53,6 +57,7 @@ const produtos = [
       "Um conjunto de pelúcias representando o casal Papai e Mamãe Noel, ideal para decorar a casa no Natal.",
     preco: 109.9,
     imagem: "img/produtos/casal noel.webp",
+    alt: "Casal Papai e Mamãe Noel",
   },
 
   {
@@ -63,6 +68,7 @@ const produtos = [
       "Versão pequena do Papai Noel, ideal para andar com ele no bolso ou decorar pequenos espaços.",
     preco: 29.9,
     imagem: "img/produtos/papai fofo.webp",
+    alt: "Papai Noel Pequeno",
   },
 
   {
@@ -73,6 +79,7 @@ const produtos = [
       "Papai Noel de pelúcia em tamanho grande, com detalhes festivos e acabamento macio, perfeito para presentear ou decorar.",
     preco: 119.9,
     imagem: "img/produtos/papaigrande.webp",
+    alt: "Papai Noel Grande",
   },
 
   {
@@ -83,6 +90,7 @@ const produtos = [
       "Papai Noel em versão miniatura, sentado e com expressão alegre, perfeito para enfeitar mesas e prateleiras.",
     preco: 84.9,
     imagem: "img/produtos/mamaenoel.webp",
+    alt: "Mamãe Noel",
   },
 
   {
@@ -93,6 +101,7 @@ const produtos = [
       "Miniatura de Papai Noel em pelúcia, com detalhes festivos e acabamento lã macia, ideal para decorar a árvore de Natal.",
     preco: 34.9,
     imagem: "img/produtos/minipai.jpg",
+    alt: "Mini Papai Noel",
   },
 
   {
@@ -103,6 +112,7 @@ const produtos = [
       "Rena marrom com chifres macios, focinho claro e cachecol natalino.",
     preco: 79.9,
     imagem: "img/produtos/renasentada.webp",
+    alt: "Rena Clássica",
     destaque: true,
   },
 
@@ -114,6 +124,7 @@ const produtos = [
       "Rena bebê de corpo pequeno, olhos delicados e nariz arredondado.",
     preco: 59.9,
     imagem: "img/produtos/renafiilhote.webp",
+    alt: "Rena Bebê",
   },
 
   {
@@ -124,6 +135,7 @@ const produtos = [
       "Rena inspirada nas histórias de Natal, com nariz vermelho e cachecol verde.",
     preco: 84.9,
     imagem: "img/produtos/renanarizvermelho.webp",
+    alt: "Rena de Nariz Vermelho",
   },
 
   {
@@ -134,6 +146,7 @@ const produtos = [
       "Rena de pelúcia marrom com chifres, focinho claro e expressão amigável.",
     preco: 74.9,
     imagem: "img/produtos/renamarrom.webp",
+    alt: "Rena Marrom",
   },
 
   {
@@ -143,6 +156,7 @@ const produtos = [
     descricao: "Rena de pelúcia com cachecol xadrez em cores natalinas.",
     preco: 89.9,
     imagem: "img/produtos/rena cachecol.webp",
+    alt: "Rena de Cachecol",
   },
 
   {
@@ -153,6 +167,7 @@ const produtos = [
       "Duas renas de pelúcia, uma maior e outra menor, com detalhes natalinos e acabamento macio.",
     preco: 99.9,
     imagem: "img/produtos/casal rena.webp",
+    alt: "Casal de Renas",
   },
 
   {
@@ -163,6 +178,7 @@ const produtos = [
       "Boneco de neve com cartola, nariz de cenoura e cachecol vermelho.",
     preco: 74.9,
     imagem: "img/produtos/boneco de neve.webp",
+    alt: "Boneco de Neve Clássico",
     destaque: true,
   },
 
@@ -174,6 +190,7 @@ const produtos = [
       "Boneco de neve branco com cachecol azul e pequenos botões escuros.",
     preco: 69.9,
     imagem: "img/produtos/boneco de neve azul.webp",
+    alt: "Boneco de Neve com Cachecol Azul",
   },
 
   {
@@ -183,6 +200,7 @@ const produtos = [
     descricao: "Boneca de neve com gorro, laço e detalhes delicados em tecido.",
     preco: 79.9,
     imagem: "img/produtos/boneco de neve mulher.webp",
+    alt: "Boneca de Neve",
   },
 
   {
@@ -193,6 +211,7 @@ const produtos = [
       "Duas pelúcias de bonecos de neve, uma ao lado da outra, formando um casal.",
     preco: 129.9,
     imagem: "img/produtos/casal.webp",
+    alt: "Casal de Bonecos de Neve",
   },
 
   {
@@ -202,6 +221,7 @@ const produtos = [
     descricao: "Ursinho de pelúcia com roupinha natalina, ideal para decorar.",
     preco: 29.9,
     imagem: "img/produtos/ursoclassicoderoupa.webp",
+    alt: "Urso Classico de Roupa",
   },
 
   {
@@ -212,6 +232,7 @@ const produtos = [
       "Ursinho verde com detalhes festivos discretos e textura de pelúcia macia.",
     preco: 84.9,
     imagem: "img/produtos/urso-verde.webp",
+    alt: "Urso Verde de Natal",
   },
 
   {
@@ -222,6 +243,7 @@ const produtos = [
       "Ursinho de pelúcia rosa com detalhes natalinos, ideal para presentear ou decorar.",
     preco: 89.9,
     imagem: "img/produtos/ursorosa.webp",
+    alt: "Urso Rosa",
     destaque: true,
   },
 
@@ -233,6 +255,7 @@ const produtos = [
       "Ursinho marrom de pelúcia com detalhes natalinos e toque extremamente macio.",
     preco: 67.99,
     imagem: "img/produtos/ursoclassico.webp",
+    alt: "Urso Marrom Clássico de Natal",
   },
 
   {
@@ -243,6 +266,7 @@ const produtos = [
       "Urso polar branco de pelúcia, com focinho delicado e aparência acolhedora.",
     preco: 34.9,
     imagem: "img/produtos/ursopolarbranco.webp",
+    alt: "Urso Polar",
   },
 
   {
@@ -253,6 +277,7 @@ const produtos = [
       "Ursinha de pelúcia vestida como Mamãe, com vestido vermelho e gorro.",
     preco: 49.9,
     imagem: "img/produtos/ursinha.webp",
+    alt: "Ursinha Mamãe",
   },
 
   {
@@ -263,6 +288,7 @@ const produtos = [
       "Urso de pelúcia sentado em uma poltrona natalina, com gorro e detalhes festivos.",
     preco: 374.9,
     imagem: "img/produtos/ursopoltrona.webp",
+    alt: "Urso Poltrona Natalino",
   },
 
   {
@@ -273,6 +299,7 @@ const produtos = [
       "Ursão de pelúcia em tamanho grande, ideal para fazer um lugar para se deitar.",
     preco: 249.9,
     imagem: "img/produtos/ursoalmofada.webp",
+    alt: "Urso Almofada Gigante",
   },
 
   {
@@ -282,6 +309,7 @@ const produtos = [
     descricao: "Ursinho em tom creme com laço verde e acabamento delicado",
     preco: 79.9,
     imagem: "img/produtos/ursogordinho.webp",
+    alt: "Urso Clássico Gigante",
   },
 
   {
@@ -292,6 +320,7 @@ const produtos = [
       "Ursinho de pelúcia com cachecol vermelho e detalhes natalinos, perfeito para presentear alguém especial.",
     preco: 84.9,
     imagem: "img/produtos/ursocachecol.webp",
+    alt: "Urso Cachecol",
   },
 
   {
@@ -302,6 +331,7 @@ const produtos = [
       "Coelho de pelúcia usando pijama temático com estampas natalinas.",
     preco: 89.9,
     imagem: "img/produtos/coelho.webp",
+    alt: "Coelho de Pelúcia",
   },
 
   {
@@ -312,6 +342,7 @@ const produtos = [
       "Ouriço de pelúcia compacto para presentear, com focinho bordado e laço vermelho.",
     preco: 39.9,
     imagem: "img/produtos/ourico.webp",
+    alt: "Ouriço de Pelúcia",
   },
 
   {
@@ -322,6 +353,7 @@ const produtos = [
       "Pinguim de pelúcia preto e branco usando gorro vermelho de Natal.",
     preco: 64.9,
     imagem: "img/produtos/pinguingorro.png",
+    alt: "Pinguim com Gorro",
   },
 
   {
@@ -332,6 +364,7 @@ const produtos = [
       "Mini pinguim de pelúcia com detalhes delicados e acabamento macio.",
     preco: 69.9,
     imagem: "img/produtos/pinguinfofo.png",
+    alt: "Mini Pinguim",
   },
 
   {
@@ -342,6 +375,7 @@ const produtos = [
       "Gnomo natalino com gorro comprido, barba macia e nariz arredondado.",
     preco: 59.9,
     imagem: "img/produtos/gnominho.png",
+    alt: "Gnomo de Natal",
   },
 
   {
@@ -352,6 +386,7 @@ const produtos = [
       "Duende com roupa verde, detalhes vermelhos e pequenos sapatos pontudos.",
     preco: 74.9,
     imagem: "img/produtos/elfo.png",
+    alt: "Duende de Natal",
   },
 
   {
@@ -362,6 +397,7 @@ const produtos = [
       "Versão feminina do duende natalino, com vestido vermelho e gorro verde.",
     preco: 54.9,
     imagem: "img/produtos/elfa.png",
+    alt: "Duende Mulher",
   },
 
   {
@@ -372,6 +408,7 @@ const produtos = [
       "Triplo T de pelúcia usando um gorro natalino vermelho e branco, perfeito para presentear ou decorar.",
     preco: 79.9,
     imagem: "img/produtos/triplo T.png",
+    alt: "Triplo T com Gorro Natalino",
   },
 
   {
@@ -382,6 +419,7 @@ const produtos = [
       "Bailara Caputina é uma pelúcia encantadora com detalhes natalinos, perfeita para presentear ou decorar.",
     preco: 69.9,
     imagem: "img/produtos/bailarina.png",
+    alt: "Bailara Caputina",
   },
 
   {
@@ -392,6 +430,7 @@ const produtos = [
       "Um casal de pelúcias representando personagens fofos e encantadores, perfeitos para presentear ou decorar.",
     preco: 64.9,
     imagem: "img/produtos/casal fofo.png",
+    alt: "Triplo T e Bailara Caputina",
   },
 
   {
@@ -401,6 +440,7 @@ const produtos = [
     descricao: "Biscoito de gengibre de pelúcia recheado com fofura.",
     preco: 49.9,
     imagem: "img/produtos/biscoito.png",
+    alt: "Biscoito de Gengibre de Pelúcia",
     destaque: true,
   },
 
@@ -412,6 +452,7 @@ const produtos = [
       "Doce canudo de pelúcia em vermelho e branco, perfeito para enfeitar a árvore de Natal.",
     preco: 89.9,
     imagem: "img/produtos/docecanudo.png",
+    alt: "Doce Canudo de Pelúcia",
   },
 
   {
@@ -422,6 +463,7 @@ const produtos = [
       "Árvore de Natal em miniatura feita de pelúcia verde, com detalhes em vermelho e dourado.",
     preco: 99.9,
     imagem: "img/produtos/arvore.png",
+    alt: "Árvore de Natal de Pelúcia",
   },
 
   {
@@ -432,6 +474,7 @@ const produtos = [
       "Dragão de pelúcia com detalhes verdes e pequenos acessórios de Natal.",
     preco: 119.9,
     imagem: "img/produtos/dragao.png",
+    alt: "Dragão de Pelúcia",
   },
 
   {
@@ -441,6 +484,7 @@ const produtos = [
     descricao: "Esquilo de pelúcia segurando uma pequena noz entre as patas.",
     preco: 64.9,
     imagem: "img/produtos/esquilo.png",
+    alt: "Esquilo de Pelúcia",
   },
 
   {
@@ -450,6 +494,7 @@ const produtos = [
     descricao: "Corujinha de pelúcia com plumagem marrom e cachecol festivo.",
     preco: 69.9,
     imagem: "img/produtos/coruja.png",
+    alt: "Coruja de Pelúcia",
   },
 
   {
@@ -460,6 +505,7 @@ const produtos = [
       "Foca bebê cinza-clara, com olhos delicados e corpo arredondado.",
     preco: 74.9,
     imagem: "img/produtos/foca.png",
+    alt: "Foca de Pelúcia",
   },
 
   {
@@ -470,6 +516,7 @@ const produtos = [
       "Baleia de pelúcia azul com chifre de unicórnio e detalhes delicados.",
     preco: 22.9,
     imagem: "img/produtos/baleiachfre.png",
+    alt: "Baleia Unicornio",
   },
 
   {
@@ -480,6 +527,7 @@ const produtos = [
       "Baleia de pelúcia azul com detalhes delicados e acabamento macio.",
     preco: 22.9,
     imagem: "img/produtos/baleia.png",
+    alt: "Baleia de Pelúcia",
   },
 
   {
@@ -490,6 +538,7 @@ const produtos = [
       "Raposa de pelúcia em tons claros, com aparência macia e detalhes delicados.",
     preco: 79.9,
     imagem: "img/produtos/raposapolar.png",
+    alt: "Raposa Polar",
   },
 
   {
@@ -500,6 +549,7 @@ const produtos = [
       "Raposa de pelúcia em tom branco-creme, com cauda volumosa e focinho delicado.",
     preco: 89.9,
     imagem: "img/produtos/raposa.png",
+    alt: "Raposa de Pelúcia",
   },
 ];
 
@@ -837,10 +887,21 @@ if (botaoAvancar && botaoVoltar) {
       const nome = document.createElement("span");
       nome.textContent = `${item.nome} × ${item.quantidade}`;
 
+      const direita = document.createElement("div");
+      direita.className = "item-sacola-direita";
+
       const preco = document.createElement("strong");
       preco.textContent = formatarMoeda(subtotal);
 
-      li.append(nome, preco);
+      const remover = document.createElement("button");
+      remover.type = "button";
+      remover.className = "remover-item-sacola";
+      remover.dataset.id = item.id;
+      remover.setAttribute("aria-label", `Remover ${item.nome} da sacola`);
+      remover.textContent = "×";
+
+      direita.append(preco, remover);
+      li.append(nome, direita);
       lista.appendChild(li);
     });
 
