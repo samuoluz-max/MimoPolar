@@ -825,6 +825,28 @@ body.neve-desativada .camada-neve {
   font-weight: 700;
 }
 
+.equipe-final {
+  max-width: 1100px;
+  margin: 56px auto 0;
+  padding: 0 0 32px;
+  text-align: center;
+}
+
+.equipe-final h2 {
+  margin-bottom: 22px;
+  color: var(--dourado);
+  font-size: clamp(30px, 4vw, 44px);
+}
+
+.equipe-final-imagem {
+  display: block;
+  width: min(100%, 900px);
+  margin: 28px auto 0;
+  border: 2px solid rgba(var(--dourado-rgb), 0.5);
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(var(--noite-rgb), 0.18);
+}
+
 /* Galeria: lightbox */
 .galeria-imagem img[role="button"] {
   cursor: zoom-in;
