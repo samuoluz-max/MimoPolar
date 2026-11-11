@@ -1,318 +1,267 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta
-name="description"
-content="Encontre pelúcias natalinas para presentear e celebrar na Mimo Polar."
-/>
-<meta name="theme-color" content="#153d32" />
-<title>Produtos | Mimo Polar</title>
-<link rel="icon" href="img/banners/logo.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
-rel="stylesheet"
-/>
-<link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/responsavidade.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Encontre pelúcias natalinas para presentear e celebrar na Mimo Polar."
+    />
+    <meta name="theme-color" content="#153d32" />
+    <title>Produtos | Mimo Polar</title>
+    <link rel="icon" href="img/banners/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsavidade.css" />
 
-<!-- produtos.js define os produtos e a vitrine; script.js mantém as funções gerais do site. -->
-<script src="js/produtos.js" defer></script>
-<script src="js/script.js" defer></script>
-</head>
+    <!-- produtos.js define os produtos e a vitrine; script.js mantém as funções gerais do site. -->
+    <script src="js/produtos.js" defer></script>
+    <script src="js/script.js" defer></script>
+  </head>
 
-<body>
-<header class="cabecalho">
-<a
-class="marca"
-href="index.html"
-aria-label="Mimo Polar, página inicial"
->
-<span class="marca-icone" aria-hidden="true">✳</span>
-<span>Mimo <strong>Polar</strong></span>
-</a>
-<div class="contagem-header">
-<span class="contagem-titulo">Natal 2026</span>
-<div
-class="contador"
-role="timer"
-aria-label="Tempo restante até o Natal de 2026"
-aria-live="off"
->
-<div>
-<span id="dias">0</span>
-<p>Dias</p>
-</div>
-<div>
-<span id="horas">0</span>
-<p>Horas</p>
-</div>
-<div>
-<span id="minutos">0</span>
-<p>Min</p>
-</div>
-<div>
-<span id="segundos">0</span>
-<p>Seg</p>
-</div>
-</div>
-</div>
+  <body>
+    <header class="cabecalho">
+      <a class="marca" href="index.html" aria-label="Mimo Polar, página inicial">
+        <span class="marca-icone" aria-hidden="true">✳</span>
+        <span>Mimo <strong>Polar</strong></span>
+      </a>
+      <div class="contagem-header">
+        <span class="contagem-titulo">Natal 2026</span>
+        <div
+          class="contador"
+          role="timer"
+          aria-label="Tempo restante até o Natal de 2026"
+          aria-live="off"
+        >
+          <div>
+            <span id="dias">0</span>
+            <p>Dias</p>
+          </div>
+          <div>
+            <span id="horas">0</span>
+            <p>Horas</p>
+          </div>
+          <div>
+            <span id="minutos">0</span>
+            <p>Min</p>
+          </div>
+          <div>
+            <span id="segundos">0</span>
+            <p>Seg</p>
+          </div>
+        </div>
+      </div>
 
-<nav class="menu" aria-label="Navegação principal">
-<a href="index.html">Início</a>
-<a class="ativo" href="produtos.html" aria-current="page">Produtos</a>
-<a href="galeria.html">Inspirações</a>
-<a href="sobre.html">Sobre nós</a>
-<a href="contato.html">Contato</a>
-</nav>
+      <nav class="menu" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a class="ativo" href="produtos.html" aria-current="page">Produtos</a>
+        <a href="galeria.html">Inspirações</a>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="contato.html">Contato</a>
+      </nav>
 
-<button class="botao-musica" id="btn-musica" type="button">
-Ativar música
-</button>
-<button class="botao-neve" type="button" aria-pressed="true">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path
-d="M12 2v20M4 7l16 10M4 17 20 7M8 3l4 3 4-3M8 21l4-3 4 3M3 11l4-1-1-4M21 13l-4 1 1 4M3 13l4 1-1 4M21 11l-4-1 1-4"
-/>
-</svg>
-<span data-texto-neve>Neve ligada</span>
-</button>
-<a
-class="atalho-carrinho"
-href="#catalogo"
-aria-label="Abrir sacola de compras"
->
-<svg class="icone-sacola" viewBox="0 0 24 24" aria-hidden="true">
-<path d="M5 8h14l1 13H4L5 8Z" />
-<path d="M9 8V6a3 3 0 0 1 6 0v2" />
-</svg>
-<span>Sacola</span>
-<span class="contador-carrinho" data-qtd-carrinho>0</span>
-</a>
-</header>
-
-<main id="conteudo" class="container">
-<section class="titulo-pagina">
-<p class="sobretitulo">Escolhas feitas para celebrar</p>
-<h1>Encontre seu mimo de Natal</h1>
-<p>
-Encontre pelúcias natalinas para presentear e celebrar momentos
-especiais.
-</p>
-</section>
-
-<section class="catalogo" id="catalogo" aria-labelledby="titulo-catalogo">
-<!-- Vitrine de mais vendidos -->
-<section class="mais-vendidos" aria-labelledby="titulo-mais-vendidos">
-<div class="mais-vendidos-topo">
-<div>
-<h2 id="titulo-mais-vendidos">Mais vendidos</h2>
-<p class="texto-suave">
-Confira alguns dos mimos favoritos da nossa coleção.
-</p>
-</div>
-
-<div
-class="container-botoes"
-aria-label="Navegação dos produtos em destaque"
->
-<button
-class="voltar"
-type="button"
-aria-label="Produto anterior"
->
-Voltar
-</button>
-<button
-class="avançar"
-type="button"
-aria-label="Próximo produto"
->
-Avançar
-</button>
-</div>
-</div>
-
-<div class="produto-destaque" aria-live="polite">
-<img
-id="imagem-produto-destaque"
-src="img/produtos/rena cachecol.webp"
-alt="Rena de Cachecol"
-/>
-<div class="texto-produto-destaque">
-<p class="sobretitulo">Destaque da coleção</p>
-<h3 id="titulo-produto-destaque">Rena de Cachecol</h3>
-<p id="descricao-produto-destaque">
-Rena de pelúcia com cachecol em cores natalinas, perfeita para
-presentear e decorar.
-</p>
-<p id="contador-mais-vendidos" class="contador-mais-vendidos">
-1 de 5
-</p>
-</div>
-</div>
-</section>
-
-<!-- Catálogo completo: fica logo abaixo da vitrine -->
-<section class="catalogo-listagem" aria-labelledby="titulo-catalogo">
-<div class="catalogo-topo">
-<div>
-<p class="sobretitulo catalogo-sobretitulo">Explore a coleção</p>
-<h2 id="titulo-catalogo">Nosso catálogo</h2>
-<p id="contador" class="texto-suave" aria-live="polite">
-50 mimos para escolher
-</p>
-</div>
-
-<div class="filtros">
-<label>
-<span>Buscar</span>
-<input
-id="busca"
-type="search"
-placeholder="Ex.: rena, Papai Noel..."
-/>
-</label>
-<label>
-<span>Categoria</span>
-<select id="categoria">
-<option value="todas">Todas as pelúcias</option>
-</select>
-</label>
-</div>
-</div>
-
-<aside class="resumo-carrinho" aria-live="polite">
-<span
->Sua sacola: <strong data-qtd-carrinho>0</strong> item(ns)</span
->
-<span>Total: <strong id="total-carrinho">R$ 0,00</strong></span>
-<button class="botao-limpar" id="limpar-carrinho" type="button">
-Esvaziar sacola
-</button>
-</aside>
-
-<div
-id="lista-produtos"
-class="grade-produtos"
-aria-live="polite"
-></div>
-</section>
-</section>
-</main>
-
-<footer class="rodape">
-<div class="container rodape-conteudo">
-<a class="marca marca-rodape" href="index.html"
->Mimo <strong>Polar</strong></a
->
-<p>Pelúcias natalinas para deixar seu Natal ainda mais especial.</p>
-<nav aria-label="Links do rodapé">
-<a href="sobre.html">Nossa história</a>
-<a href="contato.html">Fale com a gente</a>
-</nav>
-<small>&copy; 2026 Mimo Polar. Projeto acadêmico.</small>
-</div>
-</footer>
-
-<!-- Janela de detalhes criada pelo JavaScript quando alguém seleciona um produto. -->
-<div id="modal-produto" class="modal-produto" aria-hidden="true">
-<div class="modal-fundo" data-fechar-modal></div>
-<section
-class="modal-conteudo"
-role="dialog"
-aria-modal="true"
-aria-labelledby="modal-titulo"
->
-<button
-class="modal-fechar"
-type="button"
-aria-label="Fechar detalhes"
-data-fechar-modal
->
-&times;
-</button>
-<div class="modal-visual">
-<img id="modal-imagem" src="" alt="" />
-<p class="modal-frase">Que tal um abraço fofinho neste Natal?</p>
-</div>
-<div class="modal-informacoes">
-<p class="modal-sobretitulo">Um mimo especial</p>
-<h2 id="modal-titulo"></h2>
-<p id="modal-descricao"></p>
-<div class="modal-rodape">
-<strong id="modal-preco"></strong>
-<button
-id="modal-adicionar"
-type="button"
-class="modal-botao-adicionar"
->
-Adicionar à sacola <span aria-hidden="true">🛒</span>
-</button>
-</div>
-</div>
-</section>
-</div>
-
-<div
-id="notificacao-carrinho"
-class="notificacao-carrinho"
-role="status"
-aria-live="polite"
->
-<span class="notificacao-icone" aria-hidden="true">✓</span>
-<div>
-<strong>Produto adicionado!</strong>
-<p>Confira sua sacola no canto superior direito.</p>
-</div>
-<button
-type="button"
-aria-label="Fechar notificação"
-id="fechar-notificacao"
->
-&times;
-</button>
-</div>
-    <div id="fundo-sacola" class="fundo-sacola"></div>
-
-<aside
-  id="painel-sacola"
-  class="painel-sacola"
-  aria-labelledby="titulo-sacola"
-  aria-hidden="true"
->
-  <div class="painel-sacola-topo">
-    <h2 id="titulo-sacola">Sua sacola</h2>
-    <button
-      type="button"
-      id="fechar-sacola"
-      class="fechar-sacola"
-      aria-label="Fechar sacola"
-    >
-      &times;
-    </button>
-  </div>
-
-  <p id="sacola-vazia" class="sacola-vazia">Sua sacola está vazia.</p>
-  <ul id="lista-sacola" class="lista-sacola"></ul>
-
-    <div class="painel-sacola-rodape">
-    <p>Total: <strong id="total-sacola">R$ 0,00</strong></p>
-
-    <div class="acoes-sacola">
-      <button type="button" id="finalizar-compra" class="botao-finalizar">
-        Finalizar compra
+      <button class="botao-musica" id="btn-musica" type="button">
+        Ativar música
       </button>
-      <button type="button" id="limpar-sacola" class="botao-limpar">
-        Esvaziar sacola
+      <button class="botao-neve" type="button" aria-pressed="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2v20M4 7l16 10M4 17 20 7M8 3l4 3 4-3M8 21l4-3 4 3M3 11l4-1-1-4M21 13l-4 1 1 4M3 13l4 1-1 4M21 11l-4-1 1-4"
+          />
+        </svg>
+        <span data-texto-neve>Neve ligada</span>
       </button>
+      <a class="atalho-carrinho" href="#catalogo" aria-label="Abrir sacola de compras">
+        <svg class="icone-sacola" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 8h14l1 13H4L5 8Z" />
+          <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+        </svg>
+        <span>Sacola</span>
+        <span class="contador-carrinho" data-qtd-carrinho>0</span>
+      </a>
+    </header>
+
+    <main id="conteudo" class="container">
+      <section class="titulo-pagina">
+        <p class="sobretitulo">Escolhas feitas para celebrar</p>
+        <h1>Encontre seu mimo de Natal</h1>
+        <p>
+          Encontre pelúcias natalinas para presentear e celebrar momentos
+          especiais.
+        </p>
+      </section>
+
+      <section class="catalogo" id="catalogo" aria-labelledby="titulo-catalogo">
+        <!-- Vitrine de mais vendidos -->
+        <section class="mais-vendidos" aria-labelledby="titulo-mais-vendidos">
+          <div class="mais-vendidos-topo">
+            <div>
+              <h2 id="titulo-mais-vendidos">Mais vendidos</h2>
+              <p class="texto-suave">
+                Confira alguns dos mimos favoritos da nossa coleção.
+              </p>
+            </div>
+
+            <div class="container-botoes" aria-label="Navegação dos produtos em destaque">
+              <button class="voltar" type="button" aria-label="Produto anterior">
+                Voltar
+              </button>
+              <button class="avançar" type="button" aria-label="Próximo produto">
+                Avançar
+              </button>
+            </div>
+          </div>
+
+          <div class="produto-destaque" aria-live="polite">
+            <img
+              id="imagem-produto-destaque"
+              src="img/produtos/rena cachecol.webp"
+              alt="Rena de Cachecol"
+            />
+            <div class="texto-produto-destaque">
+              <p class="sobretitulo">Destaque da coleção</p>
+              <h3 id="titulo-produto-destaque">Rena de Cachecol</h3>
+              <p id="descricao-produto-destaque">
+                Rena de pelúcia com cachecol em cores natalinas, perfeita para
+                presentear e decorar.
+              </p>
+              <p id="contador-mais-vendidos" class="contador-mais-vendidos">1 de 5</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Catálogo completo: fica logo abaixo da vitrine -->
+        <section class="catalogo-listagem" aria-labelledby="titulo-catalogo">
+          <div class="catalogo-topo">
+            <div>
+              <p class="sobretitulo catalogo-sobretitulo">Explore a coleção</p>
+              <h2 id="titulo-catalogo">Nosso catálogo</h2>
+              <p id="contador" class="texto-suave" aria-live="polite">
+                50 mimos para escolher
+              </p>
+            </div>
+
+            <div class="filtros">
+              <label>
+                <span>Buscar</span>
+                <input id="busca" type="search" placeholder="Ex.: rena, Papai Noel..." />
+              </label>
+              <label>
+                <span>Categoria</span>
+                <select id="categoria">
+                  <option value="todas">Todas as pelúcias</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <aside class="resumo-carrinho" aria-live="polite">
+            <span>Sua sacola: <strong data-qtd-carrinho>0</strong> item(ns)</span>
+            <span>Total: <strong id="total-carrinho">R$ 0,00</strong></span>
+            <button class="botao-limpar" id="limpar-carrinho" type="button">
+              Esvaziar sacola
+            </button>
+          </aside>
+
+          <div id="lista-produtos" class="grade-produtos" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="container rodape-conteudo">
+        <a class="marca marca-rodape" href="index.html">Mimo <strong>Polar</strong></a>
+        <p>Pelúcias natalinas para deixar seu Natal ainda mais especial.</p>
+        <nav aria-label="Links do rodapé">
+          <a href="sobre.html">Nossa história</a>
+          <a href="contato.html">Fale com a gente</a>
+        </nav>
+        <small>&copy; 2026 Mimo Polar. Projeto acadêmico.</small>
+      </div>
+    </footer>
+
+    <!-- Janela de detalhes criada pelo JavaScript quando alguém seleciona um produto. -->
+    <div id="modal-produto" class="modal-produto" aria-hidden="true">
+      <div class="modal-fundo" data-fechar-modal></div>
+      <section
+        class="modal-conteudo"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-titulo"
+      >
+        <button
+          class="modal-fechar"
+          type="button"
+          aria-label="Fechar detalhes"
+          data-fechar-modal
+        >
+          &times;
+        </button>
+        <div class="modal-visual">
+          <img id="modal-imagem" src="" alt="" />
+          <p class="modal-frase">Que tal um abraço fofinho neste Natal?</p>
+        </div>
+        <div class="modal-informacoes">
+          <p class="modal-sobretitulo">Um mimo especial</p>
+          <h2 id="modal-titulo"></h2>
+          <p id="modal-descricao"></p>
+          <div class="modal-rodape">
+            <strong id="modal-preco"></strong>
+            <button id="modal-adicionar" type="button" class="modal-botao-adicionar">
+              Adicionar à sacola <span aria-hidden="true">🛒</span>
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <p id="feedback-compra" class="feedback-compra" role="status" hidden></p>
-  </div>
-</aside>
-</body>
+    <div id="notificacao-carrinho" class="notificacao-carrinho" role="status" aria-live="polite">
+      <span class="notificacao-icone" aria-hidden="true">✓</span>
+      <div>
+        <strong>Produto adicionado!</strong>
+        <p>Confira sua sacola no canto superior direito.</p>
+      </div>
+      <button type="button" aria-label="Fechar notificação" id="fechar-notificacao">
+        &times;
+      </button>
+    </div>
+    <div id="fundo-sacola" class="fundo-sacola"></div>
+
+    <aside
+      id="painel-sacola"
+      class="painel-sacola"
+      aria-labelledby="titulo-sacola"
+      aria-hidden="true"
+    >
+      <div class="painel-sacola-topo">
+        <h2 id="titulo-sacola">Sua sacola</h2>
+        <button type="button" id="fechar-sacola" class="fechar-sacola" aria-label="Fechar sacola">
+          &times;
+        </button>
+      </div>
+
+      <p id="sacola-vazia" class="sacola-vazia">Sua sacola está vazia.</p>
+      <ul id="lista-sacola" class="lista-sacola"></ul>
+
+      <div class="painel-sacola-rodape">
+        <p>Total: <strong id="total-sacola">R$ 0,00</strong></p>
+
+        <div class="acoes-sacola">
+          <button type="button" id="finalizar-compra" class="botao-finalizar">
+            Finalizar compra
+          </button>
+          <button type="button" id="limpar-sacola" class="botao-limpar">
+            Esvaziar sacola
+          </button>
+        </div>
+
+        <p id="feedback-compra" class="feedback-compra" role="status" hidden></p>
+      </div>
+    </aside>
+  </body>
 </html>
