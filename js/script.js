@@ -455,6 +455,7 @@ function atualizarCarrinho() {
       const produto = produtos.find((p) => p.id === id);
       if (!produto) return;
       const item = agrupados.get(id) || {
+        id,
         nome: produto.nome,
         preco: produto.preco,
         quantidade: 0,
@@ -508,6 +509,21 @@ function adicionarAoCarrinho(id) {
   carrinho.push(id);
   salvarCarrinho();
   atualizarCarrinho();
+}
+
+// ----- Remover item pela sacola lateral -----
+const listaSacola = document.getElementById("lista-sacola");
+
+if (listaSacola) {
+  listaSacola.addEventListener("click", (evento) => {
+    const botao = evento.target.closest(".remover-item-sacola");
+    if (!botao) return;
+
+    const id = Number(botao.dataset.id);
+    carrinho = carrinho.filter((itemId) => itemId !== id);
+    salvarCarrinho();
+    atualizarCarrinho();
+  });
 }
 
 // ----- Ligando tudo na página -----

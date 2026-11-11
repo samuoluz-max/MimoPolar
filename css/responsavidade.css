@@ -766,3 +766,80 @@
     display: none;
   }
 }
+
+/* =====================================================
+   Sacola lateral — responsividade
+   Ajusta apenas o painel da sacola (.painel-sacola e filhos).
+   ===================================================== */
+
+/* Permite que a lista de itens encolha e role dentro do painel */
+.lista-sacola {
+  min-height: 0;
+}
+
+/* Nomes longos de produto quebram linha em vez de empurrar o preço */
+.item-sacola > span {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.item-sacola > div,
+.item-sacola-direita {
+  flex: 0 0 auto;
+}
+
+/* Telas até 768px (tablets e celulares) */
+@media (max-width: 768px) {
+  .remover-item-sacola {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+}
+
+/* Celulares: painel ocupa a tela toda e o conteúdo ganha folga */
+@media (max-width: 480px) {
+  .painel-sacola {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    padding: 16px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .painel-sacola-topo h2 {
+    font-size: 22px;
+  }
+
+  .fechar-sacola {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+  }
+
+  .painel-sacola-rodape {
+    font-size: 16px;
+  }
+
+  .acoes-sacola {
+    flex-direction: column;
+  }
+
+  .acoes-sacola button {
+    width: 100%;
+    white-space: normal;
+  }
+}
+
+/* Telas muito baixas na horizontal: a lista rola e o rodapé continua visível */
+@media (max-height: 500px) {
+  .painel-sacola {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .lista-sacola {
+    margin-top: 8px;
+  }
+}

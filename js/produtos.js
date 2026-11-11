@@ -837,10 +837,21 @@ if (botaoAvancar && botaoVoltar) {
       const nome = document.createElement("span");
       nome.textContent = `${item.nome} × ${item.quantidade}`;
 
+      const direita = document.createElement("div");
+      direita.className = "item-sacola-direita";
+
       const preco = document.createElement("strong");
       preco.textContent = formatarMoeda(subtotal);
 
-      li.append(nome, preco);
+      const remover = document.createElement("button");
+      remover.type = "button";
+      remover.className = "remover-item-sacola";
+      remover.dataset.id = item.id;
+      remover.setAttribute("aria-label", `Remover ${item.nome} da sacola`);
+      remover.textContent = "×";
+
+      direita.append(preco, remover);
+      li.append(nome, direita);
       lista.appendChild(li);
     });
 
