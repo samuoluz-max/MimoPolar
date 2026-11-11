@@ -56,7 +56,8 @@
   --fonte-texto: "Open Sans", sans-serif;
 
   /* Medidas */
-  --altura-cabecalho: 110px;
+  --altura-cabecalho-min: 110px; /* altura mínima do cabeçalho */
+  --altura-cabecalho: 110px; /* altura real: o JS atualiza sozinho se o cabeçalho crescer */
 }
 
 /* =====================================================
@@ -114,13 +115,15 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--altura-cabecalho);
+  height: auto;
+  min-height: var(--altura-cabecalho-min);
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 0 40px;
+  flex-wrap: wrap; /* o que não couber desce para outra linha, e o cabeçalho cresce */
+  gap: 8px 16px;
+  padding: 12px 40px;
   background: transparent;
 }
 
@@ -218,6 +221,80 @@ h6 {
     background-color 0.2s ease,
     transform 0.2s ease;
 }
+
+/* Home: contador grande (entre o slideshow e os produtos em destaque) */
+.contagem-pag {
+  max-width: 900px;
+  margin: 15px;
+  padding: 36px;
+  border: 1px solid rgba(var(--dourado-rgb), 0.4);
+  border-radius: 20px;
+  background: var(--creme);
+  box-shadow: 0 16px 40px rgba(var(--preto-rgb), 0.2);
+  text-align: center;
+}
+
+.contagem-pag .sobretitulo {
+  color: var(--dourado-claro);
+}
+
+.contagem-pag h2 {
+  margin: 8px 0 32px;
+  color: var(--dourado);
+  font-size: clamp(28px, 4vw, 44px);
+}
+
+.contador-grande {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(10px, 2.5vw, 28px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contador-grande > div {
+  padding: clamp(14px, 3vw, 32px) 6px;
+  border: 2px solid rgba(var(--dourado-rgb), 0.65);
+  border-radius: 18px;
+  background: rgba(var(--preto-rgb), 0.25);
+  box-shadow: 0 10px 28px rgba(var(--preto-rgb), 0.25);
+}
+
+.contador-grande span {
+  display: block;
+  color: var(--dourado-claro);
+  font-family: var(--fonte-texto);
+  font-size: clamp(34px, 9vw, 96px);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.contador-grande p {
+  margin: 10px 0 0;
+  color: rgba(var(--neve-rgb), 0.85);
+  font-size: clamp(12px, 2vw, 18px);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+   .cabecalho {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--altura-cabecalho);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* o que não couber desce para outra linha, e o cabeçalho cresce */
+  gap: 8px 16px;
+  padding: 12px 40px;
+  background: transparent;
+}
+
 
 /* Botões do header em creme para ler bem sobre a foto */
 .cabecalho .botao-musica,
@@ -559,10 +636,10 @@ body.neve-desativada .camada-neve {
 #papai {
   position: absolute;
   bottom: 0;
-  right: 74%;
+  right: 60%;
   z-index: 2;
   transform: translateX(-50%);
-  width: 31%;
+  width: 30%;
   pointer-events: none;
   user-select: none;
 }
@@ -664,7 +741,7 @@ body.neve-desativada .camada-neve {
 }
 
 .home-links {
-  background: var(--creme);
+  background: var(--vermelho);
 }
 
 .home-links-grade {
@@ -996,6 +1073,63 @@ body.neve-desativada .camada-neve {
 .promo-indicador.ativo {
   transform: scale(1.25);
   background: var(--vermelho);
+}
+
+/* Home: contador grande (entre o slideshow e os produtos em destaque) */
+.contagem-home,
+.contagem-pag {
+  padding: 72px 0;
+  border-block: 3px solid var(--dourado);
+  background: var(--creme);
+  color: var(--neve);
+  text-align: center;
+}
+
+.contagem-home .sobretitulo,
+.contagem-pag .sobretitulo {
+  color: var(--dourado-claro);
+}
+
+.contagem-home h2,
+.contagem-pag h2 {
+  margin: 8px 0 32px;
+  color: var(--dourado);
+  font-size: clamp(28px, 4vw, 44px);
+}
+
+.contador-grande {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(10px, 2.5vw, 28px);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contador-grande > div {
+  padding: clamp(14px, 3vw, 32px) 6px;
+  border: 2px solid rgba(var(--dourado-rgb), 0.65);
+  border-radius: 18px;
+  background: rgba(var(--preto-rgb), 0.25);
+  box-shadow: 0 10px 28px rgba(var(--preto-rgb), 0.25);
+}
+
+.contador-grande span {
+  display: block;
+  color: var(--dourado-claro);
+  font-family: var(--fonte-texto);
+  font-size: clamp(34px, 9vw, 96px);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.contador-grande p {
+  margin: 10px 0 0;
+  color: rgba(var(--neve-rgb), 0.85);
+  font-size: clamp(12px, 2vw, 18px);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 /* =====================================================

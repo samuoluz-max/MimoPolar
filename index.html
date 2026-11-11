@@ -57,7 +57,7 @@
         <img src="img/banners/logo.png" id="logos" alt="Mimo Polar" />
       </section>
 
-      <section class="sec">
+      <section class="sec animar-rolagem">
         <h1>Bem-vindo à Mimo Polar!</h1>
         <p>Descubra a magia do Natal com nossas pelúcias natalinas!</p>
         <a class="botao-comprar-home" href="produtos.html#catalogo"
@@ -65,7 +65,39 @@
         >
       </section>
 
-      <section class="promo-secao" aria-labelledby="promo-titulo">
+      <section class="contagem-home animar-rolagem" aria-labelledby="titulo-contagem-home">
+        <div class="container">
+          <p class="sobretitulo">Falta pouco</p>
+          <h2 id="titulo-contagem-home">
+            Contagem regressiva para o Natal de 2026
+          </h2>
+          <div
+            class="contador-grande"
+            role="timer"
+            aria-label="Tempo restante até o Natal de 2026"
+            aria-live="off"
+          >
+            <div>
+              <span data-contagem="dias">0</span>
+              <p>Dias</p>
+            </div>
+            <div>
+              <span data-contagem="horas">00</span>
+              <p>Horas</p>
+            </div>
+            <div>
+              <span data-contagem="minutos">00</span>
+              <p>Min</p>
+            </div>
+            <div>
+              <span data-contagem="segundos">00</span>
+              <p>Seg</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="promo-secao animar-rolagem" aria-labelledby="promo-titulo">
         <div class="container1">
           <div class="promo-cartao">
             <h2 id="promo-titulo">Destaques da temporada</h2>
@@ -102,7 +134,9 @@
                 <img src="img/produtos/urso-verde.webp" alt="Urso verde" />
                 <div class="promo-legenda">
                   <h3>Urso marrom clássico de Natal</h3>
-                  <p>Aconchego para a temporada festiva.</p>
+                  <p>
+                    Aconchego para a temporada festiva e um amigo para abraçar.
+                  </p>
                 </div>
               </div>
 

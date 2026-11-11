@@ -16,6 +16,39 @@
 const semMovimento = { matches: false };
 
 // =====================================================
+// TODAS AS PÁGINAS — cabeçalho que cresce sozinho
+// O cabeçalho é fixo e pode quebrar em 2 ou 3 linhas conforme a tela.
+// Aqui a altura real dele vai para --altura-cabecalho, para o conteúdo
+// da página nunca ficar escondido embaixo dele.
+// =====================================================
+(function ajustarAlturaCabecalho() {
+  const cabecalho = document.querySelector(".cabecalho");
+  if (!cabecalho) return;
+
+  function atualizar() {
+    const altura = Math.ceil(cabecalho.getBoundingClientRect().height);
+    document.documentElement.style.setProperty(
+      "--altura-cabecalho",
+      `${altura}px`,
+    );
+  }
+
+  atualizar();
+
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(atualizar).observe(cabecalho);
+  } else {
+    window.addEventListener("resize", atualizar);
+  }
+
+  // fontes e imagens podem mudar a altura depois do carregamento
+  window.addEventListener("load", atualizar);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(atualizar);
+  }
+})();
+
+// =====================================================
 // TODAS AS PÁGINAS — neve global com controle persistente
 // =====================================================
 const botaoNeve = document.querySelector(".botao-neve");
@@ -202,55 +235,78 @@ const fundoParallax = document.getElementById("fundo-parallax");
 const logos = document.getElementById("logos");
 const papai = document.getElementById("papai");
 const pelucia = document.getElementById("pelucia");
-const parallaxMobile = window.matchMedia("(max-width: 768px)");
 
-// Velocidade do fundo (menor = mais lento = mais profundidade)
-const VELOCIDADE_FUNDO = 0.3;
+const parallaxCompacto = window.matchMedia("(max-width: 1100px)");
+const parallaxSemMovimento = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+);
+
 // Folga da imagem acima da section (precisa ser igual ao top negativo
 // da regra .parallax::before no CSS: 15% da altura da section)
 const FOLGA_FUNDO = 0.15;
 
-let ticking = false;
+// Velocidade dos elementos (menor = mais lento = mais profundidade).
+// No tablet e no celular o efeito é mais leve.
+const FATORES_PARALLAX = {
+  desktop: { fundo: 0.3, logosX: -1, logosY: 0, papai: 0.5, pelucia: 0.3 },
+  compacto: { fundo: 0.18, logosX: 0, logosY: 0.1, papai: 0.12, pelucia: 0.08 },
+};
 
 if (fundoParallax && logos && papai && pelucia) {
-  function updateParallax() {
-    if (parallaxMobile.matches) {
-      fundoParallax.style.removeProperty("--fundo-y");
-      logos.style.removeProperty("transform");
-      papai.style.removeProperty("transform");
-      pelucia.style.removeProperty("transform");
-      ticking = false;
+  let ticking = false;
+
+  const mover = (elemento, x, y) => {
+    elemento.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  };
+
+  const limparParallax = () => {
+    fundoParallax.style.removeProperty("--fundo-y");
+    [logos, papai, pelucia].forEach((el) => el.style.removeProperty("transform"));
+  };
+
+  const atualizarParallax = () => {
+    ticking = false;
+
+    if (parallaxSemMovimento.matches) {
+      limparParallax();
       return;
     }
 
-    const value = window.scrollY;
+    const f = parallaxCompacto.matches
+      ? FATORES_PARALLAX.compacto
+      : FATORES_PARALLAX.desktop;
+
+    // Depois que o banner sai da tela não precisa mais calcular
+    const alturaBanner = fundoParallax.offsetHeight;
+    const rolagem = Math.min(Math.max(window.scrollY, 0), alturaBanner);
 
     // O fundo desce devagar, mas nunca além da folga da imagem.
     // Assim não aparece faixa vazia nem repetição.
-    const limite = fundoParallax.offsetHeight * FOLGA_FUNDO;
-    const deslocamento = Math.min(value * VELOCIDADE_FUNDO, limite);
+    const limite = alturaBanner * FOLGA_FUNDO;
+    fundoParallax.style.setProperty(
+      "--fundo-y",
+      `${Math.min(rolagem * f.fundo, limite)}px`,
+    );
 
-    fundoParallax.style.setProperty("--fundo-y", `${deslocamento}px`);
-    logos.style.transform = `translateX(${value * -1}px)`;
-    papai.style.transform = `translateY(${value * 0.5}px)`;
-    pelucia.style.transform = `translateY(${value * 0.3}px)`;
+    mover(logos, rolagem * f.logosX, rolagem * f.logosY);
+    mover(papai, 0, rolagem * f.papai);
+    mover(pelucia, 0, rolagem * f.pelucia);
+  };
 
-    ticking = false;
-  }
-
-  window.addEventListener("scroll", () => {
-    if (parallaxMobile.matches) {
-      return;
-    }
-
+  const pedirAtualizacao = () => {
     if (!ticking) {
-      window.requestAnimationFrame(updateParallax);
       ticking = true;
+      window.requestAnimationFrame(atualizarParallax);
     }
-  });
+  };
 
-  window.addEventListener("resize", updateParallax);
-  updateParallax();
+  window.addEventListener("scroll", pedirAtualizacao, { passive: true });
+  window.addEventListener("resize", pedirAtualizacao);
+  window.addEventListener("orientationchange", pedirAtualizacao);
+  window.addEventListener("load", pedirAtualizacao);
+  parallaxCompacto.addEventListener("change", pedirAtualizacao);
+
+  atualizarParallax();
 }
 
 // =====================================================
@@ -634,28 +690,38 @@ if (lightbox && lightboxImagem && lightboxLegenda && botaoFecharLightbox) {
 }
 
 // =====================================================
-// 5. PÁGINAS COM CONTAGEM — tempo até o Natal de 2026
+// 5. CONTAGEM — tempo até o Natal de 2026 (header e contador grande da home)
+// Funciona com os ids do header (#dias, #horas, #minutos, #segundos)
+// e com o contador grande da home ([data-contagem="dias"], etc.).
 // =====================================================
-const elementoDias = document.getElementById("dias");
-const elementoHoras = document.getElementById("horas");
-const elementoMinutos = document.getElementById("minutos");
-const elementoSegundos = document.getElementById("segundos");
+const alvosContagem = {
+  dias: document.querySelectorAll('#dias, [data-contagem="dias"]'),
+  horas: document.querySelectorAll('#horas, [data-contagem="horas"]'),
+  minutos: document.querySelectorAll('#minutos, [data-contagem="minutos"]'),
+  segundos: document.querySelectorAll('#segundos, [data-contagem="segundos"]'),
+};
 
-if (elementoDias && elementoHoras && elementoMinutos && elementoSegundos) {
+if (alvosContagem.dias.length) {
+  const preencher = (lista, texto) =>
+    lista.forEach((el) => {
+      el.textContent = texto;
+    });
+
   function atualizarContagem() {
-    const agora = new Date();
     const natal2026 = new Date(2026, 11, 25);
-    const diferenca = Math.max(0, natal2026.getTime() - agora.getTime());
-    const segundosRestantes = Math.floor(diferenca / 1000);
-    const dias = Math.floor(segundosRestantes / 86400);
-    const horas = Math.floor((segundosRestantes % 86400) / 3600);
-    const minutos = Math.floor((segundosRestantes % 3600) / 60);
-    const segundos = segundosRestantes % 60;
+    const diferenca = Math.max(0, natal2026.getTime() - Date.now());
+    const total = Math.floor(diferenca / 1000);
 
-    elementoDias.textContent = String(dias);
-    elementoHoras.textContent = String(horas).padStart(2, "0");
-    elementoMinutos.textContent = String(minutos).padStart(2, "0");
-    elementoSegundos.textContent = String(segundos).padStart(2, "0");
+    preencher(alvosContagem.dias, String(Math.floor(total / 86400)));
+    preencher(
+      alvosContagem.horas,
+      String(Math.floor((total % 86400) / 3600)).padStart(2, "0"),
+    );
+    preencher(
+      alvosContagem.minutos,
+      String(Math.floor((total % 3600) / 60)).padStart(2, "0"),
+    );
+    preencher(alvosContagem.segundos, String(total % 60).padStart(2, "0"));
   }
 
   atualizarContagem();
