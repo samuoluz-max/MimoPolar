@@ -11,7 +11,7 @@ const produtos = [
     descricao:
       "Um Papai Noel tradicional de pelúcia, fofo e com detalhes natalinos, perfeito para presentear ou decorar.",
     preco: 89.9,
-    imagem: "img/produtos/papaiclassico.png",
+    imagem: "img/produtos/papaiclassico.webp",
     destaque: true,
   },
 
@@ -22,7 +22,7 @@ const produtos = [
     descricao:
       "Papai Noel segurando um saco de presentes colorido para entrar no clima natalino.",
     preco: 109.9,
-    imagem: "img/produtos/papaisaco.png",
+    imagem: "img/produtos/papaisaco.webp",
   },
 
   {
@@ -32,7 +32,7 @@ const produtos = [
     descricao:
       "Papai Noel sentado em um trenó decorativo, com acabamento de tecido felpudo.",
     preco: 59.9,
-    imagem: "img/produtos/papaitreno.png",
+    imagem: "img/produtos/papaitreno.webp",
   },
 
   {
@@ -42,7 +42,7 @@ const produtos = [
     descricao:
       "Mamãe Noel de pelúcia em tamanho grande, com vestido vermelho e detalhes festivos.",
     preco: 94.9,
-    imagem: "img/produtos/mamaegrande.png",
+    imagem: "img/produtos/mamaegrande.webp",
   },
 
   {
@@ -52,7 +52,7 @@ const produtos = [
     descricao:
       "Um conjunto de pelúcias representando o casal Papai e Mamãe Noel, ideal para decorar a casa no Natal.",
     preco: 109.9,
-    imagem: "img/produtos/casal noel.png",
+    imagem: "img/produtos/casal noel.webp",
   },
 
   {
@@ -62,7 +62,7 @@ const produtos = [
     descricao:
       "Versão pequena do Papai Noel, ideal para andar com ele no bolso ou decorar pequenos espaços.",
     preco: 29.9,
-    imagem: "img/produtos/papai fofo.png",
+    imagem: "img/produtos/papai fofo.webp",
   },
 
   {
@@ -72,7 +72,7 @@ const produtos = [
     descricao:
       "Papai Noel de pelúcia em tamanho grande, com detalhes festivos e acabamento macio, perfeito para presentear ou decorar.",
     preco: 119.9,
-    imagem: "img/produtos/papaigrande.png",
+    imagem: "img/produtos/papaigrande.webp",
   },
 
   {
@@ -82,7 +82,7 @@ const produtos = [
     descricao:
       "Papai Noel em versão miniatura, sentado e com expressão alegre, perfeito para enfeitar mesas e prateleiras.",
     preco: 84.9,
-    imagem: "img/produtos/mamaenoel.png",
+    imagem: "img/produtos/mamaenoel.webp",
   },
 
   {
@@ -102,7 +102,7 @@ const produtos = [
     descricao:
       "Rena marrom com chifres macios, focinho claro e cachecol natalino.",
     preco: 79.9,
-    imagem: "img/produtos/renasentada.png",
+    imagem: "img/produtos/renasentada.webp",
     destaque: true,
   },
 
@@ -113,7 +113,7 @@ const produtos = [
     descricao:
       "Rena bebê de corpo pequeno, olhos delicados e nariz arredondado.",
     preco: 59.9,
-    imagem: "img/produtos/renafiilhote.png",
+    imagem: "img/produtos/renafiilhote.webp",
   },
 
   {
@@ -123,7 +123,7 @@ const produtos = [
     descricao:
       "Rena inspirada nas histórias de Natal, com nariz vermelho e cachecol verde.",
     preco: 84.9,
-    imagem: "img/produtos/renanarizvermelho.png",
+    imagem: "img/produtos/renanarizvermelho.webp",
   },
 
   {
@@ -133,7 +133,7 @@ const produtos = [
     descricao:
       "Rena de pelúcia marrom com chifres, focinho claro e expressão amigável.",
     preco: 74.9,
-    imagem: "img/produtos/renamarrom.png",
+    imagem: "img/produtos/renamarrom.webp",
   },
 
   {
@@ -162,7 +162,7 @@ const produtos = [
     descricao:
       "Boneco de neve com cartola, nariz de cenoura e cachecol vermelho.",
     preco: 74.9,
-    imagem: "img/produtos/boneco de neve.png",
+    imagem: "img/produtos/boneco de neve.webp",
     destaque: true,
   },
 
@@ -182,7 +182,7 @@ const produtos = [
     categoria: "Bonecos de neve e bichos do inverno",
     descricao: "Boneca de neve com gorro, laço e detalhes delicados em tecido.",
     preco: 79.9,
-    imagem: "img/produtos/boneco de neve mulher.png",
+    imagem: "img/produtos/boneco de neve mulher.webp",
   },
 
   {
@@ -201,7 +201,7 @@ const produtos = [
     categoria: "Ursinhos natalinos",
     descricao: "Ursinho de pelúcia com roupinha natalina, ideal para decorar.",
     preco: 29.9,
-    imagem: "img/produtos/ursoclassicoderoupa.png",
+    imagem: "img/produtos/ursoclassicoderoupa.webp",
   },
 
   {
@@ -232,7 +232,7 @@ const produtos = [
     descricao:
       "Ursinho marrom de pelúcia com detalhes natalinos e toque extremamente macio.",
     preco: 67.99,
-    imagem: "img/produtos/ursoclassico.png",
+    imagem: "img/produtos/ursoclassico.webp",
   },
 
   {
@@ -242,7 +242,7 @@ const produtos = [
     descricao:
       "Urso polar branco de pelúcia, com focinho delicado e aparência acolhedora.",
     preco: 34.9,
-    imagem: "img/produtos/ursopolarbranco.png",
+    imagem: "img/produtos/ursopolarbranco.webp",
   },
 
   {
@@ -252,7 +252,7 @@ const produtos = [
     descricao:
       "Ursinha de pelúcia vestida como Mamãe, com vestido vermelho e gorro.",
     preco: 49.9,
-    imagem: "img/produtos/ursinha.png",
+    imagem: "img/produtos/ursinha.webp",
   },
 
   {
@@ -262,7 +262,7 @@ const produtos = [
     descricao:
       "Urso de pelúcia sentado em uma poltrona natalina, com gorro e detalhes festivos.",
     preco: 374.9,
-    imagem: "img/produtos/ursopoltrona.png",
+    imagem: "img/produtos/ursopoltrona.webp",
   },
 
   {
@@ -272,7 +272,7 @@ const produtos = [
     descricao:
       "Ursão de pelúcia em tamanho grande, ideal para fazer um lugar para se deitar.",
     preco: 249.9,
-    imagem: "img/produtos/ursoalmofada.png",
+    imagem: "img/produtos/ursoalmofada.webp",
   },
 
   {
@@ -281,7 +281,7 @@ const produtos = [
     categoria: "Ursinhos natalinos",
     descricao: "Ursinho em tom creme com laço verde e acabamento delicado",
     preco: 79.9,
-    imagem: "img/produtos/ursogordinho.png",
+    imagem: "img/produtos/ursogordinho.webp",
   },
 
   {
@@ -291,7 +291,7 @@ const produtos = [
     descricao:
       "Ursinho de pelúcia com cachecol vermelho e detalhes natalinos, perfeito para presentear alguém especial.",
     preco: 84.9,
-    imagem: "img/produtos/ursocachecol.png",
+    imagem: "img/produtos/ursocachecol.webp",
   },
 
   {
@@ -301,7 +301,7 @@ const produtos = [
     descricao:
       "Coelho de pelúcia usando pijama temático com estampas natalinas.",
     preco: 89.9,
-    imagem: "img/produtos/coelho.png",
+    imagem: "img/produtos/coelho.webp",
   },
 
   {
@@ -311,7 +311,7 @@ const produtos = [
     descricao:
       "Ouriço de pelúcia compacto para presentear, com focinho bordado e laço vermelho.",
     preco: 39.9,
-    imagem: "img/produtos/ourico.png",
+    imagem: "img/produtos/ourico.webp",
   },
 
   {
