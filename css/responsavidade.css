@@ -57,7 +57,6 @@
   }
 }
 
-
 @media (prefers-reduced-motion: reduce) {
   .animacao-rolagem-ativa .animar-rolagem {
     transform: none;
@@ -693,7 +692,7 @@
    Fica no FINAL do arquivo para sobrescrever as regras
    antigas de .parallax, #pelucia, #logos e #papai.
    ===================================================== */
-@media (max-width: 1024px)  {
+@media (max-width: 1024px) {
   .parallax {
     height: 70vh; /* fallback */
     height: 70svh; /* svh ignora a barra do navegador no celular */

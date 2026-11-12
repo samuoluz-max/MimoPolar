@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsavidade.css" />
 
-    
     <script src="js/produtos.js" defer></script>
     <script src="js/script.js" defer></script>
   </head>
@@ -28,7 +27,11 @@
   <body>
     <!-- Menu do site, contagem para o Natal e botão da sacola. -->
     <header class="cabecalho">
-      <a class="marca" href="index.html" aria-label="Mimo Polar, página inicial">
+      <a
+        class="marca"
+        href="index.html"
+        aria-label="Mimo Polar, página inicial"
+      >
         <span class="marca-icone" aria-hidden="true">✳</span>
         <span>Mimo <strong>Polar</strong></span>
       </a>
@@ -78,7 +81,11 @@
         </svg>
         <span data-texto-neve>Neve ligada</span>
       </button>
-      <a class="atalho-carrinho" href="#catalogo" aria-label="Abrir sacola de compras">
+      <a
+        class="atalho-carrinho"
+        href="#catalogo"
+        aria-label="Abrir sacola de compras"
+      >
         <svg class="icone-sacola" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 8h14l1 13H4L5 8Z" />
           <path d="M9 8V6a3 3 0 0 1 6 0v2" />
@@ -110,11 +117,22 @@
               </p>
             </div>
 
-            <div class="container-botoes" aria-label="Navegação dos produtos em destaque">
-              <button class="voltar" type="button" aria-label="Produto anterior">
+            <div
+              class="container-botoes"
+              aria-label="Navegação dos produtos em destaque"
+            >
+              <button
+                class="voltar"
+                type="button"
+                aria-label="Produto anterior"
+              >
                 Voltar
               </button>
-              <button class="avançar" type="button" aria-label="Próximo produto">
+              <button
+                class="avançar"
+                type="button"
+                aria-label="Próximo produto"
+              >
                 Avançar
               </button>
             </div>
@@ -133,7 +151,9 @@
                 Rena de pelúcia com cachecol em cores natalinas, perfeita para
                 presentear e decorar.
               </p>
-              <p id="contador-mais-vendidos" class="contador-mais-vendidos">1 de 5</p>
+              <p id="contador-mais-vendidos" class="contador-mais-vendidos">
+                1 de 5
+              </p>
             </div>
           </div>
         </section>
@@ -152,7 +172,11 @@
             <div class="filtros">
               <label>
                 <span>Buscar</span>
-                <input id="busca" type="search" placeholder="Ex.: rena, Papai Noel..." />
+                <input
+                  id="busca"
+                  type="search"
+                  placeholder="Ex.: rena, Papai Noel..."
+                />
               </label>
               <label>
                 <span>Categoria</span>
@@ -164,14 +188,20 @@
           </div>
 
           <aside class="resumo-carrinho" aria-live="polite">
-            <span>Sua sacola: <strong data-qtd-carrinho>0</strong> item(ns)</span>
+            <span
+              >Sua sacola: <strong data-qtd-carrinho>0</strong> item(ns)</span
+            >
             <span>Total: <strong id="total-carrinho">R$ 0,00</strong></span>
             <button class="botao-limpar" id="limpar-carrinho" type="button">
               Esvaziar sacola
             </button>
           </aside>
 
-          <div id="lista-produtos" class="grade-produtos" aria-live="polite"></div>
+          <div
+            id="lista-produtos"
+            class="grade-produtos"
+            aria-live="polite"
+          ></div>
         </section>
       </section>
     </main>
@@ -179,7 +209,9 @@
     <!-- Parte final da página, com links para outras áreas do site. -->
     <footer class="rodape">
       <div class="container rodape-conteudo">
-        <a class="marca marca-rodape" href="index.html">Mimo <strong>Polar</strong></a>
+        <a class="marca marca-rodape" href="index.html"
+          >Mimo <strong>Polar</strong></a
+        >
         <p>Pelúcias natalinas para deixar seu Natal ainda mais especial.</p>
         <nav aria-label="Links do rodapé">
           <a href="sobre.html">Nossa história</a>
@@ -216,7 +248,11 @@
           <p id="modal-descricao"></p>
           <div class="modal-rodape">
             <strong id="modal-preco"></strong>
-            <button id="modal-adicionar" type="button" class="modal-botao-adicionar">
+            <button
+              id="modal-adicionar"
+              type="button"
+              class="modal-botao-adicionar"
+            >
               Adicionar à sacola <span aria-hidden="true">🛒</span>
             </button>
           </div>
@@ -225,13 +261,22 @@
     </div>
 
     <!-- Aviso que aparece quando um produto é colocado na sacola. -->
-    <div id="notificacao-carrinho" class="notificacao-carrinho" role="status" aria-live="polite">
+    <div
+      id="notificacao-carrinho"
+      class="notificacao-carrinho"
+      role="status"
+      aria-live="polite"
+    >
       <span class="notificacao-icone" aria-hidden="true">✓</span>
       <div>
         <strong>Produto adicionado!</strong>
         <p>Confira sua sacola no canto superior direito.</p>
       </div>
-      <button type="button" aria-label="Fechar notificação" id="fechar-notificacao">
+      <button
+        type="button"
+        aria-label="Fechar notificação"
+        id="fechar-notificacao"
+      >
         &times;
       </button>
     </div>
@@ -247,7 +292,12 @@
     >
       <div class="painel-sacola-topo">
         <h2 id="titulo-sacola">Sua sacola</h2>
-        <button type="button" id="fechar-sacola" class="fechar-sacola" aria-label="Fechar sacola">
+        <button
+          type="button"
+          id="fechar-sacola"
+          class="fechar-sacola"
+          aria-label="Fechar sacola"
+        >
           &times;
         </button>
       </div>
@@ -267,7 +317,12 @@
           </button>
         </div>
 
-        <p id="feedback-compra" class="feedback-compra" role="status" hidden></p>
+        <p
+          id="feedback-compra"
+          class="feedback-compra"
+          role="status"
+          hidden
+        ></p>
       </div>
     </aside>
   </body>
