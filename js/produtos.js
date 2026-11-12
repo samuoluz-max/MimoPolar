@@ -56,7 +56,7 @@ const produtos = [
     descricao:
       "Um conjunto de pelúcias representando o casal Papai e Mamãe Noel, ideal para decorar a casa no Natal.",
     preco: 109.9,
-    imagem: "img/produtos/casal noel.webp",
+    imagem: "img/produtos/casal-noel.webp",
     alt: "Casal Papai e Mamãe Noel",
   },
 
@@ -67,7 +67,7 @@ const produtos = [
     descricao:
       "Versão pequena do Papai Noel, ideal para andar com ele no bolso ou decorar pequenos espaços.",
     preco: 29.9,
-    imagem: "img/produtos/papai fofo.webp",
+    imagem: "img/produtos/papai-fofo.webp",
     alt: "Papai Noel Pequeno",
   },
 
@@ -155,7 +155,7 @@ const produtos = [
     categoria: "Renas e bichos da floresta",
     descricao: "Rena de pelúcia com cachecol xadrez em cores natalinas.",
     preco: 89.9,
-    imagem: "img/produtos/rena cachecol.webp",
+    imagem: "img/produtos/rena-cachecol.webp",
     alt: "Rena de Cachecol",
   },
 
@@ -166,7 +166,7 @@ const produtos = [
     descricao:
       "Duas renas de pelúcia, uma maior e outra menor, com detalhes natalinos e acabamento macio.",
     preco: 99.9,
-    imagem: "img/produtos/casal rena.webp",
+    imagem: "img/produtos/casal-rena.webp",
     alt: "Casal de Renas",
   },
 
@@ -177,7 +177,7 @@ const produtos = [
     descricao:
       "Boneco de neve com cartola, nariz de cenoura e cachecol vermelho.",
     preco: 74.9,
-    imagem: "img/produtos/boneco de neve.webp",
+    imagem: "img/produtos/boneco-de-neve.webp",
     alt: "Boneco de Neve Clássico",
     destaque: true,
   },
@@ -189,7 +189,7 @@ const produtos = [
     descricao:
       "Boneco de neve branco com cachecol azul e pequenos botões escuros.",
     preco: 69.9,
-    imagem: "img/produtos/boneco de neve azul.webp",
+    imagem: "img/produtos/boneco-de-neve-azul.webp",
     alt: "Boneco de Neve com Cachecol Azul",
   },
 
@@ -199,7 +199,7 @@ const produtos = [
     categoria: "Bonecos de neve e bichos do inverno",
     descricao: "Boneca de neve com gorro, laço e detalhes delicados em tecido.",
     preco: 79.9,
-    imagem: "img/produtos/boneco de neve mulher.webp",
+    imagem: "img/produtos/boneco-de-neve-mulher.webp",
     alt: "Boneca de Neve",
   },
 
@@ -407,7 +407,7 @@ const produtos = [
     descricao:
       "Triplo T de pelúcia usando um gorro natalino vermelho e branco, perfeito para presentear ou decorar.",
     preco: 79.9,
-    imagem: "img/produtos/triplo T.png",
+    imagem: "img/produtos/triplo-t.png",
     alt: "Triplo T com Gorro Natalino",
   },
 
@@ -429,7 +429,7 @@ const produtos = [
     descricao:
       "Um casal de pelúcias representando personagens fofos e encantadores, perfeitos para presentear ou decorar.",
     preco: 64.9,
-    imagem: "img/produtos/casal fofo.png",
+    imagem: "img/produtos/casal-fofo.png",
     alt: "Triplo T e Bailara Caputina",
   },
 
@@ -556,21 +556,21 @@ const produtos = [
 // Produtos apresentados no carrossel "Mais vendidos".
 const produtosMaisVendidos = [
   {
-    imagem: "img/produtos/rena cachecol.webp",
+    imagem: "img/produtos/rena-cachecol.webp",
     titulo: "Rena de Cachecol",
     descricao:
       "Rena de pelúcia com cachecol em cores natalinas, perfeita para decorar sua casa durante a temporada festiva.",
     alt: "Rena de Cachecol",
   },
   {
-    imagem: "img/produtos/boneco de neve azul.webp",
+    imagem: "img/produtos/boneco-de-neve-azul.webp",
     titulo: "Boneco de Neve com Cachecol Azul",
     descricao:
       "Boneco de neve de pelúcia com cachecol azul, ideal para presentear ou decorar sua casa durante a temporada natalina.",
     alt: "Boneco de Neve com Cachecol Azul",
   },
   {
-    imagem: "img/produtos/casal rena.webp",
+    imagem: "img/produtos/casal-rena.webp",
     titulo: "Casal de renas de pelúcia",
     descricao:
       "Um casal de renas de pelúcia, perfeito para decorar sua casa durante a temporada natalina. ",

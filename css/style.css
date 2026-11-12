@@ -510,7 +510,7 @@ body.home {
 }
 
 .parallax {
-  --imagem-parallax: url("../img/banners/fundo parallax.png");
+  --imagem-parallax: url("../img/banners/fundo-parallax.png");
   --fundo-y: 0px;
   position: relative;
   display: flex;
