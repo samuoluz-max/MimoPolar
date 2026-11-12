@@ -500,7 +500,6 @@ h6 {
    4. INDEX.HTML (home)
    ===================================================== */
 body.home {
-  /* a foto começa no topo da tela, atrás do header transparente */
   padding-top: 0;
   background: linear-gradient(
     var(--azul-profundo) 0%,
