@@ -3,6 +3,8 @@
 // A montagem dos cards, filtros e sacola continua no script.js.
 // =====================================================
 
+// Cada bloco guarda o nome, o tipo, a descrição, o preço e a foto de um produto.
+// Alguns produtos também aparecem em destaque na página inicial.
 const produtos = [
   {
     id: 1,
@@ -553,7 +555,7 @@ const produtos = [
   },
 ];
 
-// Produtos apresentados no carrossel "Mais vendidos".
+// Produtos que aparecem um de cada vez no início da página de produtos.
 const produtosMaisVendidos = [
   {
     imagem: "img/produtos/rena-cachecol.webp",
@@ -601,6 +603,7 @@ const botaoAvancar = document.querySelector(".avançar");
 const botaoVoltar = document.querySelector(".voltar");
 let indiceProdutoAtual = 0;
 
+// Mostra a foto e as informações do produto escolhido para o destaque.
 function mostrarProdutoDestaque() {
   if (
     !imagemDestaque ||
@@ -661,6 +664,7 @@ if (botaoAvancar && botaoVoltar) {
     return texto.replace(/\s+/g, " ").trim();
   };
 
+  // Abre a janela com os detalhes do produto escolhido.
   function abrirModal(card) {
     const imagem = card.querySelector("img");
     const titulo = card.querySelector("h3");
@@ -719,6 +723,7 @@ if (botaoAvancar && botaoVoltar) {
     criarPlaceholderModal();
   });
 
+  // Fecha a janela e deixa o teclado no elemento que abriu os detalhes.
   function fecharModal() {
     modal.classList.remove("aberto");
     modal.setAttribute("aria-hidden", "true");
@@ -728,6 +733,7 @@ if (botaoAvancar && botaoVoltar) {
       ultimoFoco.focus();
   }
 
+  // Mostra por alguns segundos que o produto foi colocado na sacola.
   function mostrarNotificacao(nomeProduto) {
     const titulo = notificacao.querySelector("strong");
     const texto = notificacao.querySelector("p");
@@ -761,6 +767,7 @@ if (botaoAvancar && botaoVoltar) {
     }
   });
 
+  // Permite abrir os produtos pelo teclado e mostra um aviso se a foto falhar.
   function prepararCards() {
     lista.querySelectorAll(".card").forEach((card) => {
       if (!card.hasAttribute("tabindex")) card.setAttribute("tabindex", "0");
@@ -873,6 +880,7 @@ if (botaoAvancar && botaoVoltar) {
 
   // Chame esta função sempre que a sacola mudar.
   // itens: [{ nome, preco, quantidade }]
+  // Mostra os itens na sacola e soma o preço total.
   window.atualizarSacolaLateral = function (itens) {
     lista.innerHTML = "";
     let total = 0;

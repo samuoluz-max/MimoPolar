@@ -160,12 +160,14 @@ musica.volume = 0.05;
 
 const botaoMusica = document.getElementById("btn-musica");
 
+// Muda o texto do botão para indicar se a música está tocando ou pausada.
 function atualizarBotaoMusica() {
   if (botaoMusica) {
     botaoMusica.textContent = musica.paused ? "Ativar música" : "Pausar música";
   }
 }
 
+// Toca o sino, por exemplo, quando alguém coloca um produto na sacola.
 function tocarSino() {
   const som = new Audio("audio/sino.mp3");
   som.volume = 0.5;
@@ -347,7 +349,8 @@ const seletorCategoria = document.getElementById("categoria");
 const contadorProdutos = document.getElementById("contador");
 const botaoLimparCarrinho = document.getElementById("limpar-carrinho");
 
-// ----- Cards -----
+// ----- Produtos -----
+// Mostra os preços no formato usado no Brasil.
 function formatarPreco(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
@@ -363,6 +366,7 @@ function criarCard(produto) {
 </article>`;
 }
 
+// Mostra os produtos encontrados ou avisa quando não há nenhum.
 function mostrarProdutos(lista) {
   if (!listaProdutos) return;
   listaProdutos.innerHTML = lista.length
@@ -411,6 +415,7 @@ function filtrar() {
 }
 
 // ----- Sacola (guarda só os ids no localStorage) -----
+// Lê os produtos salvos e também entende o formato antigo da sacola.
 function lerCarrinho() {
   try {
     const dados = JSON.parse(localStorage.getItem("carrinho"));
@@ -630,6 +635,7 @@ if (
   let atual = 0;
   let intervalo;
 
+  // Mostra a imagem escolhida e esconde as outras.
   function mostrarSlide(indice) {
     slides[atual].classList.remove("ativo");
     slides[atual].setAttribute("aria-hidden", "true");
@@ -643,6 +649,7 @@ if (
     window.clearInterval(intervalo);
   }
 
+  // Só troca as imagens automaticamente quando esse movimento está permitido.
   function iniciarIntervalo() {
     pararIntervalo();
     if (!semMovimento.matches) {
@@ -678,6 +685,7 @@ if (lightbox && lightboxImagem && lightboxLegenda && botaoFecharLightbox) {
     imagem.setAttribute("role", "button");
     imagem.setAttribute("aria-label", `Ampliar imagem: ${imagem.alt}`);
 
+    // Abre a foto maior e mostra sua legenda.
     function abrirLightbox() {
       lightboxImagem.src = imagem.currentSrc || imagem.src;
       lightboxImagem.alt = imagem.alt;

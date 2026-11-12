@@ -1,5 +1,5 @@
 /* =====================================================
-   responsivo.css — Mimo Polar
+   responsavidade.css — Mimo Polar
    Regras para telas pequenas e preferências de acessibilidade.
    Usa as variáveis definidas em style.css (carregue style.css antes).
    ===================================================== */
@@ -664,6 +664,7 @@
   }
 }
 
+/* Mostra até três produtos em cada linha em telas médias. */
 @media (min-width: 481px) and (max-width: 1100px) {
   .home-destaques .grade-produtos {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -674,6 +675,7 @@
   }
 }
 
+/* Em celulares pequenos, mostra até dois produtos em cada linha. */
 @media (max-width: 480px) {
   .home-destaques .grade-produtos {
     grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
+    <!-- Informações da página e arquivos usados nela. -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -25,6 +26,7 @@
   </head>
 
   <body>
+    <!-- Menu do site, contagem para o Natal e botão da sacola. -->
     <header class="cabecalho">
       <a class="marca" href="index.html" aria-label="Mimo Polar, página inicial">
         <span class="marca-icone" aria-hidden="true">✳</span>
@@ -87,6 +89,7 @@
     </header>
 
     <main id="conteudo" class="container">
+      <!-- Título e apresentação dos produtos. -->
       <section class="titulo-pagina">
         <p class="sobretitulo">Escolhas feitas para celebrar</p>
         <h1>Encontre seu mimo de Natal</h1>
@@ -97,7 +100,7 @@
       </section>
 
       <section class="catalogo" id="catalogo" aria-labelledby="titulo-catalogo">
-        <!-- Vitrine de mais vendidos -->
+        <!-- Produtos em destaque; os botões mostram o próximo ou o anterior. -->
         <section class="mais-vendidos" aria-labelledby="titulo-mais-vendidos">
           <div class="mais-vendidos-topo">
             <div>
@@ -135,7 +138,7 @@
           </div>
         </section>
 
-        <!-- Catálogo completo: fica logo abaixo da vitrine -->
+        <!-- Lista de produtos, busca, categorias e resumo da sacola. -->
         <section class="catalogo-listagem" aria-labelledby="titulo-catalogo">
           <div class="catalogo-topo">
             <div>
@@ -173,6 +176,7 @@
       </section>
     </main>
 
+    <!-- Parte final da página, com links para outras áreas do site. -->
     <footer class="rodape">
       <div class="container rodape-conteudo">
         <a class="marca marca-rodape" href="index.html">Mimo <strong>Polar</strong></a>
@@ -185,7 +189,7 @@
       </div>
     </footer>
 
-    <!-- Janela de detalhes criada pelo JavaScript quando alguém seleciona um produto. -->
+    <!-- Janela com detalhes do produto escolhido. -->
     <div id="modal-produto" class="modal-produto" aria-hidden="true">
       <div class="modal-fundo" data-fechar-modal></div>
       <section
@@ -220,6 +224,7 @@
       </section>
     </div>
 
+    <!-- Aviso que aparece quando um produto é colocado na sacola. -->
     <div id="notificacao-carrinho" class="notificacao-carrinho" role="status" aria-live="polite">
       <span class="notificacao-icone" aria-hidden="true">✓</span>
       <div>
@@ -230,8 +235,10 @@
         &times;
       </button>
     </div>
+    <!-- Fundo escuro que aparece quando a sacola abre. -->
     <div id="fundo-sacola" class="fundo-sacola"></div>
 
+    <!-- Sacola com os produtos escolhidos e o preço total. -->
     <aside
       id="painel-sacola"
       class="painel-sacola"
