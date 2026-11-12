@@ -263,7 +263,9 @@ if (fundoParallax && logos && papai && pelucia) {
 
   const limparParallax = () => {
     fundoParallax.style.removeProperty("--fundo-y");
-    [logos, papai, pelucia].forEach((el) => el.style.removeProperty("transform"));
+    [logos, papai, pelucia].forEach((el) =>
+      el.style.removeProperty("transform"),
+    );
   };
 
   const atualizarParallax = () => {
